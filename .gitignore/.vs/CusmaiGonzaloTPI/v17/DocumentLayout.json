@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8EA8F065-1CEB-4670-993F-3F6803960FF1}|GUI\\GUI.csproj|d:\\visual studio\\cusmaigonzalotpi\\gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8EA8F065-1CEB-4670-993F-3F6803960FF1}|GUI\\GUI.csproj|solutionrelative:gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4AD202AD-B36E-459F-845B-CF19B215B2F5}|Servicios\\Servicios.csproj|d:\\visual studio\\cusmaigonzalotpi\\servicios\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AD202AD-B36E-459F-845B-CF19B215B2F5}|Servicios\\Servicios.csproj|solutionrelative:servicios\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EA8F065-1CEB-4670-993F-3F6803960FF1}|GUI\\GUI.csproj|d:\\visual studio\\cusmaigonzalotpi\\gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EA8F065-1CEB-4670-993F-3F6803960FF1}|GUI\\GUI.csproj|solutionrelative:gui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D39A521E-414F-48D4-B1CE-161B04D0958F}|BLL\\BLL.csproj|d:\\visual studio\\cusmaigonzalotpi\\bll\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D39A521E-414F-48D4-B1CE-161B04D0958F}|BLL\\BLL.csproj|solutionrelative:bll\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFC346D9-6203-4E5D-BF32-9BFEF4DA851F}|BE\\BE.csproj|d:\\visual studio\\cusmaigonzalotpi\\be\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFC346D9-6203-4E5D-BF32-9BFEF4DA851F}|BE\\BE.csproj|solutionrelative:be\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4E8B744-335E-49C6-BB21-B479821D2B13}|DAL\\DAL.csproj|d:\\visual studio\\cusmaigonzalotpi\\dal\\acceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4E8B744-335E-49C6-BB21-B479821D2B13}|DAL\\DAL.csproj|solutionrelative:dal\\acceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +35,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Class1.cs",
+              "RelativeDocumentMoniker": "Servicios\\Class1.cs",
+              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Class1.cs",
+              "RelativeToolTip": "Servicios\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T20:42:08.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Acceso.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\Acceso.cs",
+              "RelativeDocumentMoniker": "DAL\\Acceso.cs",
+              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\Acceso.cs",
+              "RelativeToolTip": "DAL\\Acceso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T20:41:57.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\Class1.cs",
+              "RelativeDocumentMoniker": "BE\\Class1.cs",
+              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\Class1.cs",
+              "RelativeToolTip": "BE\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T20:41:41.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\Class1.cs",
+              "RelativeDocumentMoniker": "BLL\\Class1.cs",
+              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\Class1.cs",
+              "RelativeToolTip": "BLL\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T20:33:27.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\Form1.cs",
               "RelativeDocumentMoniker": "GUI\\Form1.cs",
-              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GUI\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\Form1.cs",
+              "RelativeToolTip": "GUI\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T19:54:08.718Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-08-27T20:32:53.75Z",
+              "EditorCaption": ""
             }
           ]
         }
