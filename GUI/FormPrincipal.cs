@@ -16,6 +16,7 @@ namespace GUI
         public FormPrincipal()
         {
             InitializeComponent();
+            AbrirFormulario<FormularioUsuarios>();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -23,6 +24,28 @@ namespace GUI
             SessionManager.LogOut();
             this.Close();
 
+        }
+
+        private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormularioUsuarios>();
+        }
+
+        private void AbrirFormulario<T>() where T : Form, new()
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                if (form is T)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+
+            T formulario = new T();
+            formulario.MdiParent = this;
+            formulario.WindowState = FormWindowState.Maximized;
+            formulario.Show();
         }
     }
 }

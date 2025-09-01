@@ -23,6 +23,7 @@ namespace GUI
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal();
                     formPrincipal.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
