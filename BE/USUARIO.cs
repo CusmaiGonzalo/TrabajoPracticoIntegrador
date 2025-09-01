@@ -23,6 +23,14 @@
 			get { return _contraseña; }
 			set { _contraseña = value; }
 		}
+		private string _salt;
+
+		public string Salt
+		{
+			get { return _salt; }
+			set { _salt = value; }
+		}
+
 		public USUARIO() { }
 	}
 }
