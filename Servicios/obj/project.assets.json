@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "BE/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BE.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BE/1.0.0": {
+      "type": "project",
+      "path": "../BE/BE.csproj",
+      "msbuildProject": "../BE/BE.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "BE >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Cusmi\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
+              "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
