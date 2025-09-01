@@ -327,7 +327,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
+                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
