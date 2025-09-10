@@ -14,3 +14,19 @@ D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.dll
 D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\refint\Servicios.dll
 D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.pdb
 D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\ref\Servicios.dll
+D:\TrabajoPracticoIntegrador\Servicios\bin\Debug\net8.0\Servicios.deps.json
+D:\TrabajoPracticoIntegrador\Servicios\bin\Debug\net8.0\Servicios.dll
+D:\TrabajoPracticoIntegrador\Servicios\bin\Debug\net8.0\Servicios.pdb
+D:\TrabajoPracticoIntegrador\Servicios\bin\Debug\net8.0\BE.dll
+D:\TrabajoPracticoIntegrador\Servicios\bin\Debug\net8.0\BE.pdb
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.csproj.AssemblyReference.cache
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.GeneratedMSBuildEditorConfig.editorconfig
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.AssemblyInfoInputs.cache
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.AssemblyInfo.cs
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.csproj.CoreCompileInputs.cache
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.sourcelink.json
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.csproj.Up2Date
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.dll
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\refint\Servicios.dll
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\Servicios.pdb
+D:\TrabajoPracticoIntegrador\Servicios\obj\Debug\net8.0\ref\Servicios.dll

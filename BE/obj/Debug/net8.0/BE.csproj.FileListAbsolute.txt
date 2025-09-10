@@ -10,3 +10,15 @@ D:\Visual Studio\CusmaiGonzaloTPI\BE\obj\Debug\net8.0\BE.dll
 D:\Visual Studio\CusmaiGonzaloTPI\BE\obj\Debug\net8.0\refint\BE.dll
 D:\Visual Studio\CusmaiGonzaloTPI\BE\obj\Debug\net8.0\BE.pdb
 D:\Visual Studio\CusmaiGonzaloTPI\BE\obj\Debug\net8.0\ref\BE.dll
+D:\TrabajoPracticoIntegrador\BE\bin\Debug\net8.0\BE.deps.json
+D:\TrabajoPracticoIntegrador\BE\bin\Debug\net8.0\BE.dll
+D:\TrabajoPracticoIntegrador\BE\bin\Debug\net8.0\BE.pdb
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.GeneratedMSBuildEditorConfig.editorconfig
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.AssemblyInfoInputs.cache
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.AssemblyInfo.cs
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.csproj.CoreCompileInputs.cache
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.sourcelink.json
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.dll
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\refint\BE.dll
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\BE.pdb
+D:\TrabajoPracticoIntegrador\BE\obj\Debug\net8.0\ref\BE.dll

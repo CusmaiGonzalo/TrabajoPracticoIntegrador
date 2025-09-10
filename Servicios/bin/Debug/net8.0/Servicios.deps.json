@@ -16,10 +16,7 @@
       },
       "BE/1.0.0": {
         "runtime": {
-          "BE.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BE.dll": {}
         }
       }
     }
