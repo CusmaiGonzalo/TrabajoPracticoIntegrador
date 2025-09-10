@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,32 @@ namespace DAL
         public override void Modificar(USUARIO objviejo, USUARIO objnuevo)
         {
             throw new NotImplementedException();
+        }
+
+        public USUARIO BuscarUsuario(USUARIO user)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@nombre", user.NombreUsuario));
+
+            DataTable dt = new DataTable();
+            dt = acceso.Leer("USUARIO_BUSCAR", parametros);
+
+            if (dt.Rows.Count > 0)
+            {
+                BE.USUARIO usuario = new BE.USUARIO();
+                usuario.IDUsuario = Convert.ToInt32(dt.Rows[0]["id_usuario"]);
+                usuario.NombreUsuario = dt.Rows[0]["usuario"].ToString();
+                usuario.Contraseña = dt.Rows[0]["contraseña"].ToString();
+                usuario.Salt = dt.Rows[0]["salt"].ToString();
+                acceso.Cerrar();
+                return usuario;
+            }
+            else
+            {
+                acceso.Cerrar();
+                return null;
+            }
         }
     }
 }

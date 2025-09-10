@@ -1,4 +1,5 @@
-﻿using Servicios;
+﻿using BE;
+using Servicios;
 
 namespace BLL
 {
@@ -7,7 +8,21 @@ namespace BLL
         DAL.Mapper_usuario mapper = new DAL.Mapper_usuario();
         public void LogearUsuario(BE.USUARIO user)
         {
-            SessionManager.LogIn(user);
+            USUARIO usuarioEncontrado = new USUARIO();
+            usuarioEncontrado = mapper.BuscarUsuario(user);
+            if(usuarioEncontrado == null)
+            {
+                throw new Exception("Usuario o contraseña incorrectos.");
+            }
+            if (CryptoManager.VerificarContraseña(user.Contraseña, usuarioEncontrado.Contraseña, Convert.FromBase64String(usuarioEncontrado.Salt)) == true)
+            {
+                SessionManager.LogIn(user);
+            }
+            else
+            {
+                throw new Exception("Contraseña incorrectos.");
+            }
+            
         }
 
         public void AgregarUsuario(BE.USUARIO nuevoUsuario)
