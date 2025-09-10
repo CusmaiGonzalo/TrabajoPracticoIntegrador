@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\GUI.csproj": {}
+    "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "projectName": "BE",
-        "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\BE\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Cusmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -65,25 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Cusmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,14 +88,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               },
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj"
+              "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj"
               },
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj"
+              "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
               }
             }
           }
@@ -118,8 +109,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -140,25 +130,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Cusmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,11 +158,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               },
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj"
+              "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
               }
             }
           }
@@ -190,8 +176,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -218,25 +203,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\GUI.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\GUI.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
         "projectName": "GUI",
-        "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\GUI.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\GUI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Cusmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -250,14 +231,14 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               },
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj"
+              "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj"
               },
-              "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj": {
-                "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj"
+              "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
               }
             }
           }
@@ -271,8 +252,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -296,25 +276,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
         "projectName": "Servicios",
-        "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Cusmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -327,7 +303,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -339,8 +319,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -361,7 +340,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
