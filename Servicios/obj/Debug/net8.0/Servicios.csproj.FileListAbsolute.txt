@@ -1,0 +1,16 @@
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\bin\Debug\net8.0\Servicios.deps.json
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\bin\Debug\net8.0\Servicios.dll
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\bin\Debug\net8.0\Servicios.pdb
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\bin\Debug\net8.0\BE.dll
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\bin\Debug\net8.0\BE.pdb
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.csproj.AssemblyReference.cache
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.AssemblyInfoInputs.cache
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.AssemblyInfo.cs
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.csproj.CoreCompileInputs.cache
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.sourcelink.json
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.csproj.Up2Date
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.dll
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\refint\Servicios.dll
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\Servicios.pdb
+D:\Visual Studio\CusmaiGonzaloTPI\Servicios\obj\Debug\net8.0\ref\Servicios.dll

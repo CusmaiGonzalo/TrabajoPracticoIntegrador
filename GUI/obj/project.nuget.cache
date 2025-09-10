@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fdRp27LFlGY=",
+  "dgSpecHash": "NeXqRb1CGPtA+cYyeCuLIxCxMiJo9cw3dpRMyJpPxRdpl+B0E9Nn2zuucxR+c/xb4Ckt3DJOFWOMcssSxLzKjg==",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\GUI\\GUI.csproj",
+  "projectFilePath": "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

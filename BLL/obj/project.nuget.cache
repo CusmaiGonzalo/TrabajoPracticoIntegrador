@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I+na9eML034=",
+  "dgSpecHash": "aBQL6yha8aJh53lF9woKqgoFItSe+Pv0SGVMVEUVoohjvEe5UwQ5dPeIxCjMeXrJttrHy5veHS3Lbj0pwrS3Cg==",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BLL\\BLL.csproj",
+  "projectFilePath": "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
