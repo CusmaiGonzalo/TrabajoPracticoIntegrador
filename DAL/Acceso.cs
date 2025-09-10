@@ -10,7 +10,7 @@ namespace DAL
 
         public void Abrir()
         {
-            conexion = new SqlConnection(@"INTEGRATED SECURITY=SSPI; DATA SOURCE=DESKTOP-14CDBSR\SQLEXPRESS; INITIAL CATALOG=TPIntegrador; TrustServerCertificate=True");
+            conexion = new SqlConnection(@"INTEGRATED SECURITY=SSPI; DATA SOURCE=DESKTOP-0S6I2FQ; INITIAL CATALOG=TPIntegrador; TrustServerCertificate=True");
             conexion.Open();
         }
         public void Cerrar()

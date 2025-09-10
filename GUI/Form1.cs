@@ -3,6 +3,7 @@ namespace GUI
     public partial class Form1 : Form
     {
         BLL.GestionUsuarios GestorUsuarios;
+        int contadorIntentos = 0;
         public Form1()
         {
             InitializeComponent();
@@ -18,8 +19,16 @@ namespace GUI
                     BE.USUARIO user = new BE.USUARIO();
                     user.NombreUsuario = textbox_nombreus.Text;
                     user.Contraseña = textBoxContraseña.Text;
-                    GestorUsuarios.LogearUsuario(user);
+                    
+                    contadorIntentos++;
+                    labelIntentos.Text = $"Se han realizado {contadorIntentos} intentos.";
+                    if(contadorIntentos > 3)
+                    {
+                        buttonLogin.Enabled = false;
+                        labelIntentos.Text += " Comunicarse con admin.";
+                    }
 
+                    GestorUsuarios.LogearUsuario(user);
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal();
                     formPrincipal.ShowDialog();

@@ -16,3 +16,21 @@ D:\Visual Studio\CusmaiGonzaloTPI\DAL\obj\Debug\net8.0\DAL.dll
 D:\Visual Studio\CusmaiGonzaloTPI\DAL\obj\Debug\net8.0\refint\DAL.dll
 D:\Visual Studio\CusmaiGonzaloTPI\DAL\obj\Debug\net8.0\DAL.pdb
 D:\Visual Studio\CusmaiGonzaloTPI\DAL\obj\Debug\net8.0\ref\DAL.dll
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\DAL.deps.json
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\DAL.dll
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\DAL.pdb
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\BE.dll
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\Servicios.dll
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\BE.pdb
+D:\TrabajoPracticoIntegrador\DAL\bin\Debug\net8.0\Servicios.pdb
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.sourcelink.json
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.csproj.Up2Date
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.dll
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\refint\DAL.dll
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\DAL.pdb
+D:\TrabajoPracticoIntegrador\DAL\obj\Debug\net8.0\ref\DAL.dll

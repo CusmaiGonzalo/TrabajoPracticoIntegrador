@@ -18,3 +18,23 @@ D:\Visual Studio\CusmaiGonzaloTPI\BLL\obj\Debug\net8.0\BLL.dll
 D:\Visual Studio\CusmaiGonzaloTPI\BLL\obj\Debug\net8.0\refint\BLL.dll
 D:\Visual Studio\CusmaiGonzaloTPI\BLL\obj\Debug\net8.0\BLL.pdb
 D:\Visual Studio\CusmaiGonzaloTPI\BLL\obj\Debug\net8.0\ref\BLL.dll
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\BLL.deps.json
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\BLL.dll
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\BLL.pdb
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\BE.dll
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\DAL.dll
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\Servicios.dll
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\BE.pdb
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\DAL.pdb
+D:\TrabajoPracticoIntegrador\BLL\bin\Debug\net8.0\Servicios.pdb
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.csproj.AssemblyReference.cache
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.AssemblyInfoInputs.cache
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.AssemblyInfo.cs
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.csproj.CoreCompileInputs.cache
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.sourcelink.json
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.csproj.Up2Date
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.dll
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\refint\BLL.dll
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\BLL.pdb
+D:\TrabajoPracticoIntegrador\BLL\obj\Debug\net8.0\ref\BLL.dll
