@@ -1,8 +1,11 @@
+using Servicios;
+
 namespace GUI
 {
     public partial class Form1 : Form
     {
         BLL.GestionUsuarios GestorUsuarios;
+        BE.BITACORA nuevaBitacora = new BE.BITACORA();
         int contadorIntentos = 0;
         public Form1()
         {
@@ -24,6 +27,8 @@ namespace GUI
                     labelIntentos.Text = $"Se han realizado {contadorIntentos} intentos.";
                     if(contadorIntentos > 3)
                     {
+                        nuevaBitacora = Bitacora.ErrorBitacora("Demasiados intentos. LogIn bloqueado.");
+                        GestorUsuarios.EscribirBitacora(nuevaBitacora);
                         buttonLogin.Enabled = false;
                         labelIntentos.Text += " Comunicarse con admin.";
                     }
@@ -32,7 +37,6 @@ namespace GUI
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal();
                     formPrincipal.ShowDialog();
-                    this.Close();
                 }
                 else
                 {
