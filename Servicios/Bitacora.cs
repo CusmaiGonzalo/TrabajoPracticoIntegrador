@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Servicios
 {
-    internal class Bitacora
+    public class Bitacora
     {
+        
     }
 }
