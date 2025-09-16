@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    internal class BITACORA
+    public class BITACORA
     {
     }
 }
