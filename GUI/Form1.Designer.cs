@@ -38,44 +38,42 @@
             // 
             // textbox_nombreus
             // 
-            textbox_nombreus.Location = new Point(14, 36);
-            textbox_nombreus.Margin = new Padding(3, 4, 3, 4);
+            textbox_nombreus.Location = new Point(12, 27);
             textbox_nombreus.Name = "textbox_nombreus";
-            textbox_nombreus.Size = new Size(380, 27);
+            textbox_nombreus.Size = new Size(333, 23);
             textbox_nombreus.TabIndex = 0;
             // 
             // labelUsuario
             // 
             labelUsuario.AutoSize = true;
-            labelUsuario.Location = new Point(14, 12);
+            labelUsuario.Location = new Point(12, 9);
             labelUsuario.Name = "labelUsuario";
-            labelUsuario.Size = new Size(59, 20);
+            labelUsuario.Size = new Size(47, 15);
             labelUsuario.TabIndex = 1;
             labelUsuario.Text = "Usuario";
             // 
             // textBoxContraseña
             // 
-            textBoxContraseña.Location = new Point(14, 95);
-            textBoxContraseña.Margin = new Padding(3, 4, 3, 4);
+            textBoxContraseña.Location = new Point(12, 71);
             textBoxContraseña.Name = "textBoxContraseña";
-            textBoxContraseña.Size = new Size(380, 27);
+            textBoxContraseña.Size = new Size(333, 23);
             textBoxContraseña.TabIndex = 2;
+            textBoxContraseña.UseSystemPasswordChar = true;
             // 
             // labelcontraseña
             // 
             labelcontraseña.AutoSize = true;
-            labelcontraseña.Location = new Point(14, 71);
+            labelcontraseña.Location = new Point(12, 53);
             labelcontraseña.Name = "labelcontraseña";
-            labelcontraseña.Size = new Size(83, 20);
+            labelcontraseña.Size = new Size(67, 15);
             labelcontraseña.TabIndex = 3;
             labelcontraseña.Text = "Contraseña";
             // 
             // buttonLogin
             // 
-            buttonLogin.Location = new Point(14, 130);
-            buttonLogin.Margin = new Padding(3, 4, 3, 4);
+            buttonLogin.Location = new Point(12, 98);
             buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(380, 77);
+            buttonLogin.Size = new Size(332, 58);
             buttonLogin.TabIndex = 4;
             buttonLogin.Text = "Log In";
             buttonLogin.UseVisualStyleBackColor = true;
@@ -85,23 +83,22 @@
             // 
             labelIntentos.AutoSize = true;
             labelIntentos.ForeColor = Color.Red;
-            labelIntentos.Location = new Point(14, 214);
+            labelIntentos.Location = new Point(12, 160);
             labelIntentos.Name = "labelIntentos";
-            labelIntentos.Size = new Size(0, 20);
+            labelIntentos.Size = new Size(0, 15);
             labelIntentos.TabIndex = 5;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(406, 257);
+            ClientSize = new Size(355, 193);
             Controls.Add(labelIntentos);
             Controls.Add(buttonLogin);
             Controls.Add(labelcontraseña);
             Controls.Add(textBoxContraseña);
             Controls.Add(labelUsuario);
             Controls.Add(textbox_nombreus);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Inicio de Sesion";
             ResumeLayout(false);

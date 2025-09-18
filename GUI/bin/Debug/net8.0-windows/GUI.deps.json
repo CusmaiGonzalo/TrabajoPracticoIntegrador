@@ -399,17 +399,13 @@
         }
       },
       "System.Security.Cryptography.ProtectedData/8.0.0": {},
-      "System.Text.Json/8.0.5": {
-        "runtime": {
-          "lib/net8.0/System.Text.Json.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1024.46610"
-          }
-        }
-      },
+      "System.Text.Json/8.0.5": {},
       "BE/1.0.0": {
         "runtime": {
-          "BE.dll": {}
+          "BE.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BLL/1.0.0": {
@@ -419,7 +415,10 @@
           "Servicios": "1.0.0"
         },
         "runtime": {
-          "BLL.dll": {}
+          "BLL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "DAL/1.0.0": {
@@ -429,7 +428,10 @@
           "Servicios": "1.0.0"
         },
         "runtime": {
-          "DAL.dll": {}
+          "DAL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Servicios/1.0.0": {
@@ -437,7 +439,10 @@
           "BE": "1.0.0"
         },
         "runtime": {
-          "Servicios.dll": {}
+          "Servicios.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

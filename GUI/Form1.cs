@@ -33,10 +33,13 @@ namespace GUI
                         labelIntentos.Text += " Comunicarse con admin.";
                     }
 
+                    contadorIntentos = 0;
+                    labelIntentos.Text = "";
                     GestorUsuarios.LogearUsuario(user);
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal();
-                    formPrincipal.ShowDialog();
+                    formPrincipal.FormClosed += (s, args) => this.Show();
+                    formPrincipal.Show();
                 }
                 else
                 {
