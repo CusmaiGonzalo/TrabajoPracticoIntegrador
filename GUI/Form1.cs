@@ -23,6 +23,7 @@ namespace GUI
                     user.NombreUsuario = textbox_nombreus.Text;
                     user.Contraseña = textBoxContraseña.Text;
                     
+
                     contadorIntentos++;
                     labelIntentos.Text = $"Se han realizado {contadorIntentos} intentos.";
                     if(contadorIntentos > 3)
@@ -33,9 +34,10 @@ namespace GUI
                         labelIntentos.Text += " Comunicarse con admin.";
                     }
 
+                    GestorUsuarios.LogearUsuario(user);
                     contadorIntentos = 0;
                     labelIntentos.Text = "";
-                    GestorUsuarios.LogearUsuario(user);
+                    
                     this.Hide();
                     FormPrincipal formPrincipal = new FormPrincipal();
                     formPrincipal.FormClosed += (s, args) => this.Show();

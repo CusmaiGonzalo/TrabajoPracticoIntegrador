@@ -14,11 +14,11 @@ namespace BLL
             usuarioEncontrado = mapper.BuscarUsuario(user);
             if(usuarioEncontrado == null)
             {
-                nuevaBitacora = Bitacora.EventoBitacora("Usuario incorrecto");
+                nuevaBitacora = Bitacora.ErrorBitacora("Usuario incorrecto");
                 maperbitacora.Insertar(nuevaBitacora);
                 throw new Exception("Usuario o contraseña incorrectos.");
             }
-            if (CryptoManager.VerificarContraseña(user.Contraseña, usuarioEncontrado.Contraseña, Convert.FromBase64String(usuarioEncontrado.Salt)) == true)
+            else if (CryptoManager.VerificarContraseña(user.Contraseña, usuarioEncontrado.Contraseña, Convert.FromBase64String(usuarioEncontrado.Salt)) == true)
             {
                 SessionManager.LogIn(user);
                 
@@ -28,9 +28,9 @@ namespace BLL
             }
             else
             {
-                nuevaBitacora = Bitacora.EventoBitacora("Contraseña Incorrecta");
+                nuevaBitacora = Bitacora.ErrorBitacora("Contraseña Incorrecta");
                 maperbitacora.Insertar(nuevaBitacora);
-                throw new Exception("Contraseña incorrectos.");
+                throw new Exception("Usuario o contraseña incorrectos.");
             }
             
         }
