@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TMYw891zqdY=",
+  "dgSpecHash": "S0LQoWGZ0z8=",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\DAL\\DAL.csproj",
+  "projectFilePath": "D:\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Cusmi\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

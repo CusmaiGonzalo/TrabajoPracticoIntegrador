@@ -23,15 +23,15 @@ namespace GUI
                     user.NombreUsuario = textbox_nombreus.Text;
                     user.Contraseña = textBoxContraseña.Text;
                     
-
                     contadorIntentos++;
                     labelIntentos.Text = $"Se han realizado {contadorIntentos} intentos.";
-                    if(contadorIntentos > 3)
+                    if(contadorIntentos >= 4) // Cambiado a exactamente 4 intentos
                     {
                         nuevaBitacora = Bitacora.ErrorBitacora("Demasiados intentos. LogIn bloqueado.");
                         GestorUsuarios.EscribirBitacora(nuevaBitacora);
                         buttonLogin.Enabled = false;
                         labelIntentos.Text += " Comunicarse con admin.";
+                        return; // Evitamos que siga con el proceso de login
                     }
 
                     GestorUsuarios.LogearUsuario(user);

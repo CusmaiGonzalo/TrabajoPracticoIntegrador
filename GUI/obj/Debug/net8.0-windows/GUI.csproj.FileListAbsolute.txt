@@ -104,7 +104,6 @@ D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\System.Diagnostics.Eve
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\System.Memory.Data.dll
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
-D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\System.Text.Json.dll
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\cs\Microsoft.Data.SqlClient.resources.dll
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
 D:\TrabajoPracticoIntegrador\GUI\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll

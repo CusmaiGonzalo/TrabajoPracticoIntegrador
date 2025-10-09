@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj",
+      "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
       "projectName": "Servicios",
-      "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\Servicios.csproj",
+      "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
       "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\Servicios\\obj\\",
+      "outputPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj": {
-              "projectPath": "D:\\Visual Studio\\CusmaiGonzaloTPI\\BE\\BE.csproj"
+            "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+              "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
             }
           }
         }
@@ -74,7 +74,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -95,7 +95,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
