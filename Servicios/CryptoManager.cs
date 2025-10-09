@@ -22,7 +22,7 @@ namespace Servicios
                 return Convert.ToBase64String(hash);
             }
         }
-
+        
         public static bool VerificarContraseña(string contraseña, string hashAlmacenado, byte[] salt)
         {
             using (var pbkdf2 = new Rfc2898DeriveBytes(contraseña, salt, 100000, HashAlgorithmName.SHA256))
