@@ -31,14 +31,16 @@
             buttonLogout = new Button();
             menuStrip1 = new MenuStrip();
             uSUARIOSToolStripMenuItem = new ToolStripMenuItem();
+            eVENTOSToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // buttonLogout
             // 
-            buttonLogout.Location = new Point(1133, 725);
+            buttonLogout.Location = new Point(1295, 967);
+            buttonLogout.Margin = new Padding(3, 4, 3, 4);
             buttonLogout.Name = "buttonLogout";
-            buttonLogout.Size = new Size(158, 31);
+            buttonLogout.Size = new Size(181, 41);
             buttonLogout.TabIndex = 1;
             buttonLogout.Text = "Log Out";
             buttonLogout.UseVisualStyleBackColor = true;
@@ -46,29 +48,39 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { uSUARIOSToolStripMenuItem });
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { uSUARIOSToolStripMenuItem, eVENTOSToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1303, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(1489, 30);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
             // uSUARIOSToolStripMenuItem
             // 
             uSUARIOSToolStripMenuItem.Name = "uSUARIOSToolStripMenuItem";
-            uSUARIOSToolStripMenuItem.Size = new Size(74, 20);
+            uSUARIOSToolStripMenuItem.Size = new Size(93, 24);
             uSUARIOSToolStripMenuItem.Text = "USUARIOS";
             uSUARIOSToolStripMenuItem.Click += uSUARIOSToolStripMenuItem_Click;
             // 
+            // eVENTOSToolStripMenuItem
+            // 
+            eVENTOSToolStripMenuItem.Name = "eVENTOSToolStripMenuItem";
+            eVENTOSToolStripMenuItem.Size = new Size(85, 24);
+            eVENTOSToolStripMenuItem.Text = "EVENTOS";
+            eVENTOSToolStripMenuItem.Click += eVENTOSToolStripMenuItem_Click;
+            // 
             // FormPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1303, 768);
+            ClientSize = new Size(1489, 1024);
             Controls.Add(buttonLogout);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormPrincipal";
             Text = "FormPrincipal";
             menuStrip1.ResumeLayout(false);
@@ -82,5 +94,6 @@
         private Button buttonLogout;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem uSUARIOSToolStripMenuItem;
+        private ToolStripMenuItem eVENTOSToolStripMenuItem;
     }
 }

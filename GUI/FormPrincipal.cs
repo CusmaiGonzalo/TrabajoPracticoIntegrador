@@ -20,7 +20,7 @@ namespace GUI
         {
             InitializeComponent();
             AbrirFormulario<FormularioUsuarios>();
-            
+
             // Añadir manejador para el cierre del formulario
             this.FormClosing += FormPrincipal_FormClosing;
         }
@@ -57,6 +57,11 @@ namespace GUI
         private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormularioUsuarios>();
+        }
+
+        private void eVENTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormEventos>();
         }
 
         private void AbrirFormulario<T>() where T : Form, new()

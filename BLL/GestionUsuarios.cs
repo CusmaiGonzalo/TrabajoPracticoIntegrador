@@ -47,6 +47,12 @@ namespace BLL
         {
             maperbitacora.Insertar(nuevoBitacora);
         }
+        public List<BE.BITACORA> ListarBitacora()
+        {
+            List<BE.BITACORA> listadebitacoras = new List<BE.BITACORA>();
+            listadebitacoras = maperbitacora.Listar();
+            return listadebitacoras;
+        }
 
     }
 }
