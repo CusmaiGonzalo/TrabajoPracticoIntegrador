@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,22 @@ namespace DAL
 
         public override List<BITACORA> Listar()
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            DataTable dt = new DataTable();
+            dt = acceso.Leer("EVENTO_LISTAR");
+            List<BITACORA> listaBitacoras = new List<BITACORA>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                BE.BITACORA obj = new BE.BITACORA();
+                obj.IDBitacora = int.Parse(dr["id_bitacora"].ToString());
+                obj.Detalle = dr["detalle"].ToString();
+                obj.Tipo = dr["tipo"].ToString();
+                obj.FechaBitacora = DateTime.Parse(dr["fechabitacora"].ToString());
+                obj.UserBitacora = dr["usuario"].ToString();
+                listaBitacoras.Add(obj);
+            }
+            acceso.Cerrar();
+            return listaBitacoras;
         }
 
         public override void Modificar(BITACORA objviejo, BITACORA objnuevo)
