@@ -64,6 +64,11 @@ namespace GUI
             AbrirFormulario<FormEventos>();
         }
 
+        private void pRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormProductos>();
+        }
+
         private void AbrirFormulario<T>() where T : Form, new()
         {
             foreach (Form form in this.MdiChildren)

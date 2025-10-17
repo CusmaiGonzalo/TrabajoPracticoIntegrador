@@ -149,3 +149,4 @@ D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.pdb
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.genruntimeconfig.cache
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\ref\GUI.dll
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormEventos.resources
+D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormProductos.resources
