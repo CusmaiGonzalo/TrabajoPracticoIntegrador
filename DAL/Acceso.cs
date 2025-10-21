@@ -71,5 +71,11 @@ namespace DAL
             par.DbType = DbType.DateTime;
             return par;
         }
+        public SqlParameter CrearParametro(string nombre, decimal valor)
+        {
+            SqlParameter par = new SqlParameter(nombre, valor);
+            par.DbType = DbType.Decimal;
+            return par;
+        }
     }
 }
