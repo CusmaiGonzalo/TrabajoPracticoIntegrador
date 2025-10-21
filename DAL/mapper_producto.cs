@@ -1,4 +1,5 @@
 ﻿using BE;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +18,15 @@ namespace DAL
 
         public override void Insertar(PRODUCTO obj)
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@prod", obj.NombreProducto));
+            parametros.Add(acceso.CrearParametro("@tipo", obj.TipoProducto));
+            parametros.Add(acceso.CrearParametro("@precio", obj.PrecioUnitario));
+            acceso.Escribir("PRODUCTO_INSERTAR", parametros);
+            acceso.Escribir("Actualizar_DVH_Producto");
+            acceso.Escribir("Actualizar_DVV_Producto");
+            acceso.Cerrar();
         }
 
         public override List<PRODUCTO> Listar()

@@ -14,5 +14,9 @@ namespace BLL
         {
             return maperProducto.Listar();
         }
+        public void AgregarProducto(BE.PRODUCTO nuevoProducto)
+        {
+            maperProducto.Insertar(nuevoProducto);
+        }
     }
 }
