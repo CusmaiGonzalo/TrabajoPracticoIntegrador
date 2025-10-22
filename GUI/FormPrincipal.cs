@@ -1,5 +1,4 @@
 ﻿using BLL;
-using DAL;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace GUI
     public partial class FormPrincipal : Form
     {
         BE.BITACORA nuevaBitacora = new BE.BITACORA();
-        mapper_bitacora maperBitacora = new mapper_bitacora();
+        GestionBitacora gestorBitacora = new GestionBitacora();
         GestionNegocio gestorNegocio = new GestionNegocio();
         public FormPrincipal()
         {
@@ -37,21 +36,21 @@ namespace GUI
                 if (e.CloseReason != CloseReason.ApplicationExitCall)
                 {
                     nuevaBitacora = Bitacora.EventoBitacora("Usuario deslogueado por cierre de ventana");
-                    maperBitacora.Insertar(nuevaBitacora);
+                    gestorBitacora.RegistrarBitacora(nuevaBitacora);
                     SessionManager.LogOut();
                 }
             }
             catch (Exception ex)
             {
                 nuevaBitacora = Bitacora.ErrorBitacora($"Error al desloguear: {ex.Message}");
-                maperBitacora.Insertar(nuevaBitacora);
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             nuevaBitacora = Bitacora.EventoBitacora("Usuario deslogueado");
-            maperBitacora.Insertar(nuevaBitacora);
+            gestorBitacora.RegistrarBitacora(nuevaBitacora);
             SessionManager.LogOut();
             this.Close();
         }
@@ -75,7 +74,7 @@ namespace GUI
         {
             try
             {
-                if (Servicios.DigitoVerificador.VerificarIntegridadDVH(gestorNegocio.ListarDVH()) == false)
+                if (Servicios.DigitoVerificador.VerificarIntegridadDVH(gestorNegocio.ListarDVH()) == false || Servicios.DigitoVerificador.VerificarIntegridadDVV(gestorNegocio.ListarDVV()) == false)
                 {
                     throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
                 }
@@ -84,7 +83,7 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
                 nuevaBitacora = Bitacora.EventoBitacora("Error al verificar la integridad de los datos.");
-                maperBitacora.Insertar(nuevaBitacora);
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
                 SessionManager.LogOut();
                 this.Close();
 

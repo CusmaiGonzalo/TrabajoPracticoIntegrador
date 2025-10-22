@@ -24,7 +24,6 @@ namespace GUI
         private void FormProductos_Load(object sender, EventArgs e)
         {
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
-            LLenarGrilla(dataGridView2, gestorNegocio.ListarDVH());
         }
 
         private void LLenarGrilla(DataGridView grilla, object datos)
