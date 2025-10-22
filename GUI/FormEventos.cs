@@ -23,8 +23,29 @@ namespace GUI
 
         private void FormEventos_Load(object sender, EventArgs e)
         {
+            ConfigurarDataGridView(dataGridView1);
             bitacoraList = gestorUsuarios.ListarBitacora();
             LlenarGrilla(dataGridView1, bitacoraList);
+        }
+        private void ConfigurarDataGridView(DataGridView dgv)
+        {
+            // Configurar el modo de selección para seleccionar filas completas
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Evitar que el usuario añada filas
+            dgv.AllowUserToAddRows = false;
+
+            // Permitir solo lectura
+            dgv.ReadOnly = true;
+
+            // Ajustar el tamaño de las columnas automáticamente
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            // Alternar colores en las filas
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            // Estilo de encabezado
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font(dgv.Font, FontStyle.Bold);
         }
 
         private void LlenarGrilla(DataGridView grilla, object datos)
