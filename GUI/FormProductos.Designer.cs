@@ -30,7 +30,9 @@
         {
             dataGridView1 = new DataGridView();
             button_agregarprod = new Button();
+            dataGridView2 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -52,17 +54,28 @@
             button_agregarprod.UseVisualStyleBackColor = true;
             button_agregarprod.Click += button_agregarprod_Click;
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(222, 493);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(720, 305);
+            dataGridView2.TabIndex = 2;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 542);
+            ClientSize = new Size(1343, 810);
+            Controls.Add(dataGridView2);
             Controls.Add(button_agregarprod);
             Controls.Add(dataGridView1);
             Name = "FormProductos";
             Text = "FormProductos";
             Load += FormProductos_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
@@ -70,5 +83,6 @@
 
         private DataGridView dataGridView1;
         private Button button_agregarprod;
+        private DataGridView dataGridView2;
     }
 }
