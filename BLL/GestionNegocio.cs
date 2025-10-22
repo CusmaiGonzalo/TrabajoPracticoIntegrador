@@ -11,6 +11,7 @@ namespace BLL
     {
         mapper_producto maperProducto = new mapper_producto();
         mapper_DVH maperDvh = new mapper_DVH();
+        mapper_DVV maperDvv = new mapper_DVV();
         public List<BE.PRODUCTO> ListarProductos()
         {
             return maperProducto.Listar();
@@ -22,6 +23,10 @@ namespace BLL
         public List<BE.DVH> ListarDVH()
         {
             return maperDvh.Listar();
+        }
+        public List<BE.DVV> ListarDVV()
+        {
+            return maperDvv.Listar();
         }
     }
 }

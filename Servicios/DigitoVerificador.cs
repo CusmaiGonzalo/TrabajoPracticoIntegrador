@@ -26,5 +26,22 @@ namespace Servicios
 
             return true; // Todos los dígitos tienen estado "OK"
         }
+        public static bool VerificarIntegridadDVV(List<BE.DVV> listadigitos)
+        {
+            if (listadigitos == null || listadigitos.Count == 0)
+            {
+                return false; 
+            }
+
+            foreach (BE.DVV digito in listadigitos)
+            {
+                if (digito.Estado != "OK")
+                {
+                    return false; 
+                }
+            }
+
+            return true;
+        }
     }
 }
