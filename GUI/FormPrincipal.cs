@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BLL;
+using DAL;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace GUI
     {
         BE.BITACORA nuevaBitacora = new BE.BITACORA();
         mapper_bitacora maperBitacora = new mapper_bitacora();
+        GestionNegocio gestorNegocio = new GestionNegocio();
         public FormPrincipal()
         {
             InitializeComponent();
@@ -67,6 +69,26 @@ namespace GUI
         private void pRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormProductos>();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Servicios.DigitoVerificador.VerificarIntegridadDVH(gestorNegocio.ListarDVH()) == false)
+                {
+                    throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                nuevaBitacora = Bitacora.EventoBitacora("Error al verificar la integridad de los datos.");
+                maperBitacora.Insertar(nuevaBitacora);
+                SessionManager.LogOut();
+                this.Close();
+
+            }
         }
 
         private void AbrirFormulario<T>() where T : Form, new()

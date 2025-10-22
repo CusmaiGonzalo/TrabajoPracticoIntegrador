@@ -10,6 +10,7 @@ namespace BLL
     public class GestionNegocio
     {
         mapper_producto maperProducto = new mapper_producto();
+        mapper_DVH maperDvh = new mapper_DVH();
         public List<BE.PRODUCTO> ListarProductos()
         {
             return maperProducto.Listar();
@@ -17,6 +18,10 @@ namespace BLL
         public void AgregarProducto(BE.PRODUCTO nuevoProducto)
         {
             maperProducto.Insertar(nuevoProducto);
+        }
+        public List<BE.DVH> ListarDVH()
+        {
+            return maperDvh.Listar();
         }
     }
 }

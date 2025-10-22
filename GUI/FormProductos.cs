@@ -14,6 +14,7 @@ namespace GUI
     public partial class FormProductos : Form
     {
         BLL.GestionNegocio gestorNegocio;
+        
         public FormProductos()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace GUI
         private void FormProductos_Load(object sender, EventArgs e)
         {
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+            LLenarGrilla(dataGridView2, gestorNegocio.ListarDVH());
         }
 
         private void LLenarGrilla(DataGridView grilla, object datos)
@@ -36,17 +38,10 @@ namespace GUI
             try
             {
                 BE.PRODUCTO nuevoProducto = new BE.PRODUCTO();
-                nuevoProducto.NombreProducto = Interaction.InputBox("Ingrese el nombre del producto:", "Agregar Producto", "Sin especificar...");
-                nuevoProducto.TipoProducto = Interaction.InputBox("Ingrese el tipo de producto:", "Agregar Producto", "Sin especificar...");
-                string precioInput = Interaction.InputBox("Ingrese el precio unitario del producto:", "Agregar Producto", "0.00");
-                if (decimal.TryParse(precioInput, out decimal precioUnitario) && decimal.Parse(precioInput) < 0)
-                {
-                    nuevoProducto.PrecioUnitario = precioUnitario;
-                }
-                else
-                {
-                    throw new Exception("Precio unitario inválido.");
-                }
+
+                //Agregar Logica para agregar producto.
+
+
                 gestorNegocio.AgregarProducto(nuevoProducto);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
             }

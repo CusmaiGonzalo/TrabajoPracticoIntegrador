@@ -39,6 +39,16 @@ namespace DAL
             adaptador = null;
             return tabla;
         }
+        public DataSet LeerTablas(string sql, List<SqlParameter> parametros = null)
+        {
+            SqlDataAdapter adaptador = new SqlDataAdapter();
+            adaptador.SelectCommand = CrearComando(sql, parametros);
+
+            DataSet tabla = new DataSet();
+            adaptador.Fill(tabla);
+            adaptador = null;
+            return tabla;
+        }
         public int Escribir(string sql, List<SqlParameter> parametros = null)
         {
             SqlCommand cmd = CrearComando(sql, parametros);
