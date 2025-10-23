@@ -21,6 +21,10 @@ namespace BLL
         {
             maperProducto.Insertar(nuevoProducto);
         }
+        public void BorrarProducto(BE.PRODUCTO productoABorrar)
+        {
+            maperProducto.Borrar(productoABorrar);
+        }
         public List<BE.DVH> ListarDVH()
         {
             return maperDvh.Listar();
@@ -32,6 +36,17 @@ namespace BLL
         public List<BE.TIPO_PRODUCTO> ListarTipoProducto()
         {
             return mapper_Tipo_Producto.Listar();
+        }
+        public bool VerificarIntegridadProductos()
+        {
+            if(Servicios.DigitoVerificador.VerificarIntegridadDVH(ListarDVH()) && Servicios.DigitoVerificador.VerificarIntegridadDVV(ListarDVV()))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

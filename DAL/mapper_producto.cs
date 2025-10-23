@@ -13,7 +13,13 @@ namespace DAL
     {
         public override void Borrar(PRODUCTO obj)
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@idprod", obj.IDProducto));
+            acceso.Escribir("PRODUCTO_BORRAR", parametros);
+            acceso.Escribir("Actualizar_DVH_Producto");
+            acceso.Escribir("Actualizar_DVV_Producto");
+            acceso.Cerrar();
         }
 
         public override void Insertar(PRODUCTO obj)
