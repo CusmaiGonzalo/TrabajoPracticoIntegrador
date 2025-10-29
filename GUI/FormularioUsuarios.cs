@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +12,24 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FormularioUsuarios : Form
+    public partial class FormularioUsuarios : Form, IObserver
     {
         BLL.GestionUsuarios gestorUsuarios;
-        public FormularioUsuarios()
+        BLL.GestionIdioma gestorIdioma;
+        public FormularioUsuarios(GestionIdioma idiomasFormPrincipal)
         {
-            gestorUsuarios = new BLL.GestionUsuarios();
             InitializeComponent();
+            gestorUsuarios = new BLL.GestionUsuarios();
+            gestorIdioma = idiomasFormPrincipal;
+            gestorIdioma.Agregar(this);
+            Traducir(gestorIdioma.IdiomaActual);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                if(textBox1.Text != "" && textBox2.Text != "")
+                if (textBox1.Text != "" && textBox2.Text != "")
                 {
                     BE.USUARIO nuevoUsuario = new BE.USUARIO();
                     nuevoUsuario.NombreUsuario = textBox1.Text;
@@ -36,6 +42,34 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+
+        private void FormularioUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gestorIdioma.Quitar(this);
+        }
+
+
+        public void Traducir(int nuevoIdioma)
+        {
+            TraducirAIdiomaControles(this.Controls, nuevoIdioma);
+        }
+        private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)
+        {
+            foreach (Control control in controles)
+            {
+                control.Text = gestorIdioma.ObtenerTraduccion(control.Name);
+                if (control.HasChildren)
+                {
+                    TraducirAIdiomaControles(control.Controls, idioma);
+                }
+            }
+        }
+
+        private void FormularioUsuarios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

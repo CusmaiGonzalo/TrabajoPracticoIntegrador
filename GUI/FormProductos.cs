@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,17 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FormProductos : Form
+    public partial class FormProductos : Form, IObserver
     {
-        BLL.GestionNegocio gestorNegocio;
-        
-        public FormProductos()
+        BLL.GestionNegocio gestorNegocio;   
+        BLL.GestionIdioma gestorIdioma;
+        public FormProductos(BLL.GestionIdioma IdiomasFormPrincipal)
         {
             InitializeComponent();
             gestorNegocio = new BLL.GestionNegocio();
+            gestorIdioma = IdiomasFormPrincipal;
+            gestorIdioma.Agregar(this);
+            Traducir(gestorIdioma.IdiomaActual);
         }
 
         private void FormProductos_Load(object sender, EventArgs e)
@@ -99,6 +103,28 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void formProductos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gestorIdioma.Quitar(this);
+        }
+
+
+        public void Traducir(int nuevoIdioma)
+        {
+            TraducirAIdiomaControles(this.Controls, nuevoIdioma);
+        }
+        private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)
+        {
+            foreach (Control control in controles)
+            {
+                control.Text = gestorIdioma.ObtenerTraduccion(control.Name);
+                if (control.HasChildren)
+                {
+                    TraducirAIdiomaControles(control.Controls, idioma);
+                }
             }
         }
     }

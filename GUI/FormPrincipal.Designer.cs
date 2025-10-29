@@ -46,7 +46,7 @@
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Size = new Size(181, 41);
             buttonLogout.TabIndex = 1;
-            buttonLogout.Text = "Log Out";
+            buttonLogout.Text = "Cerrar Sesión";
             buttonLogout.UseVisualStyleBackColor = true;
             buttonLogout.Click += buttonLogout_Click;
             // 

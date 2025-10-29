@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +12,17 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FormEventos : Form
+    public partial class FormEventos : Form, IObserver
     {
         BLL.GestionUsuarios gestorUsuarios;
         List<BE.BITACORA> bitacoraList;
-        public FormEventos()
+        BLL.GestionIdioma gestorIdioma;
+        public FormEventos(GestionIdioma IdiomasFormPrincipal)
         {
             InitializeComponent();
+            gestorIdioma = IdiomasFormPrincipal;
+            gestorIdioma.Agregar(this);
+            Traducir(gestorIdioma.IdiomaActual);
             gestorUsuarios = new BLL.GestionUsuarios();
             bitacoraList = new List<BE.BITACORA>();
         }
@@ -52,6 +58,25 @@ namespace GUI
         {
             grilla.DataSource = null;
             grilla.DataSource = datos;
+        }
+        private void FormEventos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gestorIdioma.Quitar(this);
+        }
+        public void Traducir(int nuevoIdioma)
+        {
+            TraducirAIdiomaControles(this.Controls, nuevoIdioma);
+        }
+        private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)
+        {
+            foreach (Control control in controles)
+            {
+                control.Text = gestorIdioma.ObtenerTraduccion(control.Name);
+                if (control.HasChildren)
+                {
+                    TraducirAIdiomaControles(control.Controls, idioma);
+                }
+            }
         }
     }
 }
