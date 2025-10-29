@@ -30,48 +30,51 @@
         {
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            label_usuarioINS = new Label();
+            label_contINS = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 27);
+            textBox1.Location = new Point(14, 36);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(204, 23);
+            textBox1.Size = new Size(233, 27);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 71);
+            textBox2.Location = new Point(14, 95);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(204, 23);
+            textBox2.Size = new Size(233, 27);
             textBox2.TabIndex = 1;
             // 
-            // label1
+            // label_usuarioINS
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(47, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario";
+            label_usuarioINS.AutoSize = true;
+            label_usuarioINS.Location = new Point(14, 12);
+            label_usuarioINS.Name = "label_usuarioINS";
+            label_usuarioINS.Size = new Size(59, 20);
+            label_usuarioINS.TabIndex = 2;
+            label_usuarioINS.Text = "Usuario";
             // 
-            // label2
+            // label_contINS
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 53);
-            label2.Name = "label2";
-            label2.Size = new Size(67, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Contraseña";
+            label_contINS.AutoSize = true;
+            label_contINS.Location = new Point(14, 71);
+            label_contINS.Name = "label_contINS";
+            label_contINS.Size = new Size(83, 20);
+            label_contINS.TabIndex = 3;
+            label_contINS.Text = "Contraseña";
             // 
             // button1
             // 
-            button1.Location = new Point(12, 100);
+            button1.Location = new Point(14, 133);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(204, 31);
+            button1.Size = new Size(233, 41);
             button1.TabIndex = 4;
             button1.Text = "Agregar Usuario";
             button1.UseVisualStyleBackColor = true;
@@ -79,16 +82,18 @@
             // 
             // FormularioUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1265, 800);
+            ClientSize = new Size(1446, 1055);
             Controls.Add(button1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(label_contINS);
+            Controls.Add(label_usuarioINS);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormularioUsuarios";
             Text = "FormularioUsuarios";
+            Load += FormularioUsuarios_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -97,8 +102,8 @@
 
         private TextBox textBox1;
         private TextBox textBox2;
-        private Label label1;
-        private Label label2;
+        private Label label_usuarioINS;
+        private Label label_contINS;
         private Button button1;
     }
 }

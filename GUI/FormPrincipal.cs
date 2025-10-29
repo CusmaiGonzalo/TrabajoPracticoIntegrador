@@ -24,9 +24,16 @@ namespace GUI
         public FormPrincipal()
         {
             InitializeComponent();
-            AbrirFormulario<FormInicio>();
-            LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
             
+            LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
+
+            // Abrir FormInicio al iniciar el FormPrincipal (usando el constructor que recibe GestionIdioma)
+            CloseActiveMdiChild();
+            FormInicio inicio = new FormInicio(gestorIdioma);
+            inicio.MdiParent = this;
+            inicio.WindowState = FormWindowState.Maximized;
+            inicio.Show();
+
             // Añadir manejador para el cierre del formulario
             this.FormClosing += FormPrincipal_FormClosing;
         }
@@ -63,17 +70,29 @@ namespace GUI
 
         private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormularioUsuarios>();
+            CloseActiveMdiChild();
+            FormularioUsuarios formUsuarios = new FormularioUsuarios(gestorIdioma);
+            formUsuarios.MdiParent = this;
+            formUsuarios.WindowState = FormWindowState.Maximized;
+            formUsuarios.Show();
         }
 
         private void eVENTOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormEventos>();
+            CloseActiveMdiChild();
+            FormEventos formInicio = new FormEventos(gestorIdioma);
+            formInicio.MdiParent = this;
+            formInicio.WindowState = FormWindowState.Maximized;
+            formInicio.Show();
         }
 
         private void pRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormProductos>();
+            CloseActiveMdiChild();
+            FormProductos formProductos = new FormProductos(gestorIdioma);
+            formProductos.MdiParent = this;
+            formProductos.WindowState = FormWindowState.Maximized;
+            formProductos.Show();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
@@ -99,23 +118,10 @@ namespace GUI
 
         private void iNICIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormInicio>();
-        }
-
-        private void AbrirFormulario<T>() where T : Form, new()
-        {
-            foreach (Form form in this.MdiChildren)
-            {
-                if (form is T)
-                {
-                    form.Activate();
-                    return;
-                }
-            }
-            T formulario = new T();
-            formulario.MdiParent = this;
-            formulario.WindowState = FormWindowState.Maximized;
-            formulario.Show();
+            FormInicio formInicio = new FormInicio(gestorIdioma);
+            formInicio.MdiParent = this;
+            formInicio.WindowState = FormWindowState.Maximized;
+            formInicio.Show();
         }
         public void Traducir(int nuevoIdioma)
         {
@@ -168,6 +174,17 @@ namespace GUI
             }
         }
 
-        
+        private void CloseActiveMdiChild()
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                try
+                {
+                    this.ActiveMdiChild.Close();
+                }
+                catch { }
+            }
+        }
     }
 }
+
