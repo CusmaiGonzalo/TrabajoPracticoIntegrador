@@ -1,4 +1,6 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
+using DAL;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -12,16 +14,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipal : Form, IObserver
     {
         BE.BITACORA nuevaBitacora = new BE.BITACORA();
         GestionBitacora gestorBitacora = new GestionBitacora();
         GestionNegocio gestorNegocio = new GestionNegocio();
+        GestionIdioma gestorIdioma = new GestionIdioma();
+        
         public FormPrincipal()
         {
             InitializeComponent();
             AbrirFormulario<FormInicio>();
-
+            LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
+            
             // Añadir manejador para el cierre del formulario
             this.FormClosing += FormPrincipal_FormClosing;
         }
@@ -33,6 +38,7 @@ namespace GUI
             {
                 // Solo deslogueamos si no se cerró a través del botón de logout
                 // (que ya tiene su propia lógica de deslogueo)
+                gestorIdioma.Quitar(this);
                 if (e.CloseReason != CloseReason.ApplicationExitCall)
                 {
                     nuevaBitacora = Bitacora.EventoBitacora("Usuario deslogueado por cierre de ventana");
@@ -78,6 +84,7 @@ namespace GUI
                 {
                     throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
                 }
+                gestorIdioma.Agregar(this);
             }
             catch (Exception ex)
             {
@@ -95,155 +102,6 @@ namespace GUI
             AbrirFormulario<FormInicio>();
         }
 
-        // Método que obtiene los nombres (Name) de todos los Label, Button y elementos de menú
-        // de todos los formularios del ensamblado GUI excepto la clase Form1.
-        public List<string> ObtenerNombresControlesDesigner()
-        {
-            List<string> nombres = new List<string>();
-            var asm = this.GetType().Assembly; // ensamblado actual (GUI)
-            var formTypes = asm.GetTypes().Where(t => t.IsSubclassOf(typeof(Form)) && t.Name != "Form1");
-
-            foreach (var ft in formTypes)
-            {
-                try
-                {
-                    // Intentar crear una instancia si tiene constructor sin parámetros
-                    object? instance = null;
-                    try
-                    {
-                        instance = Activator.CreateInstance(ft);
-                    }
-                    catch
-                    {
-                        // No se puede instanciar, saltar
-                        continue;
-                    }
-
-                    if (instance is Form formInstance)
-                    {
-                        // Recorrer controles del formulario
-                        CollectControlNames(formInstance.Controls, nombres);
-
-                        // Buscar ToolStrip/MenuStrip/ToolStripMenuItem en componentes (si existen)
-                        foreach (var comp in GetComponentsOfType<ToolStrip>(formInstance))
-                        {
-                            if (comp is MenuStrip menu)
-                            {
-                                foreach (ToolStripItem item in menu.Items)
-                                {
-                                    CollectToolStripItemNames(item, nombres);
-                                }
-                            }
-                            else if (comp is ToolStrip tool)
-                            {
-                                foreach (ToolStripItem item in tool.Items)
-                                {
-                                    CollectToolStripItemNames(item, nombres);
-                                }
-                            }
-                        }
-
-                        formInstance.Dispose();
-                    }
-                }
-                catch
-                {
-                    // Ignorar tipos problemáticos
-                    continue;
-                }
-            }
-
-            // Devolver nombres únicos
-            return nombres.Distinct().ToList();
-        }
-
-        // Recorre recursivamente una colección de controles y agrega nombres de Label y Button
-        private void CollectControlNames(Control.ControlCollection controls, List<string> nombres)
-        {
-            foreach (Control ctrl in controls)
-            {
-                try
-                {
-                    if (!string.IsNullOrEmpty(ctrl.Name) && (ctrl is Label || ctrl is Button))
-                    {
-                        nombres.Add(ctrl.Name);
-                    }
-
-                    // Si el control es un ToolStrip (contenedor de ToolStripItems), procesar sus ítems
-                    if (ctrl is ToolStrip strip)
-                    {
-                        foreach (ToolStripItem item in strip.Items)
-                        {
-                            CollectToolStripItemNames(item, nombres);
-                        }
-                    }
-
-                    // Recursividad para contenedores
-                    if (ctrl.HasChildren)
-                    {
-                        CollectControlNames(ctrl.Controls, nombres);
-                    }
-                }
-                catch
-                {
-                    // ignorar controles problemáticos
-                }
-            }
-        }
-
-        // Recorre recursivamente ToolStripItem y sus DropDownItems para obtener nombres
-        private void CollectToolStripItemNames(ToolStripItem item, List<string> nombres)
-        {
-            if (item == null) return;
-            try
-            {
-                if (!string.IsNullOrEmpty(item.Name))
-                {
-                    nombres.Add(item.Name);
-                }
-
-                if (item is ToolStripMenuItem menuItem)
-                {
-                    foreach (ToolStripItem sub in menuItem.DropDownItems)
-                    {
-                        CollectToolStripItemNames(sub, nombres);
-                    }
-                }
-            }
-            catch
-            {
-                // ignorar
-            }
-        }
-
-        // Obtener componentes de un tipo concreto desde un Form (incluye campos privados como menuStrip1)
-        private IEnumerable<T> GetComponentsOfType<T>(Form form) where T : Component
-        {
-            List<T> results = new List<T>();
-            // Buscar en controles directamente
-            foreach (Control c in form.Controls)
-            {
-                if (c is T t) results.Add(t);
-            }
-
-            // Intentar obtener campos privados del formulario que sean del tipo T (por ejemplo menuStrip1)
-            var fields = form.GetType().GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
-            foreach (var f in fields)
-            {
-                try
-                {
-                    if (typeof(T).IsAssignableFrom(f.FieldType))
-                    {
-                        var val = f.GetValue(form) as T;
-                        if (val != null) results.Add(val);
-                    }
-                }
-                catch { }
-            }
-
-            return results;
-        }
-
         private void AbrirFormulario<T>() where T : Form, new()
         {
             foreach (Form form in this.MdiChildren)
@@ -254,11 +112,62 @@ namespace GUI
                     return;
                 }
             }
-
             T formulario = new T();
             formulario.MdiParent = this;
             formulario.WindowState = FormWindowState.Maximized;
             formulario.Show();
         }
+        public void Traducir(int nuevoIdioma)
+        {
+            TraducirAIdiomaControles(this.Controls, nuevoIdioma);
+            TraducirAIdiomaMenu(this.menuStrip1.Items, nuevoIdioma);
+        }
+        private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)
+        {
+            foreach (Control control in controles)
+            {
+                control.Text = gestorIdioma.ObtenerTraduccion(control.Name);
+                if (control.HasChildren)
+                {
+                    TraducirAIdiomaControles(control.Controls, idioma);
+                }
+            }
+        }
+        private void TraducirAIdiomaMenu(ToolStripItemCollection items, int idioma)
+        {
+            foreach(ToolStripItem item in items)
+            {
+                item.Text = gestorIdioma.ObtenerTraduccion(item.Name);
+                if (item is ToolStripMenuItem menuItem && menuItem.HasDropDownItems)
+                {
+                    TraducirAIdiomaMenu(menuItem.DropDownItems, idioma);
+                }
+            }
+        }
+
+        private void LLenarComboBox(ComboBox combo, List<IDIOMA> datos)
+        {
+            combo.DataSource = null;
+            combo.DataSource = datos;
+            combo.DisplayMember = "NombreIdioma";
+            combo.ValueMember = "IDIdioma";
+            combo.SelectedIndex = 0;
+        }
+
+        private void button_cambiaridioma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IDIOMA idiomaSeleccionado = comboBox_idioma.SelectedItem as IDIOMA;
+                gestorIdioma.CambiarIdioma(idiomaSeleccionado.IDIdioma);
+                LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        
     }
 }
