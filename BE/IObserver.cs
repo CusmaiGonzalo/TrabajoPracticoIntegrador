@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    internal class TRADUCCION
+    public interface IObserver
     {
+        public void Traducir(int nuevoIdioma);
     }
 }

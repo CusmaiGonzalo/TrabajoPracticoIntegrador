@@ -30,10 +30,12 @@
         {
             buttonLogout = new Button();
             menuStrip1 = new MenuStrip();
+            iNICIOToolStripMenuItem = new ToolStripMenuItem();
             uSUARIOSToolStripMenuItem = new ToolStripMenuItem();
             eVENTOSToolStripMenuItem = new ToolStripMenuItem();
             pRODUCTOSToolStripMenuItem = new ToolStripMenuItem();
-            iNICIOToolStripMenuItem = new ToolStripMenuItem();
+            button_cambiaridioma = new Button();
+            comboBox_idioma = new ComboBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,6 +61,13 @@
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
+            // iNICIOToolStripMenuItem
+            // 
+            iNICIOToolStripMenuItem.Name = "iNICIOToolStripMenuItem";
+            iNICIOToolStripMenuItem.Size = new Size(66, 24);
+            iNICIOToolStripMenuItem.Text = "INICIO";
+            iNICIOToolStripMenuItem.Click += iNICIOToolStripMenuItem_Click;
+            // 
             // uSUARIOSToolStripMenuItem
             // 
             uSUARIOSToolStripMenuItem.Name = "uSUARIOSToolStripMenuItem";
@@ -80,18 +89,32 @@
             pRODUCTOSToolStripMenuItem.Text = "PRODUCTOS";
             pRODUCTOSToolStripMenuItem.Click += pRODUCTOSToolStripMenuItem_Click;
             // 
-            // iNICIOToolStripMenuItem
+            // button_cambiaridioma
             // 
-            iNICIOToolStripMenuItem.Name = "iNICIOToolStripMenuItem";
-            iNICIOToolStripMenuItem.Size = new Size(66, 24);
-            iNICIOToolStripMenuItem.Text = "INICIO";
-            iNICIOToolStripMenuItem.Click += iNICIOToolStripMenuItem_Click;
+            button_cambiaridioma.Location = new Point(1296, 44);
+            button_cambiaridioma.Margin = new Padding(3, 4, 3, 4);
+            button_cambiaridioma.Name = "button_cambiaridioma";
+            button_cambiaridioma.Size = new Size(181, 41);
+            button_cambiaridioma.TabIndex = 5;
+            button_cambiaridioma.Text = "Cambiar Idioma";
+            button_cambiaridioma.UseVisualStyleBackColor = true;
+            button_cambiaridioma.Click += button_cambiaridioma_Click;
+            // 
+            // comboBox_idioma
+            // 
+            comboBox_idioma.FormattingEnabled = true;
+            comboBox_idioma.Location = new Point(1296, 92);
+            comboBox_idioma.Name = "comboBox_idioma";
+            comboBox_idioma.Size = new Size(180, 28);
+            comboBox_idioma.TabIndex = 6;
             // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1489, 1024);
+            Controls.Add(comboBox_idioma);
+            Controls.Add(button_cambiaridioma);
             Controls.Add(buttonLogout);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
@@ -114,5 +137,7 @@
         private ToolStripMenuItem eVENTOSToolStripMenuItem;
         private ToolStripMenuItem pRODUCTOSToolStripMenuItem;
         private ToolStripMenuItem iNICIOToolStripMenuItem;
+        private Button button_cambiaridioma;
+        private ComboBox comboBox_idioma;
     }
 }
