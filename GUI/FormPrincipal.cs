@@ -26,6 +26,7 @@ namespace GUI
             InitializeComponent();
             
             LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
+            gestorIdioma.CambiarIdioma(1);
 
             // Abrir FormInicio al iniciar el FormPrincipal (usando el constructor que recibe GestionIdioma)
             CloseActiveMdiChild();

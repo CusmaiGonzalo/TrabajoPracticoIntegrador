@@ -22,6 +22,7 @@ namespace GUI
             gestorIdioma = idiomasFormPrincipal;
             gestorIdioma.Agregar(this);
             Traducir(gestorIdioma.IdiomaActual);
+            label_usuario.Text = $"{SessionManager.Instance.UsuarioLog.NombreUsuario}";
         }
 
         private void FormInicio_Load(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace GUI
         }
         public void Traducir(int nuevoIdioma)
         {
+            label_usuario.Text = $"{SessionManager.Instance.UsuarioLog.NombreUsuario}";
             TraducirAIdiomaControles(this.Controls, nuevoIdioma);
         }
         private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)
