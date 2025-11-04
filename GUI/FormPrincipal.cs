@@ -20,13 +20,15 @@ namespace GUI
         GestionBitacora gestorBitacora = new GestionBitacora();
         GestionNegocio gestorNegocio = new GestionNegocio();
         GestionIdioma gestorIdioma = new GestionIdioma();
-        
+        GestionPermisos gestorPermisos = new GestionPermisos();
+
         public FormPrincipal()
         {
             InitializeComponent();
             
             LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
             gestorIdioma.CambiarIdioma(1);
+            gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
 
             // Abrir FormInicio al iniciar el FormPrincipal (usando el constructor que recibe GestionIdioma)
             CloseActiveMdiChild();

@@ -20,7 +20,7 @@ namespace BLL
             }
             else if (CryptoManager.VerificarContraseña(user.Contraseña, usuarioEncontrado.Contraseña, Convert.FromBase64String(usuarioEncontrado.Salt)) == true)
             {
-                SessionManager.LogIn(user);
+                SessionManager.LogIn(usuarioEncontrado);
                 
                 nuevaBitacora = Bitacora.EventoBitacora("Usuario logueado correctamente");
                 maperbitacora.Insertar(nuevaBitacora);

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    internal class PATENTE
+    public class PATENTE : COMPONENTE
     {
+        public override bool Validar(COMPONENTE compo)
+        {
+            return compo.IDPatente == this.IDPatente;
+        }
     }
 }
