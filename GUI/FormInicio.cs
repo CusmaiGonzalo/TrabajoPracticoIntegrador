@@ -34,8 +34,7 @@ namespace GUI
             gestorIdioma.Quitar(this);
         }
         public void Traducir(int nuevoIdioma)
-        {
-            label_usuario.Text = $"{SessionManager.Instance.UsuarioLog.NombreUsuario}";
+        { 
             TraducirAIdiomaControles(this.Controls, nuevoIdioma);
         }
         private void TraducirAIdiomaControles(Control.ControlCollection controles, int idioma)

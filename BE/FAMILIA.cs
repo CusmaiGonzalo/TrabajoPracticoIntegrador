@@ -29,5 +29,10 @@ namespace BE
             }
             return encontrado;
         }
+
+        public FAMILIA()
+        {
+            listaComponentes = new List<COMPONENTE>();
+        }
     }
 }

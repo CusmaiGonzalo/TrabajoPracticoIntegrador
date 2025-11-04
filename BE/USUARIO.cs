@@ -31,6 +31,14 @@
 			set { _salt = value; }
 		}
 
+		private List<COMPONENTE> _lista_permisos;
+
+		public List<COMPONENTE> ListaPermisos
+		{
+			get { return _lista_permisos; }
+			set { _lista_permisos = value; }
+		}
+
 		public USUARIO() { }
 	}
 }
