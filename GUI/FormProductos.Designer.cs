@@ -37,7 +37,13 @@
             label_productos = new Label();
             label_tipoprod = new Label();
             label_precioprod = new Label();
+            dataGridView2 = new DataGridView();
+            label_historialprod = new Label();
+            button_borrarprod = new Button();
+            button_modificarprod = new Button();
+            button_verhistprod = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -46,7 +52,7 @@
             dataGridView1.Location = new Point(222, 38);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1071, 497);
+            dataGridView1.Size = new Size(688, 760);
             dataGridView1.TabIndex = 0;
             // 
             // button_agregarprod
@@ -117,11 +123,64 @@
             label_precioprod.TabIndex = 8;
             label_precioprod.Text = "Precio";
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(973, 38);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(733, 431);
+            dataGridView2.TabIndex = 9;
+            // 
+            // label_historialprod
+            // 
+            label_historialprod.AutoSize = true;
+            label_historialprod.Location = new Point(973, 15);
+            label_historialprod.Name = "label_historialprod";
+            label_historialprod.Size = new Size(154, 20);
+            label_historialprod.TabIndex = 10;
+            label_historialprod.Text = "Historial del Producto";
+            // 
+            // button_borrarprod
+            // 
+            button_borrarprod.Location = new Point(12, 303);
+            button_borrarprod.Name = "button_borrarprod";
+            button_borrarprod.Size = new Size(204, 60);
+            button_borrarprod.TabIndex = 11;
+            button_borrarprod.Text = "Borrar Producto";
+            button_borrarprod.UseVisualStyleBackColor = true;
+            button_borrarprod.Click += button_borrarprod_Click;
+            // 
+            // button_modificarprod
+            // 
+            button_modificarprod.Location = new Point(12, 369);
+            button_modificarprod.Name = "button_modificarprod";
+            button_modificarprod.Size = new Size(204, 60);
+            button_modificarprod.TabIndex = 12;
+            button_modificarprod.Text = "Modificar Producto";
+            button_modificarprod.UseVisualStyleBackColor = true;
+            button_modificarprod.Click += button_modificarprod_Click;
+            // 
+            // button_verhistprod
+            // 
+            button_verhistprod.Location = new Point(973, 475);
+            button_verhistprod.Name = "button_verhistprod";
+            button_verhistprod.Size = new Size(204, 60);
+            button_verhistprod.TabIndex = 13;
+            button_verhistprod.Text = "Ver Historico Producto";
+            button_verhistprod.UseVisualStyleBackColor = true;
+            button_verhistprod.Click += button_verhistprod_Click;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1343, 810);
+            ClientSize = new Size(1718, 904);
+            Controls.Add(button_verhistprod);
+            Controls.Add(button_modificarprod);
+            Controls.Add(button_borrarprod);
+            Controls.Add(label_historialprod);
+            Controls.Add(dataGridView2);
             Controls.Add(label_precioprod);
             Controls.Add(label_tipoprod);
             Controls.Add(label_productos);
@@ -135,6 +194,7 @@
             Text = "FormProductos";
             Load += FormProductos_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,5 +210,10 @@
         private Label label_productos;
         private Label label_tipoprod;
         private Label label_precioprod;
+        private DataGridView dataGridView2;
+        private Label label_historialprod;
+        private Button button_borrarprod;
+        private Button button_modificarprod;
+        private Button button_verhistprod;
     }
 }
