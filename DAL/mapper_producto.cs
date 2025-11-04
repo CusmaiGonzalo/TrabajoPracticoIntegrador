@@ -56,7 +56,39 @@ namespace DAL
 
         public override void Modificar(PRODUCTO objviejo, PRODUCTO objnuevo)
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@id_prod", objviejo.IDProducto));
+            parametros.Add(acceso.CrearParametro("@nombre", objnuevo.NombreProducto));
+            parametros.Add(acceso.CrearParametro("@precio", objnuevo.PrecioUnitario));
+            parametros.Add(acceso.CrearParametro("@nombre_antiguo", objviejo.NombreProducto));
+            parametros.Add(acceso.CrearParametro("@precio_antiguo", objviejo.PrecioUnitario));
+            parametros.Add(acceso.CrearParametro("@fechacambio", DateTime.Now));
+            acceso.Escribir("PRODUCTO_MODIFICAR", parametros);
+            acceso.Escribir("Actualizar_DVH_Producto");
+            acceso.Escribir("Actualizar_DVV_Producto");
+            acceso.Cerrar();
+        }
+
+        public List<PRODUCTO> HistorialProducto(PRODUCTO prod)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@idprod", prod.IDProducto));
+            DataTable dt = new DataTable();
+            dt = acceso.Leer("PRODUCTO_HISTORICO", parametros);
+            List<PRODUCTO> listaHistorial = new List<PRODUCTO>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                BE.PRODUCTO obj = new BE.PRODUCTO();
+                obj.IDProducto = int.Parse(dr["id_producto"].ToString());
+                obj.NombreProducto = dr["nombre_producto"].ToString();
+                obj.PrecioUnitario = decimal.Parse(dr["precio_historico"].ToString());
+                obj.TipoProducto = dr["tipo"].ToString();
+                listaHistorial.Add(obj);
+            }
+            acceso.Cerrar();
+            return listaHistorial;
         }
     }
 }

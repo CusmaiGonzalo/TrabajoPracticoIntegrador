@@ -15,7 +15,7 @@ namespace GUI
 {
     public partial class FormProductos : Form, IObserver
     {
-        BLL.GestionNegocio gestorNegocio;   
+        BLL.GestionNegocio gestorNegocio;
         BLL.GestionIdioma gestorIdioma;
         public FormProductos(BLL.GestionIdioma IdiomasFormPrincipal)
         {
@@ -30,29 +30,29 @@ namespace GUI
         {
             // Configurar el DataGridView
             ConfigurarDataGridView(dataGridView1);
-            
+
             // Llenar los controles con datos
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
             LLenarComboBox(comboBox1, gestorNegocio.ListarTipoProducto());
         }
-        
+
         private void ConfigurarDataGridView(DataGridView dgv)
         {
             // Configurar el modo de selección para seleccionar filas completas
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            
+
             // Evitar que el usuario añada filas
             dgv.AllowUserToAddRows = false;
-            
+
             // Permitir solo lectura
             dgv.ReadOnly = true;
-            
+
             // Ajustar el tamaño de las columnas automáticamente
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            
+
             // Alternar colores en las filas
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            
+
             // Estilo de encabezado
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font(dgv.Font, FontStyle.Bold);
         }
@@ -67,14 +67,14 @@ namespace GUI
             combo.DataSource = null;
             combo.DataSource = datos;
             combo.DisplayMember = "Tipo";
-            combo.ValueMember = "IDTipo";       
+            combo.ValueMember = "IDTipo";
         }
 
         private void button_agregarprod_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 if (textBox_nombreproducto.Text != "" || textBox_precioproducto.Text != "")
                 {
                     BE.PRODUCTO nuevoProducto = new BE.PRODUCTO();
@@ -84,7 +84,7 @@ namespace GUI
                     {
                         nuevoProducto.TipoProducto = tipoSeleccionado.IDTipo.ToString();
                     }
-                    if(!string.IsNullOrEmpty(textBox_precioproducto.Text) && decimal.TryParse(textBox_precioproducto.Text, out decimal precio) && precio >= 0)
+                    if (!string.IsNullOrEmpty(textBox_precioproducto.Text) && decimal.TryParse(textBox_precioproducto.Text, out decimal precio) && precio >= 0)
                     {
                         nuevoProducto.PrecioUnitario = precio;
                     }
@@ -125,6 +125,59 @@ namespace GUI
                 {
                     TraducirAIdiomaControles(control.Controls, idioma);
                 }
+            }
+        }
+
+        private void button_borrarprod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BE.PRODUCTO productoSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
+                gestorNegocio.BorrarProducto(productoSeleccionado);
+                LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_modificarprod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BE.PRODUCTO productoSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
+                BE.PRODUCTO productoModificado = new BE.PRODUCTO();
+                productoModificado.IDProducto = productoSeleccionado.IDProducto;
+                productoModificado.NombreProducto = Interaction.InputBox("Ingrese el nuevo nombre del producto:", "Modificar Producto", productoSeleccionado.NombreProducto);
+                productoModificado.TipoProducto = productoSeleccionado.TipoProducto; // Mantener el mismo tipo por simplicidad
+                string precioInput = Interaction.InputBox("Ingrese el nuevo precio del producto:", "Modificar Producto", productoSeleccionado.PrecioUnitario.ToString());
+                if (decimal.TryParse(precioInput, out decimal nuevoPrecio) && nuevoPrecio >= 0)
+                {
+                    productoModificado.PrecioUnitario = nuevoPrecio;
+                }
+                else
+                {
+                    throw new Exception("El precio debe ser un valor numérico positivo.");
+                }
+                gestorNegocio.ModificarProducto(productoSeleccionado, productoModificado);
+                LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_verhistprod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LLenarGrilla(dataGridView2, gestorNegocio.ListarHistoricoProducto(dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
