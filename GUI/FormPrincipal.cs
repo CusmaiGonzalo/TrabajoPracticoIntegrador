@@ -30,24 +30,46 @@ namespace GUI
             gestorIdioma.CambiarIdioma(1);
             gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
 
-            // Abrir FormInicio al iniciar el FormPrincipal (usando el constructor que recibe GestionIdioma)
-            CloseActiveMdiChild();
-            FormInicio inicio = new FormInicio(gestorIdioma);
-            inicio.MdiParent = this;
-            inicio.WindowState = FormWindowState.Maximized;
-            inicio.Show();
+            PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == true)
+            {
+                // Si tiene permisos, abrir FormInicio
+                CloseActiveMdiChild();
+                FormInicio inicio = new FormInicio(gestorIdioma);
+                inicio.MdiParent = this;
+                inicio.WindowState = FormWindowState.Maximized;
+                inicio.Show();
+            }
+            else
+            {
+                // Si no tiene permisos, ocultar el menú INICIO
+                iNICIOToolStripMenuItem.Visible = false;
+            }
+            PATENTE permisoUsuarios = new PATENTE() { IDPatente = 4 };
+            if(gestorPermisos.ValidarPermisosDeUsuario(permisoUsuarios, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                uSUARIOSToolStripMenuItem.Visible = false;
+            }
+            PATENTE permisoEventos = new PATENTE() { IDPatente = 6 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoEventos, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                eVENTOSToolStripMenuItem.Visible = false;
+            }
+            PATENTE permisoProductos = new PATENTE() { IDPatente = 8 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoProductos, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                pRODUCTOSToolStripMenuItem.Visible = false;
+            }
 
             // Añadir manejador para el cierre del formulario
             this.FormClosing += FormPrincipal_FormClosing;
         }
 
-        // Nuevo método para manejar el cierre del formulario
+        
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-                // Solo deslogueamos si no se cerró a través del botón de logout
-                // (que ya tiene su propia lógica de deslogueo)
                 gestorIdioma.Quitar(this);
                 if (e.CloseReason != CloseReason.ApplicationExitCall)
                 {
@@ -102,11 +124,18 @@ namespace GUI
         {
             try
             {
+                PATENTE permisoLogIn = new PATENTE() { IDPatente = 1 };
+                
                 if (gestorNegocio.VerificarIntegridadProductos() == false)
                 {
                     throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
                 }
+                if(gestorPermisos.ValidarPermisosDeUsuario(permisoLogIn, Servicios.SessionManager.Instance.UsuarioLog) == false)
+                {
+                    throw new Exception("El usuario no tiene permisos para iniciar sesión.");
+                }
                 gestorIdioma.Agregar(this);
+                
             }
             catch (Exception ex)
             {
@@ -121,10 +150,19 @@ namespace GUI
 
         private void iNICIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInicio formInicio = new FormInicio(gestorIdioma);
-            formInicio.MdiParent = this;
-            formInicio.WindowState = FormWindowState.Maximized;
-            formInicio.Show();
+            PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == true)
+            {
+                CloseActiveMdiChild();
+                FormInicio formInicio = new FormInicio(gestorIdioma);
+                formInicio.MdiParent = this;
+                formInicio.WindowState = FormWindowState.Maximized;
+                formInicio.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a la sección de Inicio.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         public void Traducir(int nuevoIdioma)
         {

@@ -17,10 +17,12 @@ namespace GUI
     {
         BLL.GestionNegocio gestorNegocio;
         BLL.GestionIdioma gestorIdioma;
+        BLL.GestionPermisos gestorPermisos;
         public FormProductos(BLL.GestionIdioma IdiomasFormPrincipal)
         {
             InitializeComponent();
             gestorNegocio = new BLL.GestionNegocio();
+            gestorPermisos = new BLL.GestionPermisos();
             gestorIdioma = IdiomasFormPrincipal;
             gestorIdioma.Agregar(this);
             Traducir(gestorIdioma.IdiomaActual);
@@ -34,6 +36,26 @@ namespace GUI
             // Llenar los controles con datos
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
             LLenarComboBox(comboBox1, gestorNegocio.ListarTipoProducto());
+            PATENTE permisoAgregarProducto = new PATENTE() { IDPatente = 9 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoAgregarProducto, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_agregarprod.Enabled = false;
+            }
+            PATENTE permisoBorrarProd = new PATENTE() { IDPatente = 10 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoBorrarProd, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_borrarprod.Enabled = false;
+            }
+            PATENTE permisoModificarProd = new PATENTE() { IDPatente = 11 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoModificarProd, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_modificarprod.Enabled = false;
+            }
+            PATENTE permisoVerHistorico = new PATENTE() { IDPatente = 12 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoVerHistorico, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_verhistprod.Enabled = false;
+            }
         }
 
         private void ConfigurarDataGridView(DataGridView dgv)
