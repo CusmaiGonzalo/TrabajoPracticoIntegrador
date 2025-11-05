@@ -17,10 +17,12 @@ namespace GUI
         BLL.GestionUsuarios gestorUsuarios;
         List<BE.BITACORA> bitacoraList;
         BLL.GestionIdioma gestorIdioma;
+        BLL.GestionPermisos gestorPermisos;
         public FormEventos(GestionIdioma IdiomasFormPrincipal)
         {
             InitializeComponent();
             gestorIdioma = IdiomasFormPrincipal;
+            gestorPermisos = new BLL.GestionPermisos();
             gestorIdioma.Agregar(this);
             Traducir(gestorIdioma.IdiomaActual);
             gestorUsuarios = new BLL.GestionUsuarios();
@@ -32,6 +34,11 @@ namespace GUI
             ConfigurarDataGridView(dataGridView1);
             bitacoraList = gestorUsuarios.ListarBitacora();
             LlenarGrilla(dataGridView1, bitacoraList);
+            PATENTE permisoVerGrilla = new PATENTE() { IDPatente = 7 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoVerGrilla, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                dataGridView1.Enabled = false;
+            }
         }
         private void ConfigurarDataGridView(DataGridView dgv)
         {

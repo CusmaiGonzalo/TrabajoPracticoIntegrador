@@ -16,5 +16,11 @@ namespace BLL
             user.ListaPermisos = mapperPermisos.ListarPorUsuario(user);
             return user;
         }
+        public bool ValidarPermisosDeUsuario(COMPONENTE permiso, USUARIO user)
+        {
+            bool validacion = false;
+            validacion = Servicios.ServicioPermisos.ValidarPermisos(permiso, user);
+            return validacion;
+        }
     }
 }

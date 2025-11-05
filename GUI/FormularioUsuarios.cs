@@ -16,13 +16,20 @@ namespace GUI
     {
         BLL.GestionUsuarios gestorUsuarios;
         BLL.GestionIdioma gestorIdioma;
+        BLL.GestionPermisos gestorPermisos;
         public FormularioUsuarios(GestionIdioma idiomasFormPrincipal)
         {
             InitializeComponent();
             gestorUsuarios = new BLL.GestionUsuarios();
+            gestorPermisos = new BLL.GestionPermisos();
             gestorIdioma = idiomasFormPrincipal;
             gestorIdioma.Agregar(this);
             Traducir(gestorIdioma.IdiomaActual);
+            PATENTE permisoAgregaruUsuario = new PATENTE() { IDPatente = 5 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoAgregaruUsuario, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button1.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

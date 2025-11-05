@@ -10,6 +10,14 @@ namespace Servicios
 {
     public class ServicioPermisos
     {
-
+        public static bool ValidarPermisos(COMPONENTE permisoValidar, USUARIO user)
+        {
+            bool validacion = false;
+            foreach (COMPONENTE permiso in user.ListaPermisos)
+            {
+                validacion = permiso.Validar(permisoValidar);
+            }
+            return validacion;
+        }
     }
 }
