@@ -54,7 +54,7 @@ namespace DAL
             return listaProductos;
         }
 
-        public override void Modificar(PRODUCTO objviejo, PRODUCTO objnuevo)
+        public void ModificarProducto(PRODUCTO objviejo, PRODUCTO objnuevo, USUARIO user)
         {
             acceso.Abrir();
             List<SqlParameter> parametros = new List<SqlParameter>();
@@ -64,31 +64,39 @@ namespace DAL
             parametros.Add(acceso.CrearParametro("@nombre_antiguo", objviejo.NombreProducto));
             parametros.Add(acceso.CrearParametro("@precio_antiguo", objviejo.PrecioUnitario));
             parametros.Add(acceso.CrearParametro("@fechacambio", DateTime.Now));
+            parametros.Add(acceso.CrearParametro("@usuario", user.NombreUsuario));
             acceso.Escribir("PRODUCTO_MODIFICAR", parametros);
             acceso.Escribir("Actualizar_DVH_Producto");
             acceso.Escribir("Actualizar_DVV_Producto");
             acceso.Cerrar();
         }
 
-        public List<PRODUCTO> HistorialProducto(PRODUCTO prod)
+        public List<PRODUCTO_HISTORICO> HistorialProducto(PRODUCTO prod)
         {
             acceso.Abrir();
             List<SqlParameter> parametros = new List<SqlParameter>();
             parametros.Add(acceso.CrearParametro("@idprod", prod.IDProducto));
             DataTable dt = new DataTable();
             dt = acceso.Leer("PRODUCTO_HISTORICO", parametros);
-            List<PRODUCTO> listaHistorial = new List<PRODUCTO>();
+            List<PRODUCTO_HISTORICO> listaHistorial = new List<PRODUCTO_HISTORICO>();
             foreach (DataRow dr in dt.Rows)
             {
-                BE.PRODUCTO obj = new BE.PRODUCTO();
+                BE.PRODUCTO_HISTORICO obj = new BE.PRODUCTO_HISTORICO();
                 obj.IDProducto = int.Parse(dr["id_producto"].ToString());
                 obj.NombreProducto = dr["nombre_producto"].ToString();
                 obj.PrecioUnitario = decimal.Parse(dr["precio_historico"].ToString());
                 obj.TipoProducto = dr["tipo"].ToString();
+                obj.FechaCambio = DateTime.Parse(dr["fecha_cambio"].ToString());
+                obj.Usuario = dr["usuario"].ToString();
                 listaHistorial.Add(obj);
             }
             acceso.Cerrar();
             return listaHistorial;
+        }
+
+        public override void Modificar(PRODUCTO objviejo, PRODUCTO objnuevo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

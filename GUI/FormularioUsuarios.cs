@@ -28,7 +28,7 @@ namespace GUI
             PATENTE permisoAgregaruUsuario = new PATENTE() { IDPatente = 5 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoAgregaruUsuario, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
-                button1.Enabled = false;
+                button_agregarUs.Enabled = false;
             }
         }
 

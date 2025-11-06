@@ -33,7 +33,7 @@ namespace GUI
             PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == true)
             {
-                // Si tiene permisos, abrir FormInicio
+                // Si tiene permisos, abrir FormInicio      
                 CloseActiveMdiChild();
                 FormInicio inicio = new FormInicio(gestorIdioma);
                 inicio.MdiParent = this;
@@ -59,6 +59,11 @@ namespace GUI
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoProductos, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
                 pRODUCTOSToolStripMenuItem.Visible = false;
+            }
+            PATENTE permisoBotonIdioma = new PATENTE() { IDPatente = 2 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoBotonIdioma, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_cambiaridioma.Enabled = false;
             }
 
             // Añadir manejador para el cierre del formulario

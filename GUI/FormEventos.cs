@@ -37,7 +37,7 @@ namespace GUI
             PATENTE permisoVerGrilla = new PATENTE() { IDPatente = 7 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoVerGrilla, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
-                dataGridView1.Enabled = false;
+                dataGridView1.Visible = false;
             }
         }
         private void ConfigurarDataGridView(DataGridView dgv)

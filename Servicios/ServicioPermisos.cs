@@ -15,7 +15,11 @@ namespace Servicios
             bool validacion = false;
             foreach (COMPONENTE permiso in user.ListaPermisos)
             {
-                validacion = permiso.Validar(permisoValidar);
+                if (permiso.Validar(permisoValidar) == true)
+                {
+                    validacion = true;
+                    break;
+                }
             }
             return validacion;
         }
