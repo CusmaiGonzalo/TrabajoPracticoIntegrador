@@ -32,7 +32,7 @@
             textBox2 = new TextBox();
             label_usuarioINS = new Label();
             label_contINS = new Label();
-            button1 = new Button();
+            button_agregarUs = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -69,23 +69,23 @@
             label_contINS.TabIndex = 3;
             label_contINS.Text = "Contraseña";
             // 
-            // button1
+            // button_agregarUs
             // 
-            button1.Location = new Point(14, 133);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(233, 41);
-            button1.TabIndex = 4;
-            button1.Text = "Agregar Usuario";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button_agregarUs.Location = new Point(14, 133);
+            button_agregarUs.Margin = new Padding(3, 4, 3, 4);
+            button_agregarUs.Name = "button_agregarUs";
+            button_agregarUs.Size = new Size(233, 41);
+            button_agregarUs.TabIndex = 4;
+            button_agregarUs.Text = "Agregar Usuario";
+            button_agregarUs.UseVisualStyleBackColor = true;
+            button_agregarUs.Click += button1_Click;
             // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1446, 1055);
-            Controls.Add(button1);
+            Controls.Add(button_agregarUs);
             Controls.Add(label_contINS);
             Controls.Add(label_usuarioINS);
             Controls.Add(textBox2);
@@ -104,6 +104,6 @@
         private TextBox textBox2;
         private Label label_usuarioINS;
         private Label label_contINS;
-        private Button button1;
+        private Button button_agregarUs;
     }
 }

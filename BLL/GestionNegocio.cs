@@ -48,13 +48,13 @@ namespace BLL
                 return false;
             }
         }
-        public List<BE.PRODUCTO> ListarHistoricoProducto(BE.PRODUCTO producto)
+        public List<BE.PRODUCTO_HISTORICO> ListarHistoricoProducto(BE.PRODUCTO producto)
         {
             return maperProducto.HistorialProducto(producto);
         }
         public void ModificarProducto(BE.PRODUCTO productoViejo, BE.PRODUCTO productoNuevo)
         {
-            maperProducto.Modificar(productoViejo, productoNuevo);
+            maperProducto.ModificarProducto(productoViejo, productoNuevo, Servicios.SessionManager.Instance.UsuarioLog);
         }
         
     }

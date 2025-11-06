@@ -41,7 +41,7 @@
             // 
             // buttonLogout
             // 
-            buttonLogout.Location = new Point(1295, 967);
+            buttonLogout.Location = new Point(1709, 931);
             buttonLogout.Margin = new Padding(3, 4, 3, 4);
             buttonLogout.Name = "buttonLogout";
             buttonLogout.Size = new Size(181, 41);
@@ -57,7 +57,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(1489, 30);
+            menuStrip1.Size = new Size(1902, 30);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -91,7 +91,7 @@
             // 
             // button_cambiaridioma
             // 
-            button_cambiaridioma.Location = new Point(1296, 44);
+            button_cambiaridioma.Location = new Point(1709, 34);
             button_cambiaridioma.Margin = new Padding(3, 4, 3, 4);
             button_cambiaridioma.Name = "button_cambiaridioma";
             button_cambiaridioma.Size = new Size(181, 41);
@@ -103,7 +103,7 @@
             // comboBox_idioma
             // 
             comboBox_idioma.FormattingEnabled = true;
-            comboBox_idioma.Location = new Point(1296, 92);
+            comboBox_idioma.Location = new Point(1709, 82);
             comboBox_idioma.Name = "comboBox_idioma";
             comboBox_idioma.Size = new Size(180, 28);
             comboBox_idioma.TabIndex = 6;
@@ -112,7 +112,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1489, 1024);
+            ClientSize = new Size(1902, 1033);
             Controls.Add(comboBox_idioma);
             Controls.Add(button_cambiaridioma);
             Controls.Add(buttonLogout);
@@ -122,6 +122,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormPrincipal";
             Text = "FormPrincipal";
+            WindowState = FormWindowState.Maximized;
             Load += FormPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
