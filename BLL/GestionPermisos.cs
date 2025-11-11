@@ -26,5 +26,9 @@ namespace BLL
         {
             return mapperPermisos.Listar();
         }
+        public void InsertarGrupoPermiso(FAMILIA permiso)
+        {
+            mapperPermisos.Insertar(permiso);
+        }
     }
 }

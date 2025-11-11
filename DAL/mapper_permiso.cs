@@ -18,7 +18,11 @@ namespace DAL
 
         public override void Insertar(COMPONENTE obj)
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@nombre", obj.NombrePatente));
+            acceso.Escribir("PERMISO_GRUPO_INSERTAR", parametros);
+            acceso.Cerrar();
         }
 
         public override List<COMPONENTE> Listar()
