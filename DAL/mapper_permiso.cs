@@ -23,7 +23,19 @@ namespace DAL
 
         public override List<COMPONENTE> Listar()
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            List<COMPONENTE> lista_permisos = new List<COMPONENTE>();
+            acceso.Abrir();
+            dt = acceso.Leer("PERMISO_LISTAR");
+            foreach(DataRow dr in dt.Rows)
+            {
+                COMPONENTE obj = new PATENTE();
+                obj.IDPatente = int.Parse(dr["id_permiso"].ToString());
+                obj.NombrePatente = dr["detalle_permiso"].ToString();
+                lista_permisos.Add(obj);
+            }
+            acceso.Cerrar();
+            return lista_permisos;
         }
 
         public override void Modificar(COMPONENTE objviejo, COMPONENTE objnuevo)
@@ -87,5 +99,6 @@ namespace DAL
             }
             return lista_patentes;
         }
+        
     }
 }

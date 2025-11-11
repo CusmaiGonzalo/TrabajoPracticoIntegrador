@@ -20,14 +20,12 @@
 
 		public string Contraseña
 		{
-			get { return _contraseña; }
 			set { _contraseña = value; }
 		}
 		private string _salt;
 
 		public string Salt
 		{
-			get { return _salt; }
 			set { _salt = value; }
 		}
 
@@ -39,6 +37,14 @@
 			set { _lista_permisos = value; }
 		}
 
-		public USUARIO() { }
+		public string ObtenerContraseña()
+		{
+			return this._contraseña;
+        }
+		public string ObtenerSalt()
+		{
+			return this._salt;
+        }
+        public USUARIO() { }
 	}
 }

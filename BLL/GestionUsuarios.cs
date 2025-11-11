@@ -18,7 +18,7 @@ namespace BLL
                 maperbitacora.Insertar(nuevaBitacora);
                 throw new Exception("Usuario o contraseña incorrectos.");
             }
-            else if (CryptoManager.VerificarContraseña(user.Contraseña, usuarioEncontrado.Contraseña, Convert.FromBase64String(usuarioEncontrado.Salt)) == true)
+            else if (CryptoManager.VerificarContraseña(user.ObtenerContraseña(), usuarioEncontrado.ObtenerContraseña(), Convert.FromBase64String(usuarioEncontrado.ObtenerSalt())) == true)
             {
                 SessionManager.LogIn(usuarioEncontrado);
                 
@@ -38,7 +38,7 @@ namespace BLL
         public void AgregarUsuario(BE.USUARIO nuevoUsuario)
         {
             byte[] salt;
-            nuevoUsuario.Contraseña = CryptoManager.HashearContraseña(nuevoUsuario.Contraseña, out salt);
+            nuevoUsuario.Contraseña = CryptoManager.HashearContraseña(nuevoUsuario.ObtenerContraseña(), out salt);
             nuevoUsuario.Salt = Convert.ToBase64String(salt);
             mapper.Insertar(nuevoUsuario);
         }
@@ -54,5 +54,21 @@ namespace BLL
             return listadebitacoras;
         }
 
+        public List<BE.USUARIO> ListarUsuarios()
+        {
+            return mapper.Listar();
+        }
+        public void BorrarUsuario(BE.USUARIO usuario)
+        {
+            mapper.Borrar(usuario);
+        }
+        public void ModificarUsuario(BE.USUARIO usuarioViejo, BE.USUARIO usuarioNuevo)
+        {
+            mapper.Modificar(usuarioViejo, usuarioNuevo);
+        }
+        public void AgregarPermisoAUsuario(BE.USUARIO usuarioSeleccionado, PATENTE patenteSeleccionada)
+        {
+            mapper.AsignarPermisoAUsuario(usuarioSeleccionado,patenteSeleccionada);
+        }
     }
 }

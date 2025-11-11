@@ -77,6 +77,8 @@ namespace GUI
 
             // Estilo de encabezado
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font(dgv.Font, FontStyle.Bold);
+
+            dgv.MultiSelect = false;
         }
 
         private void LLenarGrilla(DataGridView grilla, object datos)
