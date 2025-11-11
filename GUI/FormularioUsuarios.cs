@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,8 @@ namespace GUI
             {
                 button_agregarUs.Enabled = false;
             }
+            EstiloGrilla(dataGridView1);
+            EstiloGrilla(dataGridView2);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,6 +45,7 @@ namespace GUI
                     nuevoUsuario.NombreUsuario = textBox1.Text;
                     nuevoUsuario.Contraseña = textBox2.Text;
                     gestorUsuarios.AgregarUsuario(nuevoUsuario);
+                    LlenarGrilla(dataGridView1, gestorUsuarios.ListarUsuarios());
                 }
                 else { throw new Exception("Complete todos los datos"); }
             }
@@ -74,9 +78,159 @@ namespace GUI
             }
         }
 
+        private void LlenarGrilla(DataGridView grilla, object datos)
+        {
+            grilla.DataSource = null;
+            grilla.DataSource = datos;
+        }
+        private void EstiloGrilla(DataGridView grilla)
+        {
+            grilla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grilla.MultiSelect = false;
+            grilla.AllowUserToAddRows = false;
+            grilla.ReadOnly = true;
+            grilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grilla.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            grilla.ColumnHeadersDefaultCellStyle.Font = new Font(grilla.Font, FontStyle.Bold);
+        }
         private void FormularioUsuarios_Load(object sender, EventArgs e)
         {
+            LlenarGrilla(dataGridView1, gestorUsuarios.ListarUsuarios());
+            LlenarGrilla(dataGridView2, gestorPermisos.ListarPermisos());
+        }
 
+        private void button_verpermisos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                treeView1.Nodes.Clear();
+                if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Seleccione un usuario para ver sus permisos.", "Seleccionar Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                BE.USUARIO usuarioSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
+                usuarioSeleccionado = gestorPermisos.CargarPermisosUsuario(usuarioSeleccionado);
+
+                CargarPermisosEnTreeView(usuarioSeleccionado.ListaPermisos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CargarPermisosEnTreeView(List<COMPONENTE> listaPermisos)
+        {
+            try
+            {
+                if (listaPermisos == null || listaPermisos.Count == 0)
+                {
+                    TreeNode nodoSinPermisos = new TreeNode("El usuario no tiene permisos asignados");
+                    nodoSinPermisos.ForeColor = Color.Gray;
+                    treeView1.Nodes.Add(nodoSinPermisos);
+                    return;
+                }
+                foreach (COMPONENTE compo in listaPermisos)
+                {
+                    if (compo is PATENTE)
+                    {
+                        PATENTE permiso = (PATENTE)compo;
+                        TreeNode nodoPatente = new TreeNode($"🔐 {permiso.NombrePatente}");
+                        nodoPatente.Tag = permiso;
+                        nodoPatente.ForeColor = Color.DarkGreen;
+                        treeView1.Nodes.Add(nodoPatente);
+                    }
+                    else
+                    if (compo is FAMILIA)
+                    {
+                        FAMILIA permisos = (FAMILIA)compo;
+                        TreeNode nodoFamilia = new TreeNode($"👥 {permisos.NombrePatente}");
+                        nodoFamilia.Tag = permisos;
+                        nodoFamilia.ForeColor = Color.DarkBlue;
+                        nodoFamilia.NodeFont = new Font(treeView1.Font, FontStyle.Bold);
+                        treeView1.Nodes.Add(nodoFamilia);
+                        CargarFamilias(nodoFamilia, permisos.listaComponentes);
+                    }
+                }
+                treeView1.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar permisos en TreeView: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private TreeNode CargarFamilias(TreeNode nodo, List<COMPONENTE> listaCompo)
+        {
+            foreach (COMPONENTE compo in listaCompo)
+            {
+                if (compo is PATENTE)
+                {
+                    PATENTE permiso = (PATENTE)compo;
+                    TreeNode nodoPatente = new TreeNode($"🔐 {permiso.NombrePatente}");
+                    nodoPatente.Tag = permiso;
+                    nodoPatente.ForeColor = Color.DarkGreen;
+                    nodo.Nodes.Add(nodoPatente);
+                }
+                else
+                if (compo is FAMILIA)
+                {
+                    FAMILIA permisos = (FAMILIA)compo;
+                    TreeNode nodoFamilia = new TreeNode($"👥 {permisos.NombrePatente}");
+                    nodoFamilia.Tag = permisos;
+                    nodoFamilia.ForeColor = Color.DarkBlue;
+                    nodoFamilia.NodeFont = new Font(treeView1.Font, FontStyle.Bold);
+                    nodo.Nodes.Add(nodoFamilia);
+                    CargarFamilias(nodoFamilia, permisos.listaComponentes);
+                }
+            }
+            return nodo;
+        }
+
+        private void button_borrarusuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                USUARIO userseleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
+                gestorUsuarios.BorrarUsuario(userseleccionado);
+                LlenarGrilla(dataGridView1, gestorUsuarios.ListarUsuarios());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_modificarusuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                USUARIO userseleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
+                USUARIO usermodificado = new USUARIO();
+                usermodificado.NombreUsuario = Interaction.InputBox("Ingrese nuevo nombre de usuario:", "Modificar Usuario", $"{userseleccionado.NombreUsuario}");
+                gestorUsuarios.ModificarUsuario(userseleccionado, usermodificado);
+                LlenarGrilla(dataGridView1, gestorUsuarios.ListarUsuarios());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_agregarpermus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                USUARIO usuarioseleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
+                PATENTE patenteseleccionada = dataGridView2.SelectedRows[0].DataBoundItem as PATENTE;
+                gestorUsuarios.AgregarPermisoAUsuario(usuarioseleccionado,patenteseleccionada);
+                MessageBox.Show("Patente agregada correctamente", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

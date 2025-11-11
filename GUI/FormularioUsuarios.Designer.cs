@@ -33,6 +33,18 @@
             label_usuarioINS = new Label();
             label_contINS = new Label();
             button_agregarUs = new Button();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
+            treeView1 = new TreeView();
+            label2 = new Label();
+            button_verpermisos = new Button();
+            button_borrarusuario = new Button();
+            button_modificarusuario = new Button();
+            dataGridView2 = new DataGridView();
+            label3 = new Label();
+            button_agregarpermus = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -80,11 +92,117 @@
             button_agregarUs.UseVisualStyleBackColor = true;
             button_agregarUs.Click += button1_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(253, 36);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(347, 410);
+            dataGridView1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(253, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 6;
+            label1.Text = "label1";
+            // 
+            // treeView1
+            // 
+            treeView1.Location = new Point(606, 36);
+            treeView1.Name = "treeView1";
+            treeView1.Size = new Size(320, 362);
+            treeView1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(606, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 8;
+            label2.Text = "label2";
+            // 
+            // button_verpermisos
+            // 
+            button_verpermisos.Location = new Point(606, 405);
+            button_verpermisos.Margin = new Padding(3, 4, 3, 4);
+            button_verpermisos.Name = "button_verpermisos";
+            button_verpermisos.Size = new Size(320, 41);
+            button_verpermisos.TabIndex = 9;
+            button_verpermisos.Text = "Ver Permisos";
+            button_verpermisos.UseVisualStyleBackColor = true;
+            button_verpermisos.Click += button_verpermisos_Click;
+            // 
+            // button_borrarusuario
+            // 
+            button_borrarusuario.Location = new Point(12, 182);
+            button_borrarusuario.Margin = new Padding(3, 4, 3, 4);
+            button_borrarusuario.Name = "button_borrarusuario";
+            button_borrarusuario.Size = new Size(233, 41);
+            button_borrarusuario.TabIndex = 10;
+            button_borrarusuario.Text = "Borrar Usuario";
+            button_borrarusuario.UseVisualStyleBackColor = true;
+            button_borrarusuario.Click += button_borrarusuario_Click;
+            // 
+            // button_modificarusuario
+            // 
+            button_modificarusuario.Location = new Point(14, 231);
+            button_modificarusuario.Margin = new Padding(3, 4, 3, 4);
+            button_modificarusuario.Name = "button_modificarusuario";
+            button_modificarusuario.Size = new Size(233, 41);
+            button_modificarusuario.TabIndex = 11;
+            button_modificarusuario.Text = "Modificar Usuario";
+            button_modificarusuario.UseVisualStyleBackColor = true;
+            button_modificarusuario.Click += button_modificarusuario_Click;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(253, 497);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(347, 514);
+            dataGridView2.TabIndex = 12;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(253, 474);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 20);
+            label3.TabIndex = 13;
+            label3.Text = "label3";
+            // 
+            // button_agregarpermus
+            // 
+            button_agregarpermus.Location = new Point(14, 497);
+            button_agregarpermus.Margin = new Padding(3, 4, 3, 4);
+            button_agregarpermus.Name = "button_agregarpermus";
+            button_agregarpermus.Size = new Size(233, 41);
+            button_agregarpermus.TabIndex = 14;
+            button_agregarpermus.Text = "Agregar Permiso a Usuario";
+            button_agregarpermus.UseVisualStyleBackColor = true;
+            button_agregarpermus.Click += button_agregarpermus_Click;
+            // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1446, 1055);
+            Controls.Add(button_agregarpermus);
+            Controls.Add(label3);
+            Controls.Add(dataGridView2);
+            Controls.Add(button_modificarusuario);
+            Controls.Add(button_borrarusuario);
+            Controls.Add(button_verpermisos);
+            Controls.Add(label2);
+            Controls.Add(treeView1);
+            Controls.Add(label1);
+            Controls.Add(dataGridView1);
             Controls.Add(button_agregarUs);
             Controls.Add(label_contINS);
             Controls.Add(label_usuarioINS);
@@ -94,6 +212,8 @@
             Name = "FormularioUsuarios";
             Text = "FormularioUsuarios";
             Load += FormularioUsuarios_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,5 +225,15 @@
         private Label label_usuarioINS;
         private Label label_contINS;
         private Button button_agregarUs;
+        private DataGridView dataGridView1;
+        private Label label1;
+        private TreeView treeView1;
+        private Label label2;
+        private Button button_verpermisos;
+        private Button button_borrarusuario;
+        private Button button_modificarusuario;
+        private DataGridView dataGridView2;
+        private Label label3;
+        private Button button_agregarpermus;
     }
 }

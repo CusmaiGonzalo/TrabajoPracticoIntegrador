@@ -22,5 +22,9 @@ namespace BLL
             validacion = Servicios.ServicioPermisos.ValidarPermisos(permiso, user);
             return validacion;
         }
+        public List<COMPONENTE> ListarPermisos()
+        {
+            return mapperPermisos.Listar();
+        }
     }
 }
