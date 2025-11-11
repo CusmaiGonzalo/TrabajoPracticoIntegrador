@@ -224,8 +224,24 @@ namespace GUI
             {
                 USUARIO usuarioseleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
                 PATENTE patenteseleccionada = dataGridView2.SelectedRows[0].DataBoundItem as PATENTE;
-                gestorUsuarios.AgregarPermisoAUsuario(usuarioseleccionado,patenteseleccionada);
-                MessageBox.Show("Patente agregada correctamente", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                gestorUsuarios.AgregarPermisoAUsuario(usuarioseleccionado, patenteseleccionada);
+                MessageBox.Show("Patente agregada correctamente", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_grupopermiso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(textBox_nombreGrupoperm.Text == "") { throw new Exception("Completar los campos."); }
+                FAMILIA nuevafamilia = new FAMILIA();
+                nuevafamilia.NombrePatente = textBox_nombreGrupoperm.Text;
+                gestorPermisos.InsertarGrupoPermiso(nuevafamilia);
+                LlenarGrilla(dataGridView2, gestorPermisos.ListarPermisos());
             }
             catch (Exception ex)
             {

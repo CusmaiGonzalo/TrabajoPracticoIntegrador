@@ -43,6 +43,9 @@
             dataGridView2 = new DataGridView();
             label3 = new Label();
             button_agregarpermus = new Button();
+            button_grupopermiso = new Button();
+            textBox_nombreGrupoperm = new TextBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -165,7 +168,7 @@
             dataGridView2.Location = new Point(253, 497);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(347, 514);
+            dataGridView2.Size = new Size(673, 514);
             dataGridView2.TabIndex = 12;
             // 
             // label3
@@ -188,11 +191,41 @@
             button_agregarpermus.UseVisualStyleBackColor = true;
             button_agregarpermus.Click += button_agregarpermus_Click;
             // 
+            // button_grupopermiso
+            // 
+            button_grupopermiso.Location = new Point(14, 546);
+            button_grupopermiso.Margin = new Padding(3, 4, 3, 4);
+            button_grupopermiso.Name = "button_grupopermiso";
+            button_grupopermiso.Size = new Size(233, 41);
+            button_grupopermiso.TabIndex = 15;
+            button_grupopermiso.Text = "Agregar Grupo de Permisos";
+            button_grupopermiso.UseVisualStyleBackColor = true;
+            button_grupopermiso.Click += button_grupopermiso_Click;
+            // 
+            // textBox_nombreGrupoperm
+            // 
+            textBox_nombreGrupoperm.Location = new Point(14, 614);
+            textBox_nombreGrupoperm.Name = "textBox_nombreGrupoperm";
+            textBox_nombreGrupoperm.Size = new Size(233, 27);
+            textBox_nombreGrupoperm.TabIndex = 16;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(14, 591);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 20);
+            label4.TabIndex = 17;
+            label4.Text = "label4";
+            // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1446, 1055);
+            Controls.Add(label4);
+            Controls.Add(textBox_nombreGrupoperm);
+            Controls.Add(button_grupopermiso);
             Controls.Add(button_agregarpermus);
             Controls.Add(label3);
             Controls.Add(dataGridView2);
@@ -235,5 +268,8 @@
         private DataGridView dataGridView2;
         private Label label3;
         private Button button_agregarpermus;
+        private Button button_grupopermiso;
+        private TextBox textBox_nombreGrupoperm;
+        private Label label4;
     }
 }
