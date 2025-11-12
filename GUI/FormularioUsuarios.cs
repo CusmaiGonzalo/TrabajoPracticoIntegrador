@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Azure.Core.HttpHeader;
 
 namespace GUI
 {
@@ -93,10 +94,20 @@ namespace GUI
             grilla.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
             grilla.ColumnHeadersDefaultCellStyle.Font = new Font(grilla.Font, FontStyle.Bold);
         }
+        private void LlenarComboBox(ComboBox comboBox, object datos)
+        {
+            comboBox.DataSource = null;
+            comboBox.DataSource = datos;
+            comboBox.DisplayMember = "NombrePatente";
+            comboBox.ValueMember = "IDPatente";
+            comboBox.SelectedIndex = 0;
+        }
         private void FormularioUsuarios_Load(object sender, EventArgs e)
         {
             LlenarGrilla(dataGridView1, gestorUsuarios.ListarUsuarios());
             LlenarGrilla(dataGridView2, gestorPermisos.ListarPermisos());
+            LlenarComboBox(comboBox1, gestorPermisos.ListarSoloFamilias());
+            LlenarComboBox(comboBox2, gestorPermisos.ListarSoloPermisos());
         }
 
         private void button_verpermisos_Click(object sender, EventArgs e)
@@ -113,7 +124,7 @@ namespace GUI
                 BE.USUARIO usuarioSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as USUARIO;
                 usuarioSeleccionado = gestorPermisos.CargarPermisosUsuario(usuarioSeleccionado);
 
-                CargarPermisosEnTreeView(usuarioSeleccionado.ListaPermisos);
+                CargarPermisosEnTreeView(usuarioSeleccionado.ListaPermisos, treeView1);
             }
             catch (Exception ex)
             {
@@ -121,7 +132,7 @@ namespace GUI
             }
         }
 
-        private void CargarPermisosEnTreeView(List<COMPONENTE> listaPermisos)
+        private void CargarPermisosEnTreeView(List<COMPONENTE> listaPermisos, TreeView arbol)
         {
             try
             {
@@ -129,7 +140,7 @@ namespace GUI
                 {
                     TreeNode nodoSinPermisos = new TreeNode("El usuario no tiene permisos asignados");
                     nodoSinPermisos.ForeColor = Color.Gray;
-                    treeView1.Nodes.Add(nodoSinPermisos);
+                    arbol.Nodes.Add(nodoSinPermisos);
                     return;
                 }
                 foreach (COMPONENTE compo in listaPermisos)
@@ -140,7 +151,7 @@ namespace GUI
                         TreeNode nodoPatente = new TreeNode($"🔐 {permiso.NombrePatente}");
                         nodoPatente.Tag = permiso;
                         nodoPatente.ForeColor = Color.DarkGreen;
-                        treeView1.Nodes.Add(nodoPatente);
+                        arbol.Nodes.Add(nodoPatente);
                     }
                     else
                     if (compo is FAMILIA)
@@ -150,11 +161,11 @@ namespace GUI
                         nodoFamilia.Tag = permisos;
                         nodoFamilia.ForeColor = Color.DarkBlue;
                         nodoFamilia.NodeFont = new Font(treeView1.Font, FontStyle.Bold);
-                        treeView1.Nodes.Add(nodoFamilia);
+                        arbol.Nodes.Add(nodoFamilia);
                         CargarFamilias(nodoFamilia, permisos.listaComponentes);
                     }
                 }
-                treeView1.ExpandAll();
+                arbol.ExpandAll();
             }
             catch (Exception ex)
             {
@@ -237,11 +248,43 @@ namespace GUI
         {
             try
             {
-                if(textBox_nombreGrupoperm.Text == "") { throw new Exception("Completar los campos."); }
+                if (textBox_nombreGrupoperm.Text == "") { throw new Exception("Completar los campos."); }
                 FAMILIA nuevafamilia = new FAMILIA();
                 nuevafamilia.NombrePatente = textBox_nombreGrupoperm.Text;
                 gestorPermisos.InsertarGrupoPermiso(nuevafamilia);
                 LlenarGrilla(dataGridView2, gestorPermisos.ListarPermisos());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_verpermigrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FAMILIA familiaelegida = new FAMILIA();
+                familiaelegida = (FAMILIA)comboBox1.SelectedItem;
+                treeView2.Nodes.Clear();
+                CargarPermisosEnTreeView(gestorPermisos.ListarPatentesDeGrupo(familiaelegida), treeView2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_agregarpermagrup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FAMILIA familiaseleecionada = new FAMILIA();
+                PATENTE patenteseleccionada = new PATENTE();
+                familiaseleecionada = (FAMILIA)comboBox1.SelectedItem;
+                patenteseleccionada = (PATENTE)comboBox2.SelectedItem;
+                gestorPermisos.InsertarPatenteAGrupo(familiaseleecionada, patenteseleccionada);
+                MessageBox.Show("Permiso añadido correctamente.", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -7,6 +7,9 @@
     <Compile Update="FormEventos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormIdiomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>

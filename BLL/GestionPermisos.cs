@@ -30,5 +30,21 @@ namespace BLL
         {
             mapperPermisos.Insertar(permiso);
         }
+        public List<FAMILIA> ListarSoloFamilias()
+        {
+            return mapperPermisos.ListarSoloFamilias();
+        }
+        public List<PATENTE> ListarSoloPermisos()
+        {
+            return mapperPermisos.ListarSoloPatente();
+        }
+        public List<COMPONENTE> ListarPatentesDeGrupo(FAMILIA familiaelecgida)
+        {
+            return mapperPermisos.ListarPatentes(familiaelecgida);
+        }
+        public void InsertarPatenteAGrupo(FAMILIA familiaseleccionada, PATENTE patenteseleciconada)
+        {
+            mapperPermisos.InsertarPatenteAGrupo(familiaseleccionada, patenteseleciconada);
+        }
     }
 }

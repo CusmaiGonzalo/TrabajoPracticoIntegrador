@@ -25,7 +25,7 @@ namespace GUI
         public FormPrincipal()
         {
             InitializeComponent();
-            
+
             LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
             gestorIdioma.CambiarIdioma(1);
             gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
@@ -46,7 +46,7 @@ namespace GUI
                 iNICIOToolStripMenuItem.Visible = false;
             }
             PATENTE permisoUsuarios = new PATENTE() { IDPatente = 4 };
-            if(gestorPermisos.ValidarPermisosDeUsuario(permisoUsuarios, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoUsuarios, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
                 uSUARIOSToolStripMenuItem.Visible = false;
             }
@@ -70,7 +70,7 @@ namespace GUI
             this.FormClosing += FormPrincipal_FormClosing;
         }
 
-        
+
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -130,17 +130,17 @@ namespace GUI
             try
             {
                 PATENTE permisoLogIn = new PATENTE() { IDPatente = 1 };
-                
+
                 if (gestorNegocio.VerificarIntegridadProductos() == false)
                 {
                     throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
                 }
-                if(gestorPermisos.ValidarPermisosDeUsuario(permisoLogIn, Servicios.SessionManager.Instance.UsuarioLog) == false)
+                if (gestorPermisos.ValidarPermisosDeUsuario(permisoLogIn, Servicios.SessionManager.Instance.UsuarioLog) == false)
                 {
                     throw new Exception("El usuario no tiene permisos para iniciar sesión.");
                 }
                 gestorIdioma.Agregar(this);
-                
+
             }
             catch (Exception ex)
             {
@@ -187,7 +187,7 @@ namespace GUI
         }
         private void TraducirAIdiomaMenu(ToolStripItemCollection items, int idioma)
         {
-            foreach(ToolStripItem item in items)
+            foreach (ToolStripItem item in items)
             {
                 item.Text = gestorIdioma.ObtenerTraduccion(item.Name);
                 if (item is ToolStripMenuItem menuItem && menuItem.HasDropDownItems)
@@ -230,6 +230,15 @@ namespace GUI
                 }
                 catch { }
             }
+        }
+
+        private void iDIOMASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormIdiomas formIdioma = new FormIdiomas(gestorIdioma);
+            formIdioma.MdiParent = this;
+            formIdioma.WindowState = FormWindowState.Maximized;
+            formIdioma.Show();
         }
     }
 }
