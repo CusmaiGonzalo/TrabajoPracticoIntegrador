@@ -51,5 +51,17 @@ namespace BLL
         {
             return maperIdioma.Listar();
         }
+
+        public List<TRADUCCION> ListarTraduccionesYEtiquetas(int ididioma)
+        {
+            return maperEtiquetas.ListarTraducciones(ididioma);
+        }
+        public void InsertarIdiomaNuevo(string nombreIdioma, List<TRADUCCION> traducciones)
+        {
+            maperEtiquetas.InsertarNuevoIdioma(nombreIdioma);
+            List<IDIOMA> listaidiomas = new List<IDIOMA>();
+            listaidiomas = ListarIdiomas();
+            maperEtiquetas.InsertarTraduccionesGenericaas(listaidiomas.Last(), traducciones);
+        }
     }
 }

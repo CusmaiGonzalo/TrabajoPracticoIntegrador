@@ -34,18 +34,26 @@
             label_contINS = new Label();
             button_agregarUs = new Button();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
+            label_listaus = new Label();
             treeView1 = new TreeView();
-            label2 = new Label();
+            label_permisosdeus = new Label();
             button_verpermisos = new Button();
             button_borrarusuario = new Button();
             button_modificarusuario = new Button();
             dataGridView2 = new DataGridView();
-            label3 = new Label();
+            label_permygrup = new Label();
             button_agregarpermus = new Button();
             button_grupopermiso = new Button();
             textBox_nombreGrupoperm = new TextBox();
-            label4 = new Label();
+            label_nombregrup = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            label_grupoPermisos = new Label();
+            label_permisos = new Label();
+            label_listapermgrup = new Label();
+            button_agregarpermagrup = new Button();
+            button_verpermigrupo = new Button();
+            treeView2 = new TreeView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -101,40 +109,40 @@
             dataGridView1.Location = new Point(253, 36);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(347, 410);
+            dataGridView1.Size = new Size(413, 410);
             dataGridView1.TabIndex = 5;
             // 
-            // label1
+            // label_listaus
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(253, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 6;
-            label1.Text = "label1";
+            label_listaus.AutoSize = true;
+            label_listaus.Location = new Point(253, 13);
+            label_listaus.Name = "label_listaus";
+            label_listaus.Size = new Size(118, 20);
+            label_listaus.TabIndex = 6;
+            label_listaus.Text = "Lista de usuarios";
             // 
             // treeView1
             // 
-            treeView1.Location = new Point(606, 36);
+            treeView1.Location = new Point(695, 36);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(320, 362);
+            treeView1.Size = new Size(370, 362);
             treeView1.TabIndex = 7;
             // 
-            // label2
+            // label_permisosdeus
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(606, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 8;
-            label2.Text = "label2";
+            label_permisosdeus.AutoSize = true;
+            label_permisosdeus.Location = new Point(695, 13);
+            label_permisosdeus.Name = "label_permisosdeus";
+            label_permisosdeus.Size = new Size(144, 20);
+            label_permisosdeus.TabIndex = 8;
+            label_permisosdeus.Text = "Permisos del usuario";
             // 
             // button_verpermisos
             // 
-            button_verpermisos.Location = new Point(606, 405);
+            button_verpermisos.Location = new Point(695, 406);
             button_verpermisos.Margin = new Padding(3, 4, 3, 4);
             button_verpermisos.Name = "button_verpermisos";
-            button_verpermisos.Size = new Size(320, 41);
+            button_verpermisos.Size = new Size(370, 41);
             button_verpermisos.TabIndex = 9;
             button_verpermisos.Text = "Ver Permisos";
             button_verpermisos.UseVisualStyleBackColor = true;
@@ -168,17 +176,17 @@
             dataGridView2.Location = new Point(253, 497);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(673, 514);
+            dataGridView2.Size = new Size(862, 446);
             dataGridView2.TabIndex = 12;
             // 
-            // label3
+            // label_permygrup
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(253, 474);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 13;
-            label3.Text = "label3";
+            label_permygrup.AutoSize = true;
+            label_permygrup.Location = new Point(253, 474);
+            label_permygrup.Name = "label_permygrup";
+            label_permygrup.Size = new Size(213, 20);
+            label_permygrup.TabIndex = 13;
+            label_permygrup.Text = "Permisos y grupos de permisos";
             // 
             // button_agregarpermus
             // 
@@ -193,7 +201,7 @@
             // 
             // button_grupopermiso
             // 
-            button_grupopermiso.Location = new Point(14, 546);
+            button_grupopermiso.Location = new Point(14, 639);
             button_grupopermiso.Margin = new Padding(3, 4, 3, 4);
             button_grupopermiso.Name = "button_grupopermiso";
             button_grupopermiso.Size = new Size(233, 41);
@@ -204,37 +212,117 @@
             // 
             // textBox_nombreGrupoperm
             // 
-            textBox_nombreGrupoperm.Location = new Point(14, 614);
+            textBox_nombreGrupoperm.Location = new Point(14, 707);
             textBox_nombreGrupoperm.Name = "textBox_nombreGrupoperm";
             textBox_nombreGrupoperm.Size = new Size(233, 27);
             textBox_nombreGrupoperm.TabIndex = 16;
             // 
-            // label4
+            // label_nombregrup
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(14, 591);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 20);
-            label4.TabIndex = 17;
-            label4.Text = "label4";
+            label_nombregrup.AutoSize = true;
+            label_nombregrup.Location = new Point(14, 684);
+            label_nombregrup.Name = "label_nombregrup";
+            label_nombregrup.Size = new Size(214, 20);
+            label_nombregrup.TabIndex = 17;
+            label_nombregrup.Text = "Nombre de grupo de permisos";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(1121, 35);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(364, 28);
+            comboBox1.TabIndex = 18;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(1121, 90);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(364, 28);
+            comboBox2.TabIndex = 19;
+            // 
+            // label_grupoPermisos
+            // 
+            label_grupoPermisos.AutoSize = true;
+            label_grupoPermisos.Location = new Point(1121, 13);
+            label_grupoPermisos.Name = "label_grupoPermisos";
+            label_grupoPermisos.Size = new Size(135, 20);
+            label_grupoPermisos.TabIndex = 21;
+            label_grupoPermisos.Text = "Grupo de permisos";
+            // 
+            // label_permisos
+            // 
+            label_permisos.AutoSize = true;
+            label_permisos.Location = new Point(1121, 67);
+            label_permisos.Name = "label_permisos";
+            label_permisos.Size = new Size(67, 20);
+            label_permisos.TabIndex = 22;
+            label_permisos.Text = "Permisos";
+            // 
+            // label_listapermgrup
+            // 
+            label_listapermgrup.AutoSize = true;
+            label_listapermgrup.Location = new Point(1121, 121);
+            label_listapermgrup.Name = "label_listapermgrup";
+            label_listapermgrup.Size = new Size(284, 20);
+            label_listapermgrup.TabIndex = 23;
+            label_listapermgrup.Text = "Lista de permisos del grupo seleccionado";
+            // 
+            // button_agregarpermagrup
+            // 
+            button_agregarpermagrup.Location = new Point(1121, 503);
+            button_agregarpermagrup.Margin = new Padding(3, 4, 3, 4);
+            button_agregarpermagrup.Name = "button_agregarpermagrup";
+            button_agregarpermagrup.Size = new Size(364, 42);
+            button_agregarpermagrup.TabIndex = 24;
+            button_agregarpermagrup.Text = "Agregar Permisos a Grupo";
+            button_agregarpermagrup.UseVisualStyleBackColor = true;
+            button_agregarpermagrup.Click += button_agregarpermagrup_Click;
+            // 
+            // button_verpermigrupo
+            // 
+            button_verpermigrupo.Location = new Point(1121, 553);
+            button_verpermigrupo.Margin = new Padding(3, 4, 3, 4);
+            button_verpermigrupo.Name = "button_verpermigrupo";
+            button_verpermigrupo.Size = new Size(364, 42);
+            button_verpermigrupo.TabIndex = 25;
+            button_verpermigrupo.Text = "Ver permisos del grupo";
+            button_verpermigrupo.UseVisualStyleBackColor = true;
+            button_verpermigrupo.Click += button_verpermigrupo_Click;
+            // 
+            // treeView2
+            // 
+            treeView2.Location = new Point(1121, 151);
+            treeView2.Name = "treeView2";
+            treeView2.Size = new Size(364, 343);
+            treeView2.TabIndex = 26;
             // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1446, 1055);
-            Controls.Add(label4);
+            ClientSize = new Size(1667, 1055);
+            Controls.Add(treeView2);
+            Controls.Add(button_verpermigrupo);
+            Controls.Add(button_agregarpermagrup);
+            Controls.Add(label_listapermgrup);
+            Controls.Add(label_permisos);
+            Controls.Add(label_grupoPermisos);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
+            Controls.Add(label_nombregrup);
             Controls.Add(textBox_nombreGrupoperm);
             Controls.Add(button_grupopermiso);
             Controls.Add(button_agregarpermus);
-            Controls.Add(label3);
+            Controls.Add(label_permygrup);
             Controls.Add(dataGridView2);
             Controls.Add(button_modificarusuario);
             Controls.Add(button_borrarusuario);
             Controls.Add(button_verpermisos);
-            Controls.Add(label2);
+            Controls.Add(label_permisosdeus);
             Controls.Add(treeView1);
-            Controls.Add(label1);
+            Controls.Add(label_listaus);
             Controls.Add(dataGridView1);
             Controls.Add(button_agregarUs);
             Controls.Add(label_contINS);
@@ -259,17 +347,25 @@
         private Label label_contINS;
         private Button button_agregarUs;
         private DataGridView dataGridView1;
-        private Label label1;
+        private Label label_listaus;
         private TreeView treeView1;
-        private Label label2;
+        private Label label_permisosdeus;
         private Button button_verpermisos;
         private Button button_borrarusuario;
         private Button button_modificarusuario;
         private DataGridView dataGridView2;
-        private Label label3;
+        private Label label_permygrup;
         private Button button_agregarpermus;
         private Button button_grupopermiso;
         private TextBox textBox_nombreGrupoperm;
-        private Label label4;
+        private Label label_nombregrup;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label_grupoPermisos;
+        private Label label_permisos;
+        private Label label_listapermgrup;
+        private Button button_agregarpermagrup;
+        private Button button_verpermigrupo;
+        private TreeView treeView2;
     }
 }

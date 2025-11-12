@@ -103,6 +103,44 @@ namespace DAL
             }
             return lista_patentes;
         }
-        
+        public List<FAMILIA> ListarSoloFamilias()
+        {
+            DataTable dt = new DataTable();
+            List<FAMILIA> listafamilias = new List<FAMILIA>();
+            acceso.Abrir();
+            dt = acceso.Leer("PERMISO_LISTARGRUPO");
+            foreach (DataRow dr in dt.Rows)
+            {
+                FAMILIA nuevafamilia = new FAMILIA();
+                nuevafamilia.IDPatente = int.Parse(dr["id_permiso"].ToString());
+                nuevafamilia.NombrePatente = dr["detalle_permiso"].ToString();
+                listafamilias.Add(nuevafamilia);
+            }
+            return listafamilias;
+        }
+        public List<PATENTE> ListarSoloPatente()
+        {
+            DataTable dt = new DataTable();
+            List<PATENTE> listafamilias = new List<PATENTE>();
+            acceso.Abrir();
+            dt = acceso.Leer("PERMISO_LISTARPERMISOINDIVIDUAL");
+            foreach (DataRow dr in dt.Rows)
+            {
+                PATENTE nuevafamilia = new PATENTE();
+                nuevafamilia.IDPatente = int.Parse(dr["id_permiso"].ToString());
+                nuevafamilia.NombrePatente = dr["detalle_permiso"].ToString();
+                listafamilias.Add(nuevafamilia);
+            }
+            return listafamilias;
+        }
+        public void InsertarPatenteAGrupo(FAMILIA familiaseleccionada, PATENTE patenteselccionada)
+        {
+            acceso.Abrir();
+            List<SqlParameter> sp = new List<SqlParameter>();
+            sp.Add(acceso.CrearParametro("@idfam", familiaseleccionada.IDPatente));
+            sp.Add(acceso.CrearParametro("@idper", patenteselccionada.IDPatente));
+            acceso.Escribir("PERxPER_AGREGAR_PERMISO", sp);
+            acceso.Cerrar();
+        }
     }
 }
