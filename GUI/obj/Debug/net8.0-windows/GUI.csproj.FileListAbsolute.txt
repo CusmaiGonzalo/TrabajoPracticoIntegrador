@@ -152,3 +152,4 @@ D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormEventos.resour
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormProductos.resources
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormInicio.resources
 D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormIdiomas.resources
+D:\TrabajoPracticoIntegrador\GUI\obj\Debug\net8.0-windows\GUI.FormEstadoTablas.resources

@@ -39,6 +39,17 @@ namespace BE
 		{
 			return _id_etiqueta;
         }
-		public TRADUCCION() { }
+		private int _id_traduccion;
+
+		public int IdTraduccion
+		{
+			set { _id_traduccion = value; }
+		}
+		public int ObtenerIdTraduccion()
+		{
+			return _id_traduccion;
+        }
+
+        public TRADUCCION() { }
     }
 }

@@ -32,6 +32,7 @@ namespace GUI
         {
             // Configurar el DataGridView
             ConfigurarDataGridView(dataGridView1);
+            ConfigurarDataGridView(dataGridView2);
 
             // Llenar los controles con datos
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
@@ -198,6 +199,25 @@ namespace GUI
             try
             {
                 LLenarGrilla(dataGridView2, gestorNegocio.ListarHistoricoProducto(dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_volverproducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BE.PRODUCTO productoSeleccionado = dataGridView2.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
+                BE.PRODUCTO productoAModificar = new BE.PRODUCTO();
+                List<BE.PRODUCTO> listaprod = new List<PRODUCTO>();
+                listaprod = gestorNegocio.ListarProductos();
+                productoAModificar = listaprod.Find(p => p.IDProducto == productoSeleccionado.IDProducto);
+                if(productoAModificar == null) { throw new Exception("No se encontró el producto actual para modificar."); }
+                gestorNegocio.ModificarProducto(productoAModificar,productoSeleccionado);
+                LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
             }
             catch (Exception ex)
             {

@@ -240,6 +240,15 @@ namespace GUI
             formIdioma.WindowState = FormWindowState.Maximized;
             formIdioma.Show();
         }
+
+        private void eSTADOTABLASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormEstadoTablas formtablas = new FormEstadoTablas(gestorIdioma);
+            formtablas.MdiParent = this;
+            formtablas.WindowState = FormWindowState.Maximized;
+            formtablas.Show();
+        }
     }
 }
 

@@ -22,6 +22,13 @@ namespace BE
 			get { return _nombre_idioma; }
 			set { _nombre_idioma = value; }
 		}
+		private int _alta;
+
+		public int Alta
+		{
+			get { return _alta; }
+			set { _alta = value; }
+		}
 
 	}
 }

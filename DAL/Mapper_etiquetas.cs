@@ -46,6 +46,7 @@ namespace DAL
                 tradu.TraduccionEspañol = dr["trad_esp"].ToString();
                 tradu.Traduccion = dr["traduccion"].ToString();
                 tradu.IDEtiqueta = int.Parse(dr["id_etiqueta"].ToString());
+                tradu.IdTraduccion = int.Parse(dr["id_traduccion"].ToString());
                 listaTraducciones.Add(tradu);
             }
             acceso.Cerrar();
@@ -72,6 +73,15 @@ namespace DAL
                 acceso.Escribir("TRADUCCION_INSERTAR", parametros);
                 parametros.Clear();
             }
+        }
+        public void ModificarTraduccion(TRADUCCION traduccionmodificada)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@idtrad", traduccionmodificada.ObtenerIdTraduccion()));
+            parametros.Add(acceso.CrearParametro("@nuevatrad", traduccionmodificada.Traduccion));
+            acceso.Escribir("TRADUCCION_MODIFICAR", parametros);
+            acceso.Cerrar();
         }
     }
 }

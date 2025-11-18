@@ -42,6 +42,7 @@
             button_borrarprod = new Button();
             button_modificarprod = new Button();
             button_verhistprod = new Button();
+            button_volverproducto = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -52,7 +53,7 @@
             dataGridView1.Location = new Point(222, 38);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(688, 760);
+            dataGridView1.Size = new Size(975, 568);
             dataGridView1.TabIndex = 0;
             // 
             // button_agregarprod
@@ -126,16 +127,16 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(973, 38);
+            dataGridView2.Location = new Point(222, 632);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(733, 431);
+            dataGridView2.Size = new Size(975, 260);
             dataGridView2.TabIndex = 9;
             // 
             // label_historialprod
             // 
             label_historialprod.AutoSize = true;
-            label_historialprod.Location = new Point(973, 15);
+            label_historialprod.Location = new Point(222, 609);
             label_historialprod.Name = "label_historialprod";
             label_historialprod.Size = new Size(154, 20);
             label_historialprod.TabIndex = 10;
@@ -163,7 +164,7 @@
             // 
             // button_verhistprod
             // 
-            button_verhistprod.Location = new Point(973, 475);
+            button_verhistprod.Location = new Point(12, 632);
             button_verhistprod.Name = "button_verhistprod";
             button_verhistprod.Size = new Size(204, 60);
             button_verhistprod.TabIndex = 13;
@@ -171,11 +172,22 @@
             button_verhistprod.UseVisualStyleBackColor = true;
             button_verhistprod.Click += button_verhistprod_Click;
             // 
+            // button_volverproducto
+            // 
+            button_volverproducto.Location = new Point(12, 698);
+            button_volverproducto.Name = "button_volverproducto";
+            button_volverproducto.Size = new Size(204, 60);
+            button_volverproducto.TabIndex = 14;
+            button_volverproducto.Text = "Volver a estado seleccionado";
+            button_volverproducto.UseVisualStyleBackColor = true;
+            button_volverproducto.Click += button_volverproducto_Click;
+            // 
             // FormProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1718, 904);
+            Controls.Add(button_volverproducto);
             Controls.Add(button_verhistprod);
             Controls.Add(button_modificarprod);
             Controls.Add(button_borrarprod);
@@ -215,5 +227,6 @@
         private Button button_borrarprod;
         private Button button_modificarprod;
         private Button button_verhistprod;
+        private Button button_volverproducto;
     }
 }

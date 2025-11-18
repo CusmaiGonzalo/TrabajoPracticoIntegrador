@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,17 @@ namespace BLL
         {
             maperProducto.ModificarProducto(productoViejo, productoNuevo, Servicios.SessionManager.Instance.UsuarioLog);
         }
-        
+        public List<OBJETO_DVH> ListarDVHs()
+        {
+            return maperDvh.ListarDVHs();
+        }
+        public string EstadoDeTabla()
+        {
+            return maperDvh.EstadoTabla();
+        }
+        public void RepararIntegridadProductos()
+        {
+            maperDvh.RecalcularTablas();
+        }
     }
 }

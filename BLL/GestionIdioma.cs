@@ -45,7 +45,10 @@ namespace BLL
         {
             observadores.Remove(observer);
         }
-
+        public List<IDIOMA> ListarTodosLosIdiomas()
+        {
+            return maperIdioma.ListarTodos();
+        }
 
         public List<BE.IDIOMA> ListarIdiomas()
         {
@@ -60,8 +63,36 @@ namespace BLL
         {
             maperEtiquetas.InsertarNuevoIdioma(nombreIdioma);
             List<IDIOMA> listaidiomas = new List<IDIOMA>();
-            listaidiomas = ListarIdiomas();
+            listaidiomas = ListarTodosLosIdiomas();
             maperEtiquetas.InsertarTraduccionesGenericaas(listaidiomas.Last(), traducciones);
+        }
+        public void ModificarTraduccion(TRADUCCION tradnueva)
+        {
+            maperEtiquetas.ModificarTraduccion(tradnueva);
+        }
+        public void AltaIdioma(IDIOMA idioma)
+        {
+            if (idioma.Alta == 0)
+            {
+                maperIdioma.AltaIdioma(idioma);
+            }
+            else { throw new Exception("El idioma ya se encuentra activo.");}
+        }
+        public void BajaIdioma(IDIOMA idioma)
+        {
+            if (idioma.Alta == 1)
+            {
+                maperIdioma.BajaIdioma(idioma);
+            }
+            else { throw new Exception("El idioma ya se encuentra inactivo."); }
+        }
+        public void BorrarIdioma(IDIOMA idioma)
+        {
+            maperIdioma.Borrar(idioma);
+        }
+        public void ModificarNombreDelIdioma(IDIOMA idioma)
+        {
+            maperIdioma.ModificarIdiomaNombre(idioma);
         }
     }
 }
