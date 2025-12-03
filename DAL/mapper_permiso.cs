@@ -116,6 +116,10 @@ namespace DAL
                 nuevafamilia.NombrePatente = dr["detalle_permiso"].ToString();
                 listafamilias.Add(nuevafamilia);
             }
+            foreach (FAMILIA comp in listafamilias)
+            {
+                comp.listaComponentes = ListarPatentes(comp);
+            }
             return listafamilias;
         }
         public List<PATENTE> ListarSoloPatente()
@@ -142,5 +146,32 @@ namespace DAL
             acceso.Escribir("PERxPER_AGREGAR_PERMISO", sp);
             acceso.Cerrar();
         }
+        public void InsertarGrupoAGrupo(FAMILIA familiaseleccionada, FAMILIA gruposeleccionado)
+        {
+            acceso.Abrir();
+            List<SqlParameter> sp = new List<SqlParameter>();
+            sp.Add(acceso.CrearParametro("@idfam", familiaseleccionada.IDPatente));
+            sp.Add(acceso.CrearParametro("@idper", gruposeleccionado.IDPatente));
+            acceso.Escribir("PERxPER_AGREGAR_PERMISO", sp);
+            acceso.Cerrar();
+        }
+        public void BorrarPermisoDeGrupo(COMPONENTE familiaseleccionada, COMPONENTE patenteseleccionada)
+        {
+            acceso.Abrir();
+            List<SqlParameter> sp = new List<SqlParameter>();
+            sp.Add(acceso.CrearParametro("@idperind", patenteseleccionada.IDPatente));
+            sp.Add(acceso.CrearParametro("@idperfam", familiaseleccionada.IDPatente));
+            acceso.Escribir("PERMISO_BORRAR", sp);
+            acceso.Cerrar();
+        }
+        public void BorrarGrupoCompleto(FAMILIA familiaseleccionada)
+        {
+            acceso.Abrir();
+            List<SqlParameter> sp = new List<SqlParameter>();
+            sp.Add(acceso.CrearParametro("@idgrupo", familiaseleccionada.IDPatente));
+            acceso.Escribir("PERMISO_BORRAR_GRUPO", sp);
+            acceso.Cerrar();
+        }
+        
     }
 }

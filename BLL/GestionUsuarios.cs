@@ -1,5 +1,6 @@
 ﻿using BE;
 using Servicios;
+using System.Diagnostics.Contracts;
 
 namespace BLL
 {
@@ -41,6 +42,10 @@ namespace BLL
             nuevoUsuario.Contraseña = CryptoManager.HashearContraseña(nuevoUsuario.ObtenerContraseña(), out salt);
             nuevoUsuario.Salt = Convert.ToBase64String(salt);
             mapper.Insertar(nuevoUsuario);
+            
+            // Registrar evento en bitácora
+            nuevaBitacora = Bitacora.EventoBitacora($"Usuario '{nuevoUsuario.NombreUsuario}' agregado al sistema");
+            maperbitacora.Insertar(nuevaBitacora);
         }
 
         public void EscribirBitacora(BE.BITACORA nuevoBitacora)
@@ -61,14 +66,44 @@ namespace BLL
         public void BorrarUsuario(BE.USUARIO usuario)
         {
             mapper.Borrar(usuario);
+            
+            // Registrar evento en bitácora
+            nuevaBitacora = Bitacora.EventoBitacora($"Usuario '{usuario.NombreUsuario}' eliminado del sistema");
+            maperbitacora.Insertar(nuevaBitacora);
         }
+        
         public void ModificarUsuario(BE.USUARIO usuarioViejo, BE.USUARIO usuarioNuevo)
         {
             mapper.Modificar(usuarioViejo, usuarioNuevo);
+            
+            // Registrar evento en bitácora
+            nuevaBitacora = Bitacora.EventoBitacora($"Usuario '{usuarioViejo.NombreUsuario}' modificado en el sistema");
+            maperbitacora.Insertar(nuevaBitacora);
         }
         public void AgregarPermisoAUsuario(BE.USUARIO usuarioSeleccionado, PATENTE patenteSeleccionada)
         {
-            mapper.AsignarPermisoAUsuario(usuarioSeleccionado,patenteSeleccionada);
+            bool validacion = false;
+            foreach(COMPONENTE comp in usuarioSeleccionado.ListaPermisos)
+            {
+                validacion = comp.Validar(patenteSeleccionada);
+                if (validacion == true) { break; }
+            }
+            if (usuarioSeleccionado.ListaPermisos.Find(x => x.IDPatente == patenteSeleccionada.IDPatente) != null)
+            {
+                validacion = true;
+            }
+            if (validacion == true) { throw new Exception("El usuario ya posee ese permiso"); }
+            else { mapper.AsignarPermisoAUsuario(usuarioSeleccionado, patenteSeleccionada); }
+        }
+        public void QuitarPermisoAUsuario(BE.USUARIO usuarioSeleccionado, COMPONENTE patenteSeleccionada)
+        {
+            bool validacion = false;
+            if (usuarioSeleccionado.ListaPermisos.Find(x => x.IDPatente == patenteSeleccionada.IDPatente) != null)
+            {
+                validacion = true;
+            }
+            if (validacion == false) { throw new Exception("El usuario no posee ese permiso"); }
+            else { mapper.BorrarPermisoDeUsuario(usuarioSeleccionado, patenteSeleccionada); }
         }
     }
 }

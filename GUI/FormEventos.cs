@@ -85,5 +85,64 @@ namespace GUI
                 }
             }
         }
+
+        private void button_aplicarfiltro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!checkBox_error.Checked && !checkBox_tipo.Checked)
+                {
+                    LlenarGrilla(dataGridView1, bitacoraList);
+                    return;
+                }
+                if (checkBox_error.Checked && checkBox_tipo.Checked)
+                {
+                    LlenarGrilla(dataGridView1, bitacoraList);
+                    return;
+                }
+                if (checkBox_tipo.Checked)
+                {
+                    List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
+                    bitacoraFiltrada = bitacoraList.Where(b => b.Tipo == "EVENTO").ToList();
+                    LlenarGrilla(dataGridView1, bitacoraFiltrada);
+                }
+                if (checkBox_error.Checked)
+                {
+                    List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
+                    bitacoraFiltrada = bitacoraList.Where(b => b.Tipo == "ERROR").ToList();
+                    LlenarGrilla(dataGridView1, bitacoraFiltrada);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_filtrarSistema_Click(object sender, EventArgs e)
+        {
+            if(!checkBox_sistema.Checked && !checkBox_usuario.Checked)
+            {
+                LlenarGrilla(dataGridView1, bitacoraList);
+                return;
+            }
+            if (checkBox_sistema.Checked && checkBox_usuario.Checked)
+            {
+                LlenarGrilla(dataGridView1, bitacoraList);
+                return;
+            }
+            if (checkBox_sistema.Checked)
+            {
+                List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
+                bitacoraFiltrada = bitacoraList.Where(b => b.UserBitacora == "SISTEMA").ToList();
+                LlenarGrilla(dataGridView1, bitacoraFiltrada);
+            }
+            if(checkBox_usuario.Checked)
+            {
+                List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
+                bitacoraFiltrada = bitacoraList.Where(b => b.UserBitacora != "SISTEMA").ToList();
+                LlenarGrilla(dataGridView1, bitacoraFiltrada);
+            }
+        }
     }
 }

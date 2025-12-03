@@ -1,6 +1,7 @@
 ﻿using BE;
 using BLL;
 using Microsoft.VisualBasic;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,8 @@ namespace GUI
         BLL.GestionNegocio gestorNegocio;
         BLL.GestionIdioma gestorIdioma;
         BLL.GestionPermisos gestorPermisos;
+        BE.BITACORA nuevaBitacora = new BITACORA();
+        BLL.GestionBitacora gestorBitacora = new BLL.GestionBitacora();
         public FormProductos(BLL.GestionIdioma IdiomasFormPrincipal)
         {
             InitializeComponent();
@@ -56,6 +59,11 @@ namespace GUI
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoVerHistorico, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
                 button_verhistprod.Enabled = false;
+            }
+            PATENTE permisoVolverProd = new PATENTE() { IDPatente = 21 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoVolverProd, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_volverproducto.Enabled = false;
             }
         }
 
@@ -119,6 +127,8 @@ namespace GUI
                     }
                     gestorNegocio.AgregarProducto(nuevoProducto);
                     LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+                    nuevaBitacora = Bitacora.EventoBitacora("Se agrego un producto nuevo.");
+                    gestorBitacora.RegistrarBitacora(nuevaBitacora);
                 }
                 else
                 {
@@ -160,6 +170,8 @@ namespace GUI
                 BE.PRODUCTO productoSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
                 gestorNegocio.BorrarProducto(productoSeleccionado);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+                nuevaBitacora = Bitacora.EventoBitacora("Se borro un producto.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -187,6 +199,8 @@ namespace GUI
                 }
                 gestorNegocio.ModificarProducto(productoSeleccionado, productoModificado);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+                nuevaBitacora = Bitacora.EventoBitacora("Se modifico un producto.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -199,6 +213,8 @@ namespace GUI
             try
             {
                 LLenarGrilla(dataGridView2, gestorNegocio.ListarHistoricoProducto(dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO));
+                nuevaBitacora = Bitacora.EventoBitacora("Se solicito ver el historial del producto.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -218,6 +234,9 @@ namespace GUI
                 if(productoAModificar == null) { throw new Exception("No se encontró el producto actual para modificar."); }
                 gestorNegocio.ModificarProducto(productoAModificar,productoSeleccionado);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
+                LLenarGrilla(dataGridView2, gestorNegocio.ListarHistoricoProducto(productoSeleccionado));
+                nuevaBitacora = Bitacora.EventoBitacora("Se volvio el producto al estado indicado");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {

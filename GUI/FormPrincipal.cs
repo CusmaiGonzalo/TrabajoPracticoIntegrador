@@ -31,19 +31,17 @@ namespace GUI
             gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
 
             PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
-            if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == true)
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
-                // Si tiene permisos, abrir FormInicio      
+                iNICIOToolStripMenuItem.Visible = false;
+            }
+            else
+            {
                 CloseActiveMdiChild();
                 FormInicio inicio = new FormInicio(gestorIdioma);
                 inicio.MdiParent = this;
                 inicio.WindowState = FormWindowState.Maximized;
                 inicio.Show();
-            }
-            else
-            {
-                // Si no tiene permisos, ocultar el menú INICIO
-                iNICIOToolStripMenuItem.Visible = false;
             }
             PATENTE permisoUsuarios = new PATENTE() { IDPatente = 4 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoUsuarios, Servicios.SessionManager.Instance.UsuarioLog) == false)
@@ -65,6 +63,16 @@ namespace GUI
             {
                 button_cambiaridioma.Enabled = false;
             }
+            PATENTE permisoIdioma = new PATENTE() { IDPatente = 33 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoIdioma, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                iDIOMASToolStripMenuItem.Visible = false;
+            }
+            PATENTE permisoEstadoTabla = new PATENTE() { IDPatente = 34 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoEstadoTabla, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                eSTADOTABLASToolStripMenuItem.Visible = false;
+            }
 
             // Añadir manejador para el cierre del formulario
             this.FormClosing += FormPrincipal_FormClosing;
@@ -85,8 +93,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                nuevaBitacora = Bitacora.ErrorBitacora($"Error al desloguear: {ex.Message}");
-                gestorBitacora.RegistrarBitacora(nuevaBitacora);
+                
             }
         }
 
@@ -130,15 +137,31 @@ namespace GUI
             try
             {
                 PATENTE permisoLogIn = new PATENTE() { IDPatente = 1 };
-
-                if (gestorNegocio.VerificarIntegridadProductos() == false)
-                {
-                    throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
-                }
                 if (gestorPermisos.ValidarPermisosDeUsuario(permisoLogIn, Servicios.SessionManager.Instance.UsuarioLog) == false)
                 {
                     throw new Exception("El usuario no tiene permisos para iniciar sesión.");
                 }
+                if (SessionManager.Instance.UsuarioLog.ListaPermisos.Exists(x => x.IDPatente == 1000))
+                {
+                    if (gestorNegocio.VerificarIntegridadProductos() == false)
+                    {
+                        MessageBox.Show("La integridad de los datos ha sido comprometida. Dirijase a la ventana 'Recalcular Tablas' para ver la situacion.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        iNICIOToolStripMenuItem.Visible = false;
+                        eVENTOSToolStripMenuItem.Visible = false;
+                        uSUARIOSToolStripMenuItem.Visible = false;
+                        pRODUCTOSToolStripMenuItem.Visible = false;
+                        iDIOMASToolStripMenuItem.Visible = false;
+                    }
+                }
+                else
+                {
+                    if (gestorNegocio.VerificarIntegridadProductos() == false)
+                    {
+                        throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
+                    }
+                }
+                
+
                 gestorIdioma.Agregar(this);
 
             }
@@ -213,6 +236,8 @@ namespace GUI
                 IDIOMA idiomaSeleccionado = comboBox_idioma.SelectedItem as IDIOMA;
                 gestorIdioma.CambiarIdioma(idiomaSeleccionado.IDIdioma);
                 LLenarComboBox(comboBox_idioma, gestorIdioma.ListarIdiomas());
+                nuevaBitacora = Bitacora.EventoBitacora("Se cambio el Idioma");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {

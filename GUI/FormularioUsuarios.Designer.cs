@@ -54,6 +54,12 @@
             button_agregarpermagrup = new Button();
             button_verpermigrupo = new Button();
             treeView2 = new TreeView();
+            comboBox3 = new ComboBox();
+            button_añadirgruafam = new Button();
+            label_Grupoagrupo = new Label();
+            button_elimpermagru = new Button();
+            button_eliminargruagru = new Button();
+            button_borrarPermUs = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -271,7 +277,7 @@
             // 
             // button_agregarpermagrup
             // 
-            button_agregarpermagrup.Location = new Point(1121, 503);
+            button_agregarpermagrup.Location = new Point(1121, 553);
             button_agregarpermagrup.Margin = new Padding(3, 4, 3, 4);
             button_agregarpermagrup.Name = "button_agregarpermagrup";
             button_agregarpermagrup.Size = new Size(364, 42);
@@ -282,7 +288,7 @@
             // 
             // button_verpermigrupo
             // 
-            button_verpermigrupo.Location = new Point(1121, 553);
+            button_verpermigrupo.Location = new Point(1121, 503);
             button_verpermigrupo.Margin = new Padding(3, 4, 3, 4);
             button_verpermigrupo.Name = "button_verpermigrupo";
             button_verpermigrupo.Size = new Size(364, 42);
@@ -298,11 +304,78 @@
             treeView2.Size = new Size(364, 343);
             treeView2.TabIndex = 26;
             // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(1121, 786);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(364, 28);
+            comboBox3.TabIndex = 27;
+            // 
+            // button_añadirgruafam
+            // 
+            button_añadirgruafam.Location = new Point(1121, 821);
+            button_añadirgruafam.Margin = new Padding(3, 4, 3, 4);
+            button_añadirgruafam.Name = "button_añadirgruafam";
+            button_añadirgruafam.Size = new Size(364, 42);
+            button_añadirgruafam.TabIndex = 28;
+            button_añadirgruafam.Text = "Añadir grupo a Familia";
+            button_añadirgruafam.UseVisualStyleBackColor = true;
+            button_añadirgruafam.Click += button_añadirgruafam_Click;
+            // 
+            // label_Grupoagrupo
+            // 
+            label_Grupoagrupo.AutoSize = true;
+            label_Grupoagrupo.Location = new Point(1121, 763);
+            label_Grupoagrupo.Name = "label_Grupoagrupo";
+            label_Grupoagrupo.Size = new Size(50, 20);
+            label_Grupoagrupo.TabIndex = 29;
+            label_Grupoagrupo.Text = "label1";
+            // 
+            // button_elimpermagru
+            // 
+            button_elimpermagru.Location = new Point(1121, 603);
+            button_elimpermagru.Margin = new Padding(3, 4, 3, 4);
+            button_elimpermagru.Name = "button_elimpermagru";
+            button_elimpermagru.Size = new Size(364, 42);
+            button_elimpermagru.TabIndex = 30;
+            button_elimpermagru.Text = "Eliminar Permisos a GRupo";
+            button_elimpermagru.UseVisualStyleBackColor = true;
+            button_elimpermagru.Click += button_elimpermagru_Click;
+            // 
+            // button_eliminargruagru
+            // 
+            button_eliminargruagru.Location = new Point(1121, 653);
+            button_eliminargruagru.Margin = new Padding(3, 4, 3, 4);
+            button_eliminargruagru.Name = "button_eliminargruagru";
+            button_eliminargruagru.Size = new Size(364, 42);
+            button_eliminargruagru.TabIndex = 31;
+            button_eliminargruagru.Text = "Eliminar Grupo";
+            button_eliminargruagru.UseVisualStyleBackColor = true;
+            button_eliminargruagru.Click += button_eliminargruagru_Click;
+            // 
+            // button_borrarPermUs
+            // 
+            button_borrarPermUs.Location = new Point(14, 546);
+            button_borrarPermUs.Margin = new Padding(3, 4, 3, 4);
+            button_borrarPermUs.Name = "button_borrarPermUs";
+            button_borrarPermUs.Size = new Size(233, 41);
+            button_borrarPermUs.TabIndex = 32;
+            button_borrarPermUs.Text = "Borrar Permiso de Usuario";
+            button_borrarPermUs.UseVisualStyleBackColor = true;
+            button_borrarPermUs.Click += button_borrarPermUs_Click;
+            // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1667, 1055);
+            Controls.Add(button_borrarPermUs);
+            Controls.Add(button_eliminargruagru);
+            Controls.Add(button_elimpermagru);
+            Controls.Add(label_Grupoagrupo);
+            Controls.Add(button_añadirgruafam);
+            Controls.Add(comboBox3);
             Controls.Add(treeView2);
             Controls.Add(button_verpermigrupo);
             Controls.Add(button_agregarpermagrup);
@@ -367,5 +440,11 @@
         private Button button_agregarpermagrup;
         private Button button_verpermigrupo;
         private TreeView treeView2;
+        private ComboBox comboBox3;
+        private Button button_añadirgruafam;
+        private Label label_Grupoagrupo;
+        private Button button_elimpermagru;
+        private Button button_eliminargruagru;
+        private Button button_borrarPermUs;
     }
 }

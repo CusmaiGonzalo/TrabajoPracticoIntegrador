@@ -13,6 +13,11 @@ namespace DAL
             conexion = new SqlConnection(@"INTEGRATED SECURITY=SSPI; DATA SOURCE=DESKTOP-0S6I2FQ; INITIAL CATALOG=TPIntegrador; TrustServerCertificate=True");
             conexion.Open();
         }
+        public void AbrirMotor(string conexionstring)
+        {
+            conexion = new SqlConnection(conexionstring);
+            conexion.Open();
+        }
         public void Cerrar()
         {
             conexion.Close();

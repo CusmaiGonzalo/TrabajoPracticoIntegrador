@@ -92,5 +92,14 @@ namespace DAL
             acceso.Escribir("USxPER_AGREGAR_PERMISO", parametros);
             acceso.Cerrar();
         }
+        public void BorrarPermisoDeUsuario(USUARIO usuario, COMPONENTE permiso)
+        {
+            acceso.Abrir();
+            List<SqlParameter> sp = new List<SqlParameter>();
+            sp.Add(acceso.CrearParametro("@idusu", usuario.IDUsuario));
+            sp.Add(acceso.CrearParametro("@idperm", permiso.IDPatente));
+            acceso.Escribir("USxPER_BORRAR_PERMISO", sp);
+            acceso.Cerrar();
+        }
     }
 }

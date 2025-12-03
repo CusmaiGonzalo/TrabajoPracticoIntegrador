@@ -14,6 +14,7 @@ namespace BLL
         mapper_DVH maperDvh = new mapper_DVH();
         mapper_DVV maperDvv = new mapper_DVV();
         mapper_tipo_producto mapper_Tipo_Producto = new mapper_tipo_producto();
+        Mapper_backup mapper_Backup = new Mapper_backup();
         public List<BE.PRODUCTO> ListarProductos()
         {
             return maperProducto.Listar();
@@ -68,6 +69,14 @@ namespace BLL
         public void RepararIntegridadProductos()
         {
             maperDvh.RecalcularTablas();
+        }
+        public void RealizarBackup(string ruta, string nombre)
+        {
+            mapper_Backup.RealizarBackup(ruta, nombre);
+        }
+        public void RestaurarBackup(string ruta, string nombre)
+        {
+            mapper_Backup.RealizarRestore(ruta, nombre);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
+using Microsoft.VisualBasic;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BE;
-using Microsoft.VisualBasic;
 
 namespace GUI
 {
@@ -17,6 +18,9 @@ namespace GUI
     {
         BLL.GestionIdioma gestorIdiomas;
         IDIOMA idiomaseleccionado;
+        BE.BITACORA nuevaBitacora = new BITACORA();
+        BLL.GestionBitacora gestorBitacora = new BLL.GestionBitacora();
+        BLL.GestionPermisos gestorPermisos = new BLL.GestionPermisos();
         public FormIdiomas(BLL.GestionIdioma idiomasFormPrincipal)
         {
             InitializeComponent();
@@ -26,6 +30,41 @@ namespace GUI
             EstiloGrilla(dataGridView1);
             textBox_idiomaselec.Enabled = false;
             idiomaseleccionado = new IDIOMA();
+            PATENTE permisoSelIdioma = new PATENTE() { IDPatente = 14 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoSelIdioma, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_selIdioma.Enabled = false;
+            }
+            PATENTE permisoAgregarIdi = new PATENTE() { IDPatente = 15 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoAgregarIdi, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_agregaridioma.Enabled = false;
+            }
+            PATENTE permisoBorrarIdi = new PATENTE() { IDPatente = 16 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoBorrarIdi, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_borraridioma.Enabled = false;
+            }
+            PATENTE permisoModTrad = new PATENTE() { IDPatente = 17 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoModTrad, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_modtrad.Enabled = false;
+            }
+            PATENTE permisoAltaIdi = new PATENTE() { IDPatente = 18 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoAltaIdi, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_altaidi.Enabled = false;
+            }
+            PATENTE permisoBajaIdi = new PATENTE() { IDPatente = 19 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoBajaIdi, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_bajaidioma.Enabled = false;
+            }
+            PATENTE permisoModNomIdi = new PATENTE() { IDPatente = 20 };
+            if (gestorPermisos.ValidarPermisosDeUsuario(permisoModNomIdi, Servicios.SessionManager.Instance.UsuarioLog) == false)
+            {
+                button_modnomid.Enabled = false;
+            }
         }
         public void Traducir(int nuevoIdioma)
         {
@@ -87,6 +126,8 @@ namespace GUI
                 {
                     textBox_idiomaselec.Text += "INACTIVO";
                 }
+                nuevaBitacora = Bitacora.EventoBitacora("Selecciono un idioma para trabajar.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -108,6 +149,8 @@ namespace GUI
                 gestorIdiomas.InsertarIdiomaNuevo(textBox1.Text, listaetiquetas);
                 LLenarComboBox(comboBox1, gestorIdiomas.ListarTodosLosIdiomas());
                 MessageBox.Show("Idioma agregado correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                nuevaBitacora = Bitacora.EventoBitacora("Se agrego idioma nuevo.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -125,6 +168,8 @@ namespace GUI
                 gestorIdiomas.ModificarTraduccion(tradseleccionada);
                 MessageBox.Show("Traducción modificada correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LLenarGrilla(dataGridView1, gestorIdiomas.ListarTraduccionesYEtiquetas(idiomaseleccionado.IDIdioma));
+                nuevaBitacora = Bitacora.EventoBitacora("Se modifico un idioma.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -141,6 +186,8 @@ namespace GUI
                 idiomaseleccionado.Alta = 1;
                 MessageBox.Show("Idioma dado de ALTA correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox_idiomaselec.Text = idiomaseleccionado.NombreIdioma + " Estado: ACTIVO";
+                nuevaBitacora = Bitacora.EventoBitacora("Se dio de alta un idioma.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -159,6 +206,8 @@ namespace GUI
                 LLenarComboBox(comboBox1, gestorIdiomas.ListarTodosLosIdiomas());
                 MessageBox.Show("Idioma se borro correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox_idiomaselec.Text = "";
+                nuevaBitacora = Bitacora.EventoBitacora("Se borro un idioma.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -175,6 +224,8 @@ namespace GUI
                 idiomaseleccionado.Alta = 0;
                 MessageBox.Show("Idioma dado de BAJA correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox_idiomaselec.Text = idiomaseleccionado.NombreIdioma + " Estado: INACTIVO";
+                nuevaBitacora = Bitacora.EventoBitacora("Se dio de baja un idioma.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
@@ -191,6 +242,8 @@ namespace GUI
                 gestorIdiomas.ModificarNombreDelIdioma(idiomaseleccionado);
                 MessageBox.Show("Nombre del idioma modificado correctamente.", "IDIOMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LLenarComboBox(comboBox1, gestorIdiomas.ListarTodosLosIdiomas());
+                nuevaBitacora = Bitacora.EventoBitacora("Se modifico el nombre de un idioma.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)
             {
