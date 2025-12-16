@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -79,7 +80,7 @@ namespace GUI
             dgv.ReadOnly = true;
 
             // Ajustar el tamaño de las columnas automáticamente
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Alternar colores en las filas
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
@@ -184,10 +185,16 @@ namespace GUI
             try
             {
                 BE.PRODUCTO productoSeleccionado = dataGridView1.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
+                PRODUCTO_HISTORICO producthistoricoseleccionado = new PRODUCTO_HISTORICO();
+                producthistoricoseleccionado.IDProducto = productoSeleccionado.IDProducto;
+                producthistoricoseleccionado.NombreProducto = productoSeleccionado.NombreProducto;
+                producthistoricoseleccionado.TipoProducto = productoSeleccionado.TipoProducto;
+                producthistoricoseleccionado.PrecioUnitario = productoSeleccionado.PrecioUnitario;
+                
                 BE.PRODUCTO productoModificado = new BE.PRODUCTO();
                 productoModificado.IDProducto = productoSeleccionado.IDProducto;
                 productoModificado.NombreProducto = Interaction.InputBox("Ingrese el nuevo nombre del producto:", "Modificar Producto", productoSeleccionado.NombreProducto);
-                productoModificado.TipoProducto = productoSeleccionado.TipoProducto; // Mantener el mismo tipo por simplicidad
+                productoModificado.TipoProducto = productoSeleccionado.TipoProducto; 
                 string precioInput = Interaction.InputBox("Ingrese el nuevo precio del producto:", "Modificar Producto", productoSeleccionado.PrecioUnitario.ToString());
                 if (decimal.TryParse(precioInput, out decimal nuevoPrecio) && nuevoPrecio >= 0)
                 {
@@ -197,7 +204,23 @@ namespace GUI
                 {
                     throw new Exception("El precio debe ser un valor numérico positivo.");
                 }
-                gestorNegocio.ModificarProducto(productoSeleccionado, productoModificado);
+                
+
+
+                
+                PropertyInfo[] propiedades = typeof(PRODUCTO).GetProperties();
+
+                foreach (PropertyInfo pi in propiedades)
+                {
+                    var valorViejo = pi.GetValue(productoSeleccionado);
+                    var valorNuevo = pi.GetValue(productoModificado);
+                    if (!Equals(valorViejo, valorNuevo))
+                    {
+                        producthistoricoseleccionado.DetalleCambio += $" {pi.Name}: '{valorViejo}' a '{valorNuevo}'; ";
+                    }
+                }
+
+                gestorNegocio.ModificarProducto(producthistoricoseleccionado, productoModificado);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
                 nuevaBitacora = Bitacora.EventoBitacora("Se modifico un producto.");
                 gestorBitacora.RegistrarBitacora(nuevaBitacora);
@@ -227,12 +250,35 @@ namespace GUI
             try
             {
                 BE.PRODUCTO productoSeleccionado = dataGridView2.SelectedRows[0].DataBoundItem as BE.PRODUCTO;
+                
+                
+
                 BE.PRODUCTO productoAModificar = new BE.PRODUCTO();
                 List<BE.PRODUCTO> listaprod = new List<PRODUCTO>();
                 listaprod = gestorNegocio.ListarProductos();
-                productoAModificar = listaprod.Find(p => p.IDProducto == productoSeleccionado.IDProducto);
+                productoAModificar = listaprod.Find(p => p.IDProducto == productoSeleccionado.IDProducto) as PRODUCTO;
                 if(productoAModificar == null) { throw new Exception("No se encontró el producto actual para modificar."); }
-                gestorNegocio.ModificarProducto(productoAModificar,productoSeleccionado);
+
+                PRODUCTO_HISTORICO productoHistoricoMod = new PRODUCTO_HISTORICO();
+                productoHistoricoMod.IDProducto = productoAModificar.IDProducto;
+                productoHistoricoMod.NombreProducto = productoAModificar.NombreProducto;
+                productoHistoricoMod.TipoProducto = productoAModificar.TipoProducto;
+                productoHistoricoMod.PrecioUnitario = productoAModificar.PrecioUnitario;
+
+
+                PropertyInfo[] propiedades = typeof(PRODUCTO).GetProperties();
+
+                foreach (PropertyInfo pi in propiedades)
+                {
+                    var valorViejo = pi.GetValue(productoAModificar);
+                    var valorNuevo = pi.GetValue(productoSeleccionado);
+                    if (!Equals(valorViejo, valorNuevo))
+                    {
+                        productoHistoricoMod.DetalleCambio += $" {pi.Name}: '{valorViejo}' a '{valorNuevo}'; ";
+                    }
+                }
+
+                gestorNegocio.ModificarProducto(productoHistoricoMod,productoSeleccionado);
                 LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
                 LLenarGrilla(dataGridView2, gestorNegocio.ListarHistoricoProducto(productoSeleccionado));
                 nuevaBitacora = Bitacora.EventoBitacora("Se volvio el producto al estado indicado");

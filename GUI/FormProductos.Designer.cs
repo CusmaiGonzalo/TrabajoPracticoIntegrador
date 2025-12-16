@@ -130,7 +130,7 @@
             dataGridView2.Location = new Point(222, 632);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(975, 260);
+            dataGridView2.Size = new Size(1465, 260);
             dataGridView2.TabIndex = 9;
             // 
             // label_historialprod

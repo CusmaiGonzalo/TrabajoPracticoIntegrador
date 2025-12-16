@@ -22,6 +22,16 @@ namespace BE
 			get { return _usuario; }
 			set { _usuario = value; }
 		}
+		private string _detalle_cambio;
 
+		public string DetalleCambio
+		{
+			get { return _detalle_cambio; }
+			set { _detalle_cambio = value; }
+		}
+		public PRODUCTO_HISTORICO()
+		{
+			_detalle_cambio = "Cambios: ";
+		}
 	}
 }

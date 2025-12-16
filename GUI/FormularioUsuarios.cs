@@ -386,6 +386,13 @@ namespace GUI
                 familiaHija = (FAMILIA)comboBox3.SelectedItem;
                 familiaHija.listaComponentes = gestorPermisos.ListarPatentesDeGrupo(familiaHija);
 
+                foreach (COMPONENTE comp in familiaseleecionada.listaComponentes)
+                {
+                    if(ServicioPermisos.ValidarPermisosGeneral(comp, familiaHija.listaComponentes))
+                    {
+                        throw new Exception("No se puede agregar este grupo de permisos porque se repiten los permisos.");
+                    }
+                }
                 if (ServicioPermisos.ValidarPermisosGeneral(familiaseleecionada, familiaHija.listaComponentes))
                 {
                     throw new Exception("No se puede agregar este grupo de permisos porque ya existe dentro del grupo seleccionado o se genera una referencia circular.");

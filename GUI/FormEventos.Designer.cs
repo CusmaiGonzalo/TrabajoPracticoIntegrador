@@ -35,6 +35,13 @@
             checkBox_sistema = new CheckBox();
             checkBox_usuario = new CheckBox();
             button_filtrarSistema = new Button();
+            dateTimePicker_desde = new DateTimePicker();
+            dateTimePicker_hasta = new DateTimePicker();
+            button_filtrofecha = new Button();
+            label_filtrarEstado = new Label();
+            label_filtraruser = new Label();
+            label_filtrodesde = new Label();
+            label_filtrarHasta = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -44,13 +51,13 @@
             dataGridView1.Location = new Point(65, 38);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(988, 548);
+            dataGridView1.Size = new Size(988, 571);
             dataGridView1.TabIndex = 0;
             // 
             // checkBox_tipo
             // 
             checkBox_tipo.AutoSize = true;
-            checkBox_tipo.Location = new Point(1059, 38);
+            checkBox_tipo.Location = new Point(1059, 61);
             checkBox_tipo.Name = "checkBox_tipo";
             checkBox_tipo.Size = new Size(101, 24);
             checkBox_tipo.TabIndex = 1;
@@ -60,7 +67,7 @@
             // checkBox_error
             // 
             checkBox_error.AutoSize = true;
-            checkBox_error.Location = new Point(1059, 68);
+            checkBox_error.Location = new Point(1059, 91);
             checkBox_error.Name = "checkBox_error";
             checkBox_error.Size = new Size(131, 24);
             checkBox_error.TabIndex = 2;
@@ -69,7 +76,7 @@
             // 
             // button_aplicarfiltro
             // 
-            button_aplicarfiltro.Location = new Point(1059, 128);
+            button_aplicarfiltro.Location = new Point(1059, 121);
             button_aplicarfiltro.Name = "button_aplicarfiltro";
             button_aplicarfiltro.Size = new Size(309, 58);
             button_aplicarfiltro.TabIndex = 3;
@@ -107,11 +114,78 @@
             button_filtrarSistema.UseVisualStyleBackColor = true;
             button_filtrarSistema.Click += button_filtrarSistema_Click;
             // 
+            // dateTimePicker_desde
+            // 
+            dateTimePicker_desde.Location = new Point(1059, 465);
+            dateTimePicker_desde.Name = "dateTimePicker_desde";
+            dateTimePicker_desde.Size = new Size(309, 27);
+            dateTimePicker_desde.TabIndex = 7;
+            // 
+            // dateTimePicker_hasta
+            // 
+            dateTimePicker_hasta.Location = new Point(1059, 518);
+            dateTimePicker_hasta.Name = "dateTimePicker_hasta";
+            dateTimePicker_hasta.Size = new Size(309, 27);
+            dateTimePicker_hasta.TabIndex = 8;
+            // 
+            // button_filtrofecha
+            // 
+            button_filtrofecha.Location = new Point(1059, 551);
+            button_filtrofecha.Name = "button_filtrofecha";
+            button_filtrofecha.Size = new Size(309, 58);
+            button_filtrofecha.TabIndex = 9;
+            button_filtrofecha.Text = "button1";
+            button_filtrofecha.UseVisualStyleBackColor = true;
+            button_filtrofecha.Click += button_filtrofecha_Click;
+            // 
+            // label_filtrarEstado
+            // 
+            label_filtrarEstado.AutoSize = true;
+            label_filtrarEstado.Location = new Point(1059, 38);
+            label_filtrarEstado.Name = "label_filtrarEstado";
+            label_filtrarEstado.Size = new Size(50, 20);
+            label_filtrarEstado.TabIndex = 10;
+            label_filtrarEstado.Text = "label1";
+            // 
+            // label_filtraruser
+            // 
+            label_filtraruser.AutoSize = true;
+            label_filtraruser.Location = new Point(1059, 259);
+            label_filtraruser.Name = "label_filtraruser";
+            label_filtraruser.Size = new Size(50, 20);
+            label_filtraruser.TabIndex = 11;
+            label_filtraruser.Text = "label1";
+            // 
+            // label_filtrodesde
+            // 
+            label_filtrodesde.AutoSize = true;
+            label_filtrodesde.Location = new Point(1059, 442);
+            label_filtrodesde.Name = "label_filtrodesde";
+            label_filtrodesde.Size = new Size(50, 20);
+            label_filtrodesde.TabIndex = 12;
+            label_filtrodesde.Text = "label1";
+            // 
+            // label_filtrarHasta
+            // 
+            label_filtrarHasta.AutoSize = true;
+            label_filtrarHasta.Location = new Point(1059, 495);
+            label_filtrarHasta.Name = "label_filtrarHasta";
+            label_filtrarHasta.Size = new Size(50, 20);
+            label_filtrarHasta.TabIndex = 13;
+            label_filtrarHasta.Text = "label1";
+            // 
             // FormEventos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1466, 700);
+            Controls.Add(label_filtrarHasta);
+            Controls.Add(label_filtrodesde);
+            Controls.Add(label_filtraruser);
+            Controls.Add(label_filtrarEstado);
+            Controls.Add(button_filtrofecha);
+            Controls.Add(dateTimePicker_hasta);
+            Controls.Add(dateTimePicker_desde);
             Controls.Add(button_filtrarSistema);
             Controls.Add(checkBox_usuario);
             Controls.Add(checkBox_sistema);
@@ -136,5 +210,12 @@
         private CheckBox checkBox_sistema;
         private CheckBox checkBox_usuario;
         private Button button_filtrarSistema;
+        private DateTimePicker dateTimePicker_desde;
+        private DateTimePicker dateTimePicker_hasta;
+        private Button button_filtrofecha;
+        private Label label_filtrarEstado;
+        private Label label_filtraruser;
+        private Label label_filtrodesde;
+        private Label label_filtrarHasta;
     }
 }

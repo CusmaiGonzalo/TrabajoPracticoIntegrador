@@ -121,7 +121,7 @@ namespace GUI
 
         private void button_filtrarSistema_Click(object sender, EventArgs e)
         {
-            if(!checkBox_sistema.Checked && !checkBox_usuario.Checked)
+            if (!checkBox_sistema.Checked && !checkBox_usuario.Checked)
             {
                 LlenarGrilla(dataGridView1, bitacoraList);
                 return;
@@ -137,11 +137,30 @@ namespace GUI
                 bitacoraFiltrada = bitacoraList.Where(b => b.UserBitacora == "SISTEMA").ToList();
                 LlenarGrilla(dataGridView1, bitacoraFiltrada);
             }
-            if(checkBox_usuario.Checked)
+            if (checkBox_usuario.Checked)
             {
                 List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
                 bitacoraFiltrada = bitacoraList.Where(b => b.UserBitacora != "SISTEMA").ToList();
                 LlenarGrilla(dataGridView1, bitacoraFiltrada);
+            }
+        }
+
+        private void button_filtrofecha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dateTimePicker_desde.Value > dateTimePicker_hasta.Value)
+                {
+                    throw new Exception("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.");
+                }
+                List<BE.BITACORA> bitacoraFiltrada = new List<BITACORA>();
+                bitacoraFiltrada = bitacoraList.Where(b => b.FechaBitacora.Date >= dateTimePicker_desde.Value.Date && b.FechaBitacora.Date <= dateTimePicker_hasta.Value.Date).ToList();
+
+                LlenarGrilla(dataGridView1, bitacoraFiltrada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -54,7 +54,7 @@ namespace DAL
             return listaProductos;
         }
 
-        public void ModificarProducto(PRODUCTO objviejo, PRODUCTO objnuevo, USUARIO user)
+        public void ModificarProducto(PRODUCTO_HISTORICO objviejo, PRODUCTO objnuevo, USUARIO user)
         {
             acceso.Abrir();
             List<SqlParameter> parametros = new List<SqlParameter>();
@@ -65,6 +65,7 @@ namespace DAL
             parametros.Add(acceso.CrearParametro("@precio_antiguo", objviejo.PrecioUnitario));
             parametros.Add(acceso.CrearParametro("@fechacambio", DateTime.Now));
             parametros.Add(acceso.CrearParametro("@usuario", user.NombreUsuario));
+            parametros.Add(acceso.CrearParametro("@detallecam", objviejo.DetalleCambio));
             acceso.Escribir("PRODUCTO_MODIFICAR", parametros);
             acceso.Escribir("Actualizar_DVH_Producto");
             acceso.Escribir("Actualizar_DVV_Producto");
@@ -88,6 +89,7 @@ namespace DAL
                 obj.TipoProducto = dr["tipo"].ToString();
                 obj.FechaCambio = DateTime.Parse(dr["fecha_cambio"].ToString());
                 obj.Usuario = dr["usuario"].ToString();
+                obj.DetalleCambio = dr["detalle_cambio"].ToString();
                 listaHistorial.Add(obj);
             }
             acceso.Cerrar();

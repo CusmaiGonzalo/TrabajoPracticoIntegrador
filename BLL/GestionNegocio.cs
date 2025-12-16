@@ -54,7 +54,7 @@ namespace BLL
         {
             return maperProducto.HistorialProducto(producto);
         }
-        public void ModificarProducto(BE.PRODUCTO productoViejo, BE.PRODUCTO productoNuevo)
+        public void ModificarProducto(BE.PRODUCTO_HISTORICO productoViejo, BE.PRODUCTO productoNuevo)
         {
             maperProducto.ModificarProducto(productoViejo, productoNuevo, Servicios.SessionManager.Instance.UsuarioLog);
         }
