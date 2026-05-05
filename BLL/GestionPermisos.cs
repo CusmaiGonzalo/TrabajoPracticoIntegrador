@@ -72,7 +72,7 @@ namespace BLL
             }
             else { throw new Exception("Ya existe ese grupo en ese grupo padre."); }
         }
-        public void EliminarPatenteDeGrupo(FAMILIA familiaseleccionada, PATENTE patenteseleciconada)
+        public void EliminarPatenteDeGrupo(FAMILIA familiaseleccionada, COMPONENTE patenteseleciconada)
         {
             bool validar = false;
             validar = familiaseleccionada.listaComponentes.Exists(x => x.IDPatente == patenteseleciconada.IDPatente);

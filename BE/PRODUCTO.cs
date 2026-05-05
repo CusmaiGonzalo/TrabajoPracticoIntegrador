@@ -36,6 +36,14 @@ namespace BE
 			get { return _precio_unitario; }
 			set { _precio_unitario = value; }
 		}
+		private int _cantidad;
+
+		public int Cantidad
+		{
+			get { return _cantidad; }
+			set { _cantidad = value; }
+		}
+
 		public PRODUCTO() { }
 	}
 }

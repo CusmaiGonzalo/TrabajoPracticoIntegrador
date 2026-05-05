@@ -41,7 +41,7 @@ namespace BLL
         }
         public bool VerificarIntegridadProductos()
         {
-            if(Servicios.DigitoVerificador.VerificarIntegridadDVH(ListarDVH()) && Servicios.DigitoVerificador.VerificarIntegridadDVV(ListarDVV()))
+            if (Servicios.DigitoVerificador.VerificarIntegridadDVH(ListarDVH()) && Servicios.DigitoVerificador.VerificarIntegridadDVV(ListarDVV()))
             {
                 return true;
             }
@@ -77,6 +77,48 @@ namespace BLL
         public void RestaurarBackup(string ruta, string nombre)
         {
             mapper_Backup.RealizarRestore(ruta, nombre);
+        }
+
+        public BE.PEDIDO CrearNuevoPedido(string nombrecliente)
+        {
+            BE.PEDIDO nuevoPedido = new BE.PEDIDO();
+            nuevoPedido.NombreCliente = nombrecliente;
+            nuevoPedido.Vendedor = Servicios.SessionManager.Instance.UsuarioLog;
+            return nuevoPedido;
+        }
+        public void GuardarPedido(BE.PEDIDO pedido)
+        {
+            Mapper_pedido mapperPedido = new Mapper_pedido();
+            mapperPedido.Insertar(pedido);
+        }
+        public void AgregarProductoAlPedido(BE.PEDIDO pedido, List<PRODUCTO> listaProductos)
+        {
+            Mapper_pedido mapperPedido = new Mapper_pedido();
+            foreach (BE.PRODUCTO prod in listaProductos)
+            {
+                mapperPedido.AgregarProductoAlPedido(pedido.IdPedido, prod.IDProducto, prod.Cantidad);
+            }
+        }
+        public List<BE.PRODUCTO> AgruparProductos(List<BE.PRODUCTO> listaProductos)
+        {
+            List<BE.PRODUCTO> listaAgrupada = new List<BE.PRODUCTO>();
+            listaAgrupada = listaProductos.GroupBy(p => p.IDProducto).Select(g => new BE.PRODUCTO
+            {
+                IDProducto = g.Key,
+                Cantidad = g.Sum(p => p.Cantidad)
+            }).ToList();
+            return listaAgrupada;
+        }
+        public BE.PEDIDO CalcularPrecioTotal(BE.PEDIDO pedido)
+        {
+            BE.PEDIDO pedidoAux = new BE.PEDIDO();
+            pedidoAux = pedido;
+
+            foreach (BE.PRODUCTO prod in pedidoAux.Items)
+            {
+                pedidoAux.PrecioTotal += prod.PrecioUnitario * prod.Cantidad;
+            }
+            return pedidoAux;
         }
     }
 }

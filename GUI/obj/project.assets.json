@@ -1679,11 +1679,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
+      "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "D:\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
+      "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\GUI\\GUI.csproj",
       "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-      "outputPath": "D:\\TrabajoPracticoIntegrador\\GUI\\obj\\",
+      "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1704,14 +1704,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
-              "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
             },
-            "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
-              "projectPath": "D:\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj"
+            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
+              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj"
             },
-            "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
-              "projectPath": "D:\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
+            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
             }
           }
         }

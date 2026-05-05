@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {}
+    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {}
   },
   "projects": {
-    "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
+        "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "projectName": "BE",
-        "projectPath": "D:\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
+        "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "D:\\TrabajoPracticoIntegrador\\BE\\obj\\",
+        "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

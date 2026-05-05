@@ -386,9 +386,13 @@ namespace GUI
                 familiaHija = (FAMILIA)comboBox3.SelectedItem;
                 familiaHija.listaComponentes = gestorPermisos.ListarPatentesDeGrupo(familiaHija);
 
+                if (familiaseleecionada == null)
+                {
+                    throw new Exception("Seleccione una familia tocando el boton 'Ver Permisos del Grupo'.");
+                }
                 foreach (COMPONENTE comp in familiaseleecionada.listaComponentes)
                 {
-                    if(ServicioPermisos.ValidarPermisosGeneral(comp, familiaHija.listaComponentes))
+                    if (ServicioPermisos.ValidarPermisosGeneral(comp, familiaHija.listaComponentes))
                     {
                         throw new Exception("No se puede agregar este grupo de permisos porque se repiten los permisos.");
                     }
@@ -397,11 +401,8 @@ namespace GUI
                 {
                     throw new Exception("No se puede agregar este grupo de permisos porque ya existe dentro del grupo seleccionado o se genera una referencia circular.");
                 }
+
                 
-                if (familiaseleecionada == null)
-                {
-                    throw new Exception("Seleccione una familia tocando el boton 'Ver Permisos del Grupo'.");
-                }
                 gestorPermisos.AgregarGrupoAFamilia(familiaseleecionada, familiaHija);
                 MessageBox.Show("Grupo añadido correctamente.", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 familiaseleecionada.listaComponentes = null;
@@ -473,6 +474,35 @@ namespace GUI
                 gestorUsuarios.QuitarPermisoAUsuario(usuarioseleccionado, patenteseleccionada);
                 MessageBox.Show("Patente quitada correctamente", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 nuevaBitacora = Bitacora.EventoBitacora("Quita permisos a Usuario.");
+                gestorBitacora.RegistrarBitacora(nuevaBitacora);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button_borrargrupoxgrupo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FAMILIA familiaHija = new FAMILIA();
+                familiaHija = (FAMILIA)comboBox3.SelectedItem;
+
+                if (familiaseleecionada == null)
+                {
+                    throw new Exception("Seleccione una familia tocando el boton 'Ver Permisos del Grupo'.");
+                }
+                if (!ServicioPermisos.ValidarPermisosGeneral(familiaHija, familiaseleecionada.listaComponentes))
+                {
+                    throw new Exception("No se puede borrar este grupo de permisos porque no se encuentra dentro del grupo seleccionado.");
+                }
+
+                
+
+                gestorPermisos.EliminarPatenteDeGrupo(familiaseleecionada, familiaHija);
+                MessageBox.Show("Grupo eliminado correctamente.", "PERMISOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                nuevaBitacora = Bitacora.EventoBitacora("Se quita Grupo de permisos de otro grupo de permisos.");
                 gestorBitacora.RegistrarBitacora(nuevaBitacora);
             }
             catch (Exception ex)

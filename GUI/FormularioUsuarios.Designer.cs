@@ -60,6 +60,7 @@
             button_elimpermagru = new Button();
             button_eliminargruagru = new Button();
             button_borrarPermUs = new Button();
+            button_borrargrupoxgrupo = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -365,11 +366,23 @@
             button_borrarPermUs.UseVisualStyleBackColor = true;
             button_borrarPermUs.Click += button_borrarPermUs_Click;
             // 
+            // button_borrargrupoxgrupo
+            // 
+            button_borrargrupoxgrupo.Location = new Point(1121, 871);
+            button_borrargrupoxgrupo.Margin = new Padding(3, 4, 3, 4);
+            button_borrargrupoxgrupo.Name = "button_borrargrupoxgrupo";
+            button_borrargrupoxgrupo.Size = new Size(364, 42);
+            button_borrargrupoxgrupo.TabIndex = 33;
+            button_borrargrupoxgrupo.Text = "Borrar grupo a Familia";
+            button_borrargrupoxgrupo.UseVisualStyleBackColor = true;
+            button_borrargrupoxgrupo.Click += button_borrargrupoxgrupo_Click;
+            // 
             // FormularioUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1667, 1055);
+            Controls.Add(button_borrargrupoxgrupo);
             Controls.Add(button_borrarPermUs);
             Controls.Add(button_eliminargruagru);
             Controls.Add(button_elimpermagru);
@@ -446,5 +459,6 @@
         private Button button_elimpermagru;
         private Button button_eliminargruagru;
         private Button button_borrarPermUs;
+        private Button button_borrargrupoxgrupo;
     }
 }

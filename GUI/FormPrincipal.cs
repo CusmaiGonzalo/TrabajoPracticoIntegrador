@@ -93,7 +93,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -160,7 +160,7 @@ namespace GUI
                         throw new Exception("La integridad de los datos ha sido comprometida. Se cerrará la sesión.");
                     }
                 }
-                
+
 
                 gestorIdioma.Agregar(this);
 
@@ -273,6 +273,15 @@ namespace GUI
             formtablas.MdiParent = this;
             formtablas.WindowState = FormWindowState.Maximized;
             formtablas.Show();
+        }
+
+        private void vENTASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormPedidos formpedidos = new FormPedidos(gestorIdioma);
+            formpedidos.MdiParent = this;
+            formpedidos.WindowState = FormWindowState.Maximized;
+            formpedidos.Show();
         }
     }
 }
