@@ -96,7 +96,7 @@ namespace BLL
             Mapper_pedido mapperPedido = new Mapper_pedido();
             foreach (BE.PRODUCTO prod in listaProductos)
             {
-                mapperPedido.AgregarProductoAlPedido(pedido.IdPedido, prod.IDProducto, prod.Cantidad);
+                mapperPedido.AgregarProductoAlPedido(pedido.IdPedido, prod.IDProducto, prod.GetCantidad());
             }
         }
         public List<BE.PRODUCTO> AgruparProductos(List<BE.PRODUCTO> listaProductos)
@@ -105,7 +105,10 @@ namespace BLL
             listaAgrupada = listaProductos.GroupBy(p => p.IDProducto).Select(g => new BE.PRODUCTO
             {
                 IDProducto = g.Key,
-                Cantidad = g.Sum(p => p.Cantidad)
+                NombreProducto = g.First().NombreProducto,
+                TipoProducto = g.First().TipoProducto,
+                PrecioUnitario = g.First().PrecioUnitario,
+                Cantidad = g.Sum(p => p.GetCantidad())
             }).ToList();
             return listaAgrupada;
         }
@@ -113,10 +116,11 @@ namespace BLL
         {
             BE.PEDIDO pedidoAux = new BE.PEDIDO();
             pedidoAux = pedido;
+            pedidoAux.PrecioTotal = 0;
 
             foreach (BE.PRODUCTO prod in pedidoAux.Items)
             {
-                pedidoAux.PrecioTotal += prod.PrecioUnitario * prod.Cantidad;
+                pedidoAux.PrecioTotal += prod.PrecioUnitario * prod.GetCantidad();
             }
             return pedidoAux;
         }

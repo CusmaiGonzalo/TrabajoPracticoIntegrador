@@ -1659,11 +1659,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
+      "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
+      "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-      "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\obj\\",
+      "outputPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1684,14 +1684,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
-              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+            "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+              "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
             },
-            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
-              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj"
+            "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
+              "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj"
             },
-            "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
-              "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
+            "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+              "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
             }
           }
         }

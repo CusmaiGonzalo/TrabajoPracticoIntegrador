@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {}
+    "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "projectName": "BE",
-        "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,14 +97,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               },
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj"
               },
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
               }
             }
           }
@@ -144,14 +144,14 @@
         }
       }
     },
-    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,11 +172,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               },
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj"
               }
             }
           }
@@ -222,14 +222,14 @@
         }
       }
     },
-    "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
+    "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
+        "projectUniqueName": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
         "projectName": "Servicios",
-        "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
+        "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\Servicios.csproj",
         "packagesPath": "C:\\Users\\Cusmi\\.nuget\\packages\\",
-        "outputPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\obj\\",
+        "outputPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\Servicios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -250,8 +250,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
-                "projectPath": "E:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
+              "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj": {
+                "projectPath": "D:\\TrabajoPracticoIntegrador\\TrabajoPracticoIntegrador\\BE\\BE.csproj"
               }
             }
           }

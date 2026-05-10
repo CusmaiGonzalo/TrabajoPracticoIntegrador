@@ -40,10 +40,15 @@ namespace BE
 
 		public int Cantidad
 		{
-			get { return _cantidad; }
 			set { _cantidad = value; }
 		}
-
-		public PRODUCTO() { }
+		public int GetCantidad()
+		{
+			return _cantidad;
+        }
+        public PRODUCTO()
+		{
+			Cantidad = 1;
+        }
 	}
 }

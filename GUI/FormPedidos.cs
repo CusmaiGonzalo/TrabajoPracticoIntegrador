@@ -85,8 +85,8 @@ namespace GUI
         private void FormPedidos_Load(object sender, EventArgs e)
         {
             LLenarGrilla(dataGridView2, gestorNegocio.ListarProductos());
-
         }
+
 
         private void button_agregarProducto_Click(object sender, EventArgs e)
         {
