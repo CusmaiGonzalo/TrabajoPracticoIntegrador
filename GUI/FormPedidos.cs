@@ -19,7 +19,7 @@ namespace GUI
         BLL.GestionBitacora gestorBitacora = new BLL.GestionBitacora();
         BLL.GestionPermisos gestorPermisos = new BLL.GestionPermisos();
         BLL.GestionNegocio gestorNegocio = new BLL.GestionNegocio();
-
+        List<BE.PRODUCTOVISTA> productosVista;
         public FormPedidos(BLL.GestionIdioma gestorIdiomaformprin)
         {
             InitializeComponent();
@@ -69,6 +69,8 @@ namespace GUI
             {
                 nuevoPedido = null;
                 nuevoPedido = new PEDIDO();
+                productosVista = null;
+                productosVista = new List<PRODUCTOVISTA>();
                 if (textBox_nomcliente.Text == "")
                 {
                     throw new Exception("LLenar el campo del nombre Cliente!");
@@ -104,7 +106,15 @@ namespace GUI
                 nuevoPedido.Items = gestorNegocio.AgruparProductos(nuevoPedido.Items);
                 nuevoPedido = gestorNegocio.CalcularPrecioTotal(nuevoPedido);
                 textBox_verprecio.Text = "$ " + nuevoPedido.PrecioTotal.ToString("C");
-                LLenarGrilla(dataGridView1, nuevoPedido.Items);
+
+                
+                foreach (PRODUCTO item in nuevoPedido.Items)
+                {
+                    BE.PRODUCTOVISTA nuevoprod = new BE.PRODUCTOVISTA(item);
+                    productosVista.Add(nuevoprod);
+                }
+                LLenarGrilla(dataGridView1, productosVista);
+                
             }
             catch (Exception ex)
             {
