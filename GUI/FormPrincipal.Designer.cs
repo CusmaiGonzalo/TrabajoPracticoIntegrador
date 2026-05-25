@@ -36,9 +36,9 @@
             iDIOMASToolStripMenuItem = new ToolStripMenuItem();
             pRODUCTOSToolStripMenuItem = new ToolStripMenuItem();
             eSTADOTABLASToolStripMenuItem = new ToolStripMenuItem();
+            vENTASToolStripMenuItem = new ToolStripMenuItem();
             button_cambiaridioma = new Button();
             comboBox_idioma = new ComboBox();
-            vENTASToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -106,6 +106,13 @@
             eSTADOTABLASToolStripMenuItem.Text = "ESTADO TABLAS";
             eSTADOTABLASToolStripMenuItem.Click += eSTADOTABLASToolStripMenuItem_Click;
             // 
+            // vENTASToolStripMenuItem
+            // 
+            vENTASToolStripMenuItem.Name = "vENTASToolStripMenuItem";
+            vENTASToolStripMenuItem.Size = new Size(76, 24);
+            vENTASToolStripMenuItem.Text = "VENTAS";
+            vENTASToolStripMenuItem.Click += vENTASToolStripMenuItem_Click;
+            // 
             // button_cambiaridioma
             // 
             button_cambiaridioma.Location = new Point(1707, 56);
@@ -119,18 +126,12 @@
             // 
             // comboBox_idioma
             // 
+            comboBox_idioma.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_idioma.FormattingEnabled = true;
             comboBox_idioma.Location = new Point(1707, 104);
             comboBox_idioma.Name = "comboBox_idioma";
             comboBox_idioma.Size = new Size(180, 28);
             comboBox_idioma.TabIndex = 6;
-            // 
-            // vENTASToolStripMenuItem
-            // 
-            vENTASToolStripMenuItem.Name = "vENTASToolStripMenuItem";
-            vENTASToolStripMenuItem.Size = new Size(76, 24);
-            vENTASToolStripMenuItem.Text = "VENTAS";
-            vENTASToolStripMenuItem.Click += vENTASToolStripMenuItem_Click;
             // 
             // FormPrincipal
             // 

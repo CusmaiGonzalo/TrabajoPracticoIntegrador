@@ -33,12 +33,12 @@
             button_agregarProducto = new Button();
             dataGridView2 = new DataGridView();
             label_pedido = new Label();
-            label1 = new Label();
+            label_prods = new Label();
             textBox_nomcliente = new TextBox();
             label_nomCliente = new Label();
             button_confirmarpedido = new Button();
             textBox_verprecio = new TextBox();
-            label2 = new Label();
+            label_preciototal = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -94,14 +94,14 @@
             label_pedido.TabIndex = 4;
             label_pedido.Text = "PEDIDO";
             // 
-            // label1
+            // label_prods
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(280, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(93, 20);
-            label1.TabIndex = 5;
-            label1.Text = "PRODUCTOS";
+            label_prods.AutoSize = true;
+            label_prods.Location = new Point(280, 21);
+            label_prods.Name = "label_prods";
+            label_prods.Size = new Size(93, 20);
+            label_prods.TabIndex = 5;
+            label_prods.Text = "PRODUCTOS";
             // 
             // textBox_nomcliente
             // 
@@ -137,26 +137,26 @@
             textBox_verprecio.Size = new Size(258, 27);
             textBox_verprecio.TabIndex = 10;
             // 
-            // label2
+            // label_preciototal
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(15, 288);
-            label2.Name = "label2";
-            label2.Size = new Size(85, 20);
-            label2.TabIndex = 11;
-            label2.Text = "Precio total";
+            label_preciototal.AutoSize = true;
+            label_preciototal.Location = new Point(15, 288);
+            label_preciototal.Name = "label_preciototal";
+            label_preciototal.Size = new Size(85, 20);
+            label_preciototal.TabIndex = 11;
+            label_preciototal.Text = "Precio total";
             // 
             // FormPedidos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1878, 1055);
-            Controls.Add(label2);
+            Controls.Add(label_preciototal);
             Controls.Add(textBox_verprecio);
             Controls.Add(button_confirmarpedido);
             Controls.Add(label_nomCliente);
             Controls.Add(textBox_nomcliente);
-            Controls.Add(label1);
+            Controls.Add(label_prods);
             Controls.Add(label_pedido);
             Controls.Add(dataGridView2);
             Controls.Add(button_agregarProducto);
@@ -179,11 +179,11 @@
         private Button button_agregarProducto;
         private DataGridView dataGridView2;
         private Label label_pedido;
-        private Label label1;
+        private Label label_prods;
         private TextBox textBox_nomcliente;
         private Label label_nomCliente;
         private Button button_confirmarpedido;
         private TextBox textBox_verprecio;
-        private Label label2;
+        private Label label_preciototal;
     }
 }

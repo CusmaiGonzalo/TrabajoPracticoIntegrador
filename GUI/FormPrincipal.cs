@@ -30,6 +30,8 @@ namespace GUI
             gestorIdioma.CambiarIdioma(1);
             gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
 
+            
+
             PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {

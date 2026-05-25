@@ -107,6 +107,8 @@ namespace GUI
                 nuevoPedido = gestorNegocio.CalcularPrecioTotal(nuevoPedido);
                 textBox_verprecio.Text = "$ " + nuevoPedido.PrecioTotal.ToString("C");
 
+                // Limpiar la lista antes de llenarla para evitar duplicados
+                LimpiarLista(productosVista);
                 
                 foreach (PRODUCTO item in nuevoPedido.Items)
                 {
@@ -114,7 +116,6 @@ namespace GUI
                     productosVista.Add(nuevoprod);
                 }
                 LLenarGrilla(dataGridView1, productosVista);
-                
             }
             catch (Exception ex)
             {
@@ -142,6 +143,14 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LimpiarLista(List<PRODUCTOVISTA> lista)
+        {
+            for (int i = lista.Count - 1; i >= 0; i--)
+            {
+                lista.RemoveAt(i);
             }
         }
     }
