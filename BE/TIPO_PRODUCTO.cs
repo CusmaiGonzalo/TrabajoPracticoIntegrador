@@ -6,22 +6,11 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class TIPO_PRODUCTO
+    public enum TIPO_PRODUCTO
     {
-		private int _id_tipo;
-
-		public int IDTipo
-		{
-			get { return _id_tipo; }
-			set { _id_tipo = value; }
-		}
-		private string _tipo;
-
-		public string Tipo
-		{
-			get { return _tipo; }
-			set { _tipo = value; }
-		}
-
-	}
+		NORMAL = 1,
+        EXTRAS = 2,
+        BEBIDA = 3,
+        COMBO = 4
+    }
 }

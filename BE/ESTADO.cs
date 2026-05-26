@@ -10,6 +10,8 @@ namespace BE
     public enum ESTADO 
     {
         INICIADO,
+        CALCULADO,
+        PAGADO,
         COCINA,
         LISTO,
         ENTREGADO

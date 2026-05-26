@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,21 @@ namespace DAL
 
         public override List<PEDIDO> Listar()
         {
-            throw new NotImplementedException();
+            acceso.Abrir();
+            List<PEDIDO> pedidos = new List<PEDIDO>();
+
+            DataTable tabla = new DataTable();
+            tabla = acceso.Leer("PEDIDO_LISTAR");
+            foreach (DataRow fila in tabla.Rows)
+            {
+                PEDIDO pedido = new PEDIDO();
+                pedido.IdPedido = Convert.ToInt32(fila["id_pedido"]);
+                pedido.NombreCliente = fila["nombre_cliente"].ToString();
+                pedido.FechaYHora = Convert.ToDateTime(fila["fecha_y_hora"]);
+                pedido.PrecioTotal = Convert.ToDecimal(fila["precio_total"]);
+                pedidos.Add(pedido);
+            }
+            return pedidos;
         }
 
         public override void Modificar(PEDIDO objviejo, PEDIDO objnuevo)
@@ -44,6 +59,27 @@ namespace DAL
             parametros.Add(acceso.CrearParametro("@cantidad", cantidad));
             acceso.Escribir("PEDIDOxPRODUCTO_AGREGAR", parametros);
             acceso.Cerrar();
+        }
+
+        public List<BE.PRODUCTO> ListarProductosDePedido(int idPedido)
+        {
+            acceso.Abrir();
+            List<BE.PRODUCTO> productos = new List<BE.PRODUCTO>();
+            DataTable tabla = new DataTable();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@id_pedido", idPedido));
+            tabla = acceso.Leer("PEDIDOxPRODUCTO_LISTAR", parametros);
+            foreach (DataRow fila in tabla.Rows)
+            {
+                BE.PRODUCTO producto = new BE.PRODUCTO();
+                producto.IDProducto = Convert.ToInt32(fila["id_producto"]);
+                producto.NombreProducto = fila["producto"].ToString();
+                producto.PrecioUnitario = Convert.ToDecimal(fila["precio_unitario"]);
+                producto.Cantidad = (Convert.ToInt32(fila["cantidad"]));
+                producto.TipoProducto = Servicios.ConversorTipoProducto.ConvertirTipoProducto(Convert.ToInt32(fila["cantidad"]));
+                productos.Add(producto);
+            }
+            return productos;
         }
     }
 }

@@ -13,7 +13,6 @@ namespace BLL
         mapper_producto maperProducto = new mapper_producto();
         mapper_DVH maperDvh = new mapper_DVH();
         mapper_DVV maperDvv = new mapper_DVV();
-        mapper_tipo_producto mapper_Tipo_Producto = new mapper_tipo_producto();
         Mapper_backup mapper_Backup = new Mapper_backup();
         public List<BE.PRODUCTO> ListarProductos()
         {
@@ -34,10 +33,6 @@ namespace BLL
         public List<BE.DVV> ListarDVV()
         {
             return maperDvv.Listar();
-        }
-        public List<BE.TIPO_PRODUCTO> ListarTipoProducto()
-        {
-            return mapper_Tipo_Producto.Listar();
         }
         public bool VerificarIntegridadProductos()
         {
@@ -123,6 +118,24 @@ namespace BLL
                 pedidoAux.PrecioTotal += prod.PrecioUnitario * prod.GetCantidad();
             }
             return pedidoAux;
+        }
+        public BE.PEDIDO AplicarDescuento(BE.PEDIDO pedido, decimal porcentajeDescuento)
+        {
+            BE.PEDIDO pedidoAux = new BE.PEDIDO();
+            pedidoAux = pedido;
+            decimal descuento = (pedidoAux.PrecioTotal * porcentajeDescuento) / 100;
+            pedidoAux.PrecioTotal -= descuento;
+            return pedidoAux;
+        }
+        public List<BE.PEDIDO> ListarPedidos()
+        {
+            Mapper_pedido mapperPedido = new Mapper_pedido();
+            return mapperPedido.Listar();
+        }
+        public List<BE.PRODUCTO> ListarProductosDePedido(BE.PEDIDO pedido)
+        {
+            Mapper_pedido mapperPedido = new Mapper_pedido();
+            return mapperPedido.ListarProductosDePedido(pedido.IdPedido);
         }
     }
 }

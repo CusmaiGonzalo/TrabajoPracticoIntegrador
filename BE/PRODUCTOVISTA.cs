@@ -17,7 +17,7 @@ namespace BE
 
         public int IDProducto => _producto.IDProducto;
         public string NombreProducto => _producto.NombreProducto;
-        public string TipoProducto => _producto.TipoProducto;
+        public TIPO_PRODUCTO TipoProducto => _producto.TipoProducto;
         public decimal PrecioUnitario => _producto.PrecioUnitario;
         public int Cantidad => _producto.GetCantidad();
     }

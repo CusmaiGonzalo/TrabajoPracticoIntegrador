@@ -40,7 +40,7 @@ namespace GUI
 
             // Llenar los controles con datos
             LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
-            LLenarComboBox(comboBox1, gestorNegocio.ListarTipoProducto());
+            LLenarComboBox(comboBox1);
             PATENTE permisoAgregarProducto = new PATENTE() { IDPatente = 9 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoAgregarProducto, Servicios.SessionManager.Instance.UsuarioLog) == false)
             {
@@ -96,14 +96,13 @@ namespace GUI
             grilla.DataSource = null;
             grilla.DataSource = datos;
         }
-        private void LLenarComboBox(ComboBox combo, List<TIPO_PRODUCTO> datos)
+        private void LLenarComboBox(ComboBox combo)
         {
             combo.DataSource = null;
-            combo.DataSource = datos;
-            combo.DisplayMember = "Tipo";
-            combo.ValueMember = "IDTipo";
+            combo.DataSource = Enum.GetValues(typeof(TIPO_PRODUCTO)).Cast<TIPO_PRODUCTO>().ToList();
+            combo.SelectedIndex = 0;
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
         private void button_agregarprod_Click(object sender, EventArgs e)
         {
             try
@@ -113,10 +112,9 @@ namespace GUI
                 {
                     BE.PRODUCTO nuevoProducto = new BE.PRODUCTO();
                     nuevoProducto.NombreProducto = textBox_nombreproducto.Text;
-                    // Obtener el objeto TIPO_PRODUCTO seleccionado y su IDTipo
                     if (comboBox1.SelectedItem is BE.TIPO_PRODUCTO tipoSeleccionado)
                     {
-                        nuevoProducto.TipoProducto = tipoSeleccionado.IDTipo.ToString();
+                        nuevoProducto.TipoProducto = tipoSeleccionado;
                     }
                     if (!string.IsNullOrEmpty(textBox_precioproducto.Text) && decimal.TryParse(textBox_precioproducto.Text, out decimal precio) && precio >= 0)
                     {
@@ -212,11 +210,16 @@ namespace GUI
 
                 foreach (PropertyInfo pi in propiedades)
                 {
+                    if (!pi.CanRead)
+                        continue;
+
                     var valorViejo = pi.GetValue(productoSeleccionado);
                     var valorNuevo = pi.GetValue(productoModificado);
+
                     if (!Equals(valorViejo, valorNuevo))
                     {
-                        producthistoricoseleccionado.DetalleCambio += $" {pi.Name}: '{valorViejo}' a '{valorNuevo}'; ";
+                        producthistoricoseleccionado.DetalleCambio +=
+                            $" {pi.Name}: '{valorViejo}' a '{valorNuevo}'; ";
                     }
                 }
 
@@ -270,11 +273,15 @@ namespace GUI
 
                 foreach (PropertyInfo pi in propiedades)
                 {
-                    var valorViejo = pi.GetValue(productoAModificar);
-                    var valorNuevo = pi.GetValue(productoSeleccionado);
+                    if (!pi.CanRead)
+                        continue;
+
+                    var valorViejo = pi.GetValue(productoSeleccionado);
+                    var valorNuevo = pi.GetValue(productoHistoricoMod);
+
                     if (!Equals(valorViejo, valorNuevo))
                     {
-                        productoHistoricoMod.DetalleCambio += $" {pi.Name}: '{valorViejo}' a '{valorNuevo}'; ";
+                        productoHistoricoMod.DetalleCambio += $" {pi.Name}: '{valorNuevo}' a '{valorViejo}'; ";
                     }
                 }
 

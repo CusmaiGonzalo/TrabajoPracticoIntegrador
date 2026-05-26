@@ -22,9 +22,9 @@ namespace BE
 			get { return _nombre_producto; }
 			set { _nombre_producto = value; }
 		}
-		private string _tipo_producto;
+		private TIPO_PRODUCTO _tipo_producto;
 
-		public string TipoProducto
+		public TIPO_PRODUCTO TipoProducto
 		{
 			get { return _tipo_producto; }
 			set { _tipo_producto = value; }

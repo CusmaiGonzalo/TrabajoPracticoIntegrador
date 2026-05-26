@@ -27,7 +27,7 @@ namespace DAL
             acceso.Abrir();
             List<SqlParameter> parametros = new List<SqlParameter>();
             parametros.Add(acceso.CrearParametro("@prod", obj.NombreProducto));
-            parametros.Add(acceso.CrearParametro("@tipo", obj.TipoProducto));
+            parametros.Add(acceso.CrearParametro("@tipo", Servicios.ConversorTipoProducto.ConvertirTipoProducto(obj.TipoProducto)));
             parametros.Add(acceso.CrearParametro("@precio", obj.PrecioUnitario));
             acceso.Escribir("PRODUCTO_INSERTAR", parametros);
             acceso.Escribir("Actualizar_DVH_Producto");
@@ -46,7 +46,7 @@ namespace DAL
                 BE.PRODUCTO obj = new BE.PRODUCTO();
                 obj.IDProducto = int.Parse(dr["id_producto"].ToString());
                 obj.NombreProducto = dr["producto"].ToString();
-                obj.TipoProducto = dr["tipo"].ToString();
+                obj.TipoProducto = Servicios.ConversorTipoProducto.ConvertirTipoProducto(int.Parse(dr["id_tipo"].ToString()));
                 obj.PrecioUnitario = decimal.Parse(dr["precio_unitario"].ToString());
                 listaProductos.Add(obj);
             }
@@ -86,7 +86,7 @@ namespace DAL
                 obj.IDProducto = int.Parse(dr["id_producto"].ToString());
                 obj.NombreProducto = dr["nombre_producto"].ToString();
                 obj.PrecioUnitario = decimal.Parse(dr["precio_historico"].ToString());
-                obj.TipoProducto = dr["tipo"].ToString();
+                obj.TipoProducto = Servicios.ConversorTipoProducto.ConvertirTipoProducto(int.Parse(dr["id_tipo"].ToString()));
                 obj.FechaCambio = DateTime.Parse(dr["fecha_cambio"].ToString());
                 obj.Usuario = dr["usuario"].ToString();
                 obj.DetalleCambio = dr["detalle_cambio"].ToString();
