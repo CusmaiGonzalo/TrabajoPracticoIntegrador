@@ -152,9 +152,9 @@ namespace GUI
                 {
                     throw new Exception("Pedido no Pagado!");
                 }
+                nuevoPedido.EstadoActual = ESTADO.PAGADO;
                 gestorNegocio.GuardarPedido(nuevoPedido);
                 gestorNegocio.AgregarProductoAlPedido(nuevoPedido, nuevoPedido.Items);
-                nuevoPedido.EstadoActual = ESTADO.PAGADO;
                 MessageBox.Show("Pedido confirmado con exito!");
             }
             catch (Exception ex)

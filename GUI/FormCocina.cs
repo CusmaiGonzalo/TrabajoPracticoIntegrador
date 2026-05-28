@@ -18,22 +18,21 @@ namespace GUI
         BLL.GestionBitacora gestorBitacora = new BLL.GestionBitacora();
         BLL.GestionPermisos gestorPermisos = new BLL.GestionPermisos();
         BLL.GestionNegocio gestorNegocio = new BLL.GestionNegocio();
-        List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+
+         
         public FormCocina(BLL.GestionIdioma gestorIdiomaformprin)
         {
-            InitializeComponent();
             InitializeComponent();
             gestorIdioma = gestorIdiomaformprin;
             gestorIdioma.Agregar(this);
             Traducir(gestorIdioma.IdiomaActual);
             EstiloGrilla(dataGridView1);
-            EstiloGrilla(dataGridView2);
+            EstiloGrilla(dataGridView2);        
         }
 
         private void FormCocina_Load(object sender, EventArgs e)
         {
-            listaPedidos = gestorNegocio.ListarPedidos();
-            LLenarGrilla(dataGridView1, listaPedidos);
+            LLenarGrilla(dataGridView1, gestorNegocio.DevolverPedidoVista(gestorNegocio.ListarPedidosPagados()));
         }
         public void Traducir(int nuevoIdioma)
         {
@@ -64,6 +63,7 @@ namespace GUI
             grilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grilla.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
             grilla.ColumnHeadersDefaultCellStyle.Font = new Font(grilla.Font, FontStyle.Bold);
+            grilla.AutoGenerateColumns = true;
         }
 
         private void button_verpedido_Click(object sender, EventArgs e)
@@ -74,8 +74,8 @@ namespace GUI
                 {
                     throw new Exception("Seleccionar un pedido para ver su detalle!");
                 }
-                PEDIDO pedidoSeleccionado = (PEDIDO)dataGridView1.CurrentRow.DataBoundItem;
-                LLenarGrilla(dataGridView2, gestorNegocio.ListarProductosDePedido(pedidoSeleccionado));
+                PEDIDOVISTA pedidoSeleccionado = (PEDIDOVISTA)dataGridView1.CurrentRow.DataBoundItem;
+                LLenarGrilla(dataGridView2, gestorNegocio.ListarProductosDePedido(pedidoSeleccionado.GetPedido()));
             }
             catch (Exception ex)
             {
@@ -87,7 +87,18 @@ namespace GUI
         {
             try
             {
-
+                if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    throw new Exception("Seleccionar un pedido para marcarlo como listo!");
+                }
+                PEDIDOVISTA pedidoSeleccionado = (PEDIDOVISTA)dataGridView1.CurrentRow.DataBoundItem;
+                if (pedidoSeleccionado.EstadoActual != ESTADO.PAGADO)
+                {
+                    throw new Exception("Solo se pueden marcar como listos los pedidos PAGADOS!");
+                }
+                gestorNegocio.PedidoListo(pedidoSeleccionado.GetPedido());
+                LLenarGrilla(dataGridView1, gestorNegocio.DevolverPedidoVista(gestorNegocio.ListarPedidosPagados()));
+                LLenarGrilla(dataGridView2, null);
             }
             catch (Exception ex)
             {

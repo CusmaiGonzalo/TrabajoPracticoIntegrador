@@ -30,7 +30,7 @@ namespace GUI
             gestorIdioma.CambiarIdioma(1);
             gestorPermisos.CargarPermisosUsuario(SessionManager.Instance.UsuarioLog);
 
-            
+
 
             PATENTE permisoInicio = new PATENTE() { IDPatente = 3 };
             if (gestorPermisos.ValidarPermisosDeUsuario(permisoInicio, Servicios.SessionManager.Instance.UsuarioLog) == false)
@@ -284,6 +284,15 @@ namespace GUI
             formpedidos.MdiParent = this;
             formpedidos.WindowState = FormWindowState.Maximized;
             formpedidos.Show();
+        }
+
+        private void cOCINAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormCocina formCocina = new FormCocina(gestorIdioma);
+            formCocina.MdiParent = this;
+            formCocina.WindowState = FormWindowState.Maximized;
+            formCocina.Show();
         }
     }
 }

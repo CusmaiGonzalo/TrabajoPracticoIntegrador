@@ -23,6 +23,8 @@ namespace DAL
             parametros.Add(acceso.CrearParametro("@fecha", obj.FechaYHora));
             parametros.Add(acceso.CrearParametro("@nombre_cliente", obj.NombreCliente));
             parametros.Add(acceso.CrearParametro("@precio_total", obj.PrecioTotal));
+            parametros.Add(acceso.CrearParametro("@estado", Servicios.ConversorEstadoPedido.ConvertirEstadoPedido(obj.EstadoActual)));
+            parametros.Add(acceso.CrearParametro("@id_vendedor", Servicios.SessionManager.Instance.UsuarioLog.IDUsuario));
             acceso.Escribir("PEDIDO_CREAR_NUEVO", parametros);
             acceso.Cerrar();
         }
@@ -41,6 +43,7 @@ namespace DAL
                 pedido.NombreCliente = fila["nombre_cliente"].ToString();
                 pedido.FechaYHora = Convert.ToDateTime(fila["fecha_y_hora"]);
                 pedido.PrecioTotal = Convert.ToDecimal(fila["precio_total"]);
+                pedido.EstadoActual = Servicios.ConversorEstadoPedido.ConvertirEstadoPedido(fila["estado"].ToString());
                 pedidos.Add(pedido);
             }
             return pedidos;
@@ -67,7 +70,7 @@ namespace DAL
             List<BE.PRODUCTO> productos = new List<BE.PRODUCTO>();
             DataTable tabla = new DataTable();
             List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(acceso.CrearParametro("@id_pedido", idPedido));
+            parametros.Add(acceso.CrearParametro("@idpedido", idPedido));
             tabla = acceso.Leer("PEDIDOxPRODUCTO_LISTAR", parametros);
             foreach (DataRow fila in tabla.Rows)
             {
@@ -80,6 +83,16 @@ namespace DAL
                 productos.Add(producto);
             }
             return productos;
+        }
+
+        public void AgregarCocineroAlPedido(int idPedido, int idCocinero)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@id_pedido", idPedido));
+            parametros.Add(acceso.CrearParametro("@id_cocinero", idCocinero));
+            acceso.Escribir("PEDIDO_AGREGAR_COCINERO", parametros);
+            acceso.Cerrar();
         }
     }
 }

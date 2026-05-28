@@ -14,6 +14,7 @@ namespace BLL
         mapper_DVH maperDvh = new mapper_DVH();
         mapper_DVV maperDvv = new mapper_DVV();
         Mapper_backup mapper_Backup = new Mapper_backup();
+        Mapper_pedido mapperPedido = new Mapper_pedido();
         public List<BE.PRODUCTO> ListarProductos()
         {
             return maperProducto.Listar();
@@ -83,12 +84,13 @@ namespace BLL
         }
         public void GuardarPedido(BE.PEDIDO pedido)
         {
-            Mapper_pedido mapperPedido = new Mapper_pedido();
             mapperPedido.Insertar(pedido);
         }
         public void AgregarProductoAlPedido(BE.PEDIDO pedido, List<PRODUCTO> listaProductos)
         {
-            Mapper_pedido mapperPedido = new Mapper_pedido();
+            PEDIDO ultimoPedido = new PEDIDO();
+            ultimoPedido = mapperPedido.Listar().Last();
+            pedido.IdPedido = ultimoPedido.IdPedido;
             foreach (BE.PRODUCTO prod in listaProductos)
             {
                 mapperPedido.AgregarProductoAlPedido(pedido.IdPedido, prod.IDProducto, prod.GetCantidad());
@@ -127,15 +129,71 @@ namespace BLL
             pedidoAux.PrecioTotal -= descuento;
             return pedidoAux;
         }
-        public List<BE.PEDIDO> ListarPedidos()
+        public List<BE.PEDIDO> ListarPedidosPagados()
         {
-            Mapper_pedido mapperPedido = new Mapper_pedido();
-            return mapperPedido.Listar();
+            List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+            foreach (BE.PEDIDO pedido in mapperPedido.Listar())
+            {
+                if (pedido.EstadoActual == BE.ESTADO.PAGADO)
+                {
+                    listaPedidos.Add(pedido);
+                }
+            }
+            return listaPedidos;
+        }
+        public List<BE.PEDIDO> ListarPedidosCocina()
+        {
+            List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+            foreach (BE.PEDIDO pedido in mapperPedido.Listar())
+            {
+                if (pedido.EstadoActual == BE.ESTADO.COCINA)
+                {
+                    listaPedidos.Add(pedido);
+                }
+            }
+            return listaPedidos;
+        }
+        public List<BE.PEDIDO> ListarPedidosListos()
+        {
+            List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+            foreach (BE.PEDIDO pedido in mapperPedido.Listar())
+            {
+                if (pedido.EstadoActual == BE.ESTADO.LISTO)
+                {
+                    listaPedidos.Add(pedido);
+                }
+            }
+            return listaPedidos;
+        }
+        public List<BE.PEDIDO> ListarPedidosEntregados()
+        {
+            List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+            foreach (BE.PEDIDO pedido in mapperPedido.Listar())
+            {
+                if (pedido.EstadoActual == BE.ESTADO.ENTREGADO)
+                {
+                    listaPedidos.Add(pedido);
+                }
+            }
+            return listaPedidos;
         }
         public List<BE.PRODUCTO> ListarProductosDePedido(BE.PEDIDO pedido)
         {
-            Mapper_pedido mapperPedido = new Mapper_pedido();
             return mapperPedido.ListarProductosDePedido(pedido.IdPedido);
+        }
+        public List<PEDIDOVISTA> DevolverPedidoVista(List<BE.PEDIDO> listaPedidos)
+        {
+            List<PEDIDOVISTA> listaPedidosVista = new List<PEDIDOVISTA>();
+            foreach (BE.PEDIDO pedido in listaPedidos)
+            {
+                PEDIDOVISTA vista = new PEDIDOVISTA(pedido);
+                listaPedidosVista.Add(vista);
+            }
+            return listaPedidosVista;
+        }
+        public void PedidoListo(PEDIDO pedido)
+        {
+            mapperPedido.AgregarCocineroAlPedido(pedido.IdPedido, Servicios.SessionManager.Instance.UsuarioLog.IDUsuario);
         }
     }
 }
