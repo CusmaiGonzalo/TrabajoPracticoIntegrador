@@ -94,5 +94,14 @@ namespace DAL
             acceso.Escribir("PEDIDO_AGREGAR_COCINERO", parametros);
             acceso.Cerrar();
         }
+        public void ActualizazrEstadoPedido(int idPedido, string nuevoEstado)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@idpedido", idPedido));
+            parametros.Add(acceso.CrearParametro("@estado", nuevoEstado));
+            acceso.Escribir("PEDIDO_CAMBIAR_ESTADO", parametros);
+            acceso.Cerrar();
+        }
     }
 }

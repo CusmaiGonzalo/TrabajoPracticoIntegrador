@@ -129,6 +129,12 @@ namespace BLL
             pedidoAux.PrecioTotal -= descuento;
             return pedidoAux;
         }
+        public List<BE.PEDIDO> ListarPedidos()
+        {
+            List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
+            listaPedidos = mapperPedido.Listar();
+            return listaPedidos;
+        }
         public List<BE.PEDIDO> ListarPedidosPagados()
         {
             List<BE.PEDIDO> listaPedidos = new List<BE.PEDIDO>();
@@ -194,6 +200,10 @@ namespace BLL
         public void PedidoListo(PEDIDO pedido)
         {
             mapperPedido.AgregarCocineroAlPedido(pedido.IdPedido, Servicios.SessionManager.Instance.UsuarioLog.IDUsuario);
+        }
+        public void ActualizarEstadoPedido(PEDIDO pedido, ESTADO nuevoEstado)
+        {
+            mapperPedido.ActualizazrEstadoPedido(pedido.IdPedido, Servicios.ConversorEstadoPedido.ConvertirEstadoPedido(nuevoEstado));
         }
     }
 }

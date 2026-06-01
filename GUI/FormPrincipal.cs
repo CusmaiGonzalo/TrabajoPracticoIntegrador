@@ -294,6 +294,24 @@ namespace GUI
             formCocina.WindowState = FormWindowState.Maximized;
             formCocina.Show();
         }
+
+        private void dESPACHOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormDespacho formDespacho = new FormDespacho(gestorIdioma);
+            formDespacho.MdiParent = this;
+            formDespacho.WindowState = FormWindowState.Maximized;
+            formDespacho.Show();
+        }
+
+        private void sUPERVISORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseActiveMdiChild();
+            FormSupervisor formSupervisor = new FormSupervisor(gestorIdioma);
+            formSupervisor.MdiParent = this;
+            formSupervisor.WindowState = FormWindowState.Maximized;
+            formSupervisor.Show();
+        }
     }
 }
 

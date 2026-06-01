@@ -37,9 +37,11 @@
             pRODUCTOSToolStripMenuItem = new ToolStripMenuItem();
             eSTADOTABLASToolStripMenuItem = new ToolStripMenuItem();
             vENTASToolStripMenuItem = new ToolStripMenuItem();
+            cOCINAToolStripMenuItem = new ToolStripMenuItem();
+            dESPACHOToolStripMenuItem = new ToolStripMenuItem();
             button_cambiaridioma = new Button();
             comboBox_idioma = new ComboBox();
-            cOCINAToolStripMenuItem = new ToolStripMenuItem();
+            sUPERVISORToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iNICIOToolStripMenuItem, uSUARIOSToolStripMenuItem, eVENTOSToolStripMenuItem, iDIOMASToolStripMenuItem, pRODUCTOSToolStripMenuItem, eSTADOTABLASToolStripMenuItem, vENTASToolStripMenuItem, cOCINAToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iNICIOToolStripMenuItem, uSUARIOSToolStripMenuItem, eVENTOSToolStripMenuItem, iDIOMASToolStripMenuItem, pRODUCTOSToolStripMenuItem, eSTADOTABLASToolStripMenuItem, vENTASToolStripMenuItem, cOCINAToolStripMenuItem, dESPACHOToolStripMenuItem, sUPERVISORToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1684, 24);
@@ -112,6 +114,20 @@
             vENTASToolStripMenuItem.Text = "VENTAS";
             vENTASToolStripMenuItem.Click += vENTASToolStripMenuItem_Click;
             // 
+            // cOCINAToolStripMenuItem
+            // 
+            cOCINAToolStripMenuItem.Name = "cOCINAToolStripMenuItem";
+            cOCINAToolStripMenuItem.Size = new Size(64, 20);
+            cOCINAToolStripMenuItem.Text = "COCINA";
+            cOCINAToolStripMenuItem.Click += cOCINAToolStripMenuItem_Click;
+            // 
+            // dESPACHOToolStripMenuItem
+            // 
+            dESPACHOToolStripMenuItem.Name = "dESPACHOToolStripMenuItem";
+            dESPACHOToolStripMenuItem.Size = new Size(79, 20);
+            dESPACHOToolStripMenuItem.Text = "DESPACHO";
+            dESPACHOToolStripMenuItem.Click += dESPACHOToolStripMenuItem_Click;
+            // 
             // button_cambiaridioma
             // 
             button_cambiaridioma.Location = new Point(1494, 42);
@@ -132,12 +148,12 @@
             comboBox_idioma.Size = new Size(158, 23);
             comboBox_idioma.TabIndex = 6;
             // 
-            // cOCINAToolStripMenuItem
+            // sUPERVISORToolStripMenuItem
             // 
-            cOCINAToolStripMenuItem.Name = "cOCINAToolStripMenuItem";
-            cOCINAToolStripMenuItem.Size = new Size(64, 20);
-            cOCINAToolStripMenuItem.Text = "COCINA";
-            cOCINAToolStripMenuItem.Click += cOCINAToolStripMenuItem_Click;
+            sUPERVISORToolStripMenuItem.Name = "sUPERVISORToolStripMenuItem";
+            sUPERVISORToolStripMenuItem.Size = new Size(85, 20);
+            sUPERVISORToolStripMenuItem.Text = "SUPERVISOR";
+            sUPERVISORToolStripMenuItem.Click += sUPERVISORToolStripMenuItem_Click;
             // 
             // FormPrincipal
             // 
@@ -174,5 +190,7 @@
         private ToolStripMenuItem eSTADOTABLASToolStripMenuItem;
         private ToolStripMenuItem vENTASToolStripMenuItem;
         private ToolStripMenuItem cOCINAToolStripMenuItem;
+        private ToolStripMenuItem dESPACHOToolStripMenuItem;
+        private ToolStripMenuItem sUPERVISORToolStripMenuItem;
     }
 }
