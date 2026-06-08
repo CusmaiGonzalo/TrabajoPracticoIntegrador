@@ -156,6 +156,7 @@ namespace GUI
                 gestorNegocio.GuardarPedido(nuevoPedido);
                 gestorNegocio.AgregarProductoAlPedido(nuevoPedido, nuevoPedido.Items);
                 MessageBox.Show("Pedido confirmado con exito!");
+                LLenarGrilla(dataGridView1, gestorNegocio.ListarProductos());
             }
             catch (Exception ex)
             {

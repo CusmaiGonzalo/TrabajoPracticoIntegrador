@@ -42,6 +42,14 @@ namespace BE
 		{
 			set { _cantidad = value; }
 		}
+		private int _stock;
+
+		public int Stock
+		{
+			set { _stock = value; }
+			get { return _stock; }
+        }
+
 		public int GetCantidad()
 		{
 			return _cantidad;
@@ -50,5 +58,5 @@ namespace BE
 		{
 			Cantidad = 1;
         }
-	}
+    }
 }

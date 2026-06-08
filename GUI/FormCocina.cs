@@ -75,7 +75,13 @@ namespace GUI
                     throw new Exception("Seleccionar un pedido para ver su detalle!");
                 }
                 PEDIDOVISTA pedidoSeleccionado = (PEDIDOVISTA)dataGridView1.CurrentRow.DataBoundItem;
-                LLenarGrilla(dataGridView2, gestorNegocio.ListarProductosDePedido(pedidoSeleccionado.GetPedido()));
+                List<PRODUCTO> listaProductos = gestorNegocio.ListarProductosDePedido(pedidoSeleccionado.GetPedido());
+                List<PRODUCTOVISTA> listaProductosVista = new List<PRODUCTOVISTA>();
+                foreach (var producto in listaProductos)
+                {
+                    listaProductosVista.Add(new PRODUCTOVISTA(producto));
+                }
+                LLenarGrilla(dataGridView2, listaProductosVista);
             }
             catch (Exception ex)
             {

@@ -41,13 +41,14 @@ namespace DAL
             DataTable dt = new DataTable();
             dt = acceso.Leer("PRODUCTO_LISTAR");
             List<PRODUCTO> listaProductos = new List<PRODUCTO>();
-            foreach (DataRow dr in dt.Rows) 
+            foreach (DataRow dr in dt.Rows)
             {
                 BE.PRODUCTO obj = new BE.PRODUCTO();
                 obj.IDProducto = int.Parse(dr["id_producto"].ToString());
                 obj.NombreProducto = dr["producto"].ToString();
                 obj.TipoProducto = Servicios.ConversorTipoProducto.ConvertirTipoProducto(int.Parse(dr["id_tipo"].ToString()));
                 obj.PrecioUnitario = decimal.Parse(dr["precio_unitario"].ToString());
+                obj.Stock = int.Parse(dr["stock"].ToString());
                 listaProductos.Add(obj);
             }
             acceso.Cerrar();
@@ -99,6 +100,17 @@ namespace DAL
         public override void Modificar(PRODUCTO objviejo, PRODUCTO objnuevo)
         {
             throw new NotImplementedException();
+        }
+        public void ModificarStock(PRODUCTO objviejo, int cantidad)
+        {
+            acceso.Abrir();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(acceso.CrearParametro("@id_prod", objviejo.IDProducto));
+            parametros.Add(acceso.CrearParametro("@cantidad", cantidad));
+            acceso.Escribir("PRODUCTO_MODIFICAR_STOCK", parametros);
+            acceso.Escribir("Actualizar_DVH_Producto");
+            acceso.Escribir("Actualizar_DVV_Producto");
+            acceso.Cerrar();
         }
     }
 }

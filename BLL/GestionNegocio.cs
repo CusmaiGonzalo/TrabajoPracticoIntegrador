@@ -85,6 +85,10 @@ namespace BLL
         public void GuardarPedido(BE.PEDIDO pedido)
         {
             mapperPedido.Insertar(pedido);
+            foreach (BE.PRODUCTO prod in pedido.Items)
+            {
+                maperProducto.ModificarStock(prod, prod.GetCantidad());
+            }
         }
         public void AgregarProductoAlPedido(BE.PEDIDO pedido, List<PRODUCTO> listaProductos)
         {

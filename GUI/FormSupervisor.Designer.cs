@@ -34,7 +34,13 @@
             comboBox1 = new ComboBox();
             button_aplicarfiltro = new Button();
             button_devolvercocina = new Button();
+            label_solicitudes = new Label();
+            comboBox_productos = new ComboBox();
+            button_agregarProd = new Button();
+            dataGridView2 = new DataGridView();
+            button_generarSolicitud = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -42,7 +48,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 27);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(768, 458);
+            dataGridView1.Size = new Size(768, 329);
             dataGridView1.TabIndex = 0;
             // 
             // label_pedido
@@ -83,7 +89,7 @@
             // 
             // button_devolvercocina
             // 
-            button_devolvercocina.Location = new Point(786, 436);
+            button_devolvercocina.Location = new Point(786, 307);
             button_devolvercocina.Name = "button_devolvercocina";
             button_devolvercocina.Size = new Size(215, 49);
             button_devolvercocina.TabIndex = 5;
@@ -91,11 +97,59 @@
             button_devolvercocina.UseVisualStyleBackColor = true;
             button_devolvercocina.Click += button_devolvercocina_Click;
             // 
+            // label_solicitudes
+            // 
+            label_solicitudes.AutoSize = true;
+            label_solicitudes.Location = new Point(12, 359);
+            label_solicitudes.Name = "label_solicitudes";
+            label_solicitudes.Size = new Size(53, 15);
+            label_solicitudes.TabIndex = 6;
+            label_solicitudes.Text = "Solicitud";
+            // 
+            // comboBox_productos
+            // 
+            comboBox_productos.FormattingEnabled = true;
+            comboBox_productos.Location = new Point(786, 377);
+            comboBox_productos.Name = "comboBox_productos";
+            comboBox_productos.Size = new Size(215, 23);
+            comboBox_productos.TabIndex = 7;
+            // 
+            // button_agregarProd
+            // 
+            button_agregarProd.Location = new Point(786, 406);
+            button_agregarProd.Name = "button_agregarProd";
+            button_agregarProd.Size = new Size(215, 49);
+            button_agregarProd.TabIndex = 8;
+            button_agregarProd.Text = "Agregar Producto";
+            button_agregarProd.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(12, 377);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(768, 264);
+            dataGridView2.TabIndex = 9;
+            // 
+            // button_generarSolicitud
+            // 
+            button_generarSolicitud.Location = new Point(786, 592);
+            button_generarSolicitud.Name = "button_generarSolicitud";
+            button_generarSolicitud.Size = new Size(215, 49);
+            button_generarSolicitud.TabIndex = 10;
+            button_generarSolicitud.Text = "Generar Solicitud";
+            button_generarSolicitud.UseVisualStyleBackColor = true;
+            // 
             // FormSupervisor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1577, 878);
+            ClientSize = new Size(1636, 990);
+            Controls.Add(button_generarSolicitud);
+            Controls.Add(dataGridView2);
+            Controls.Add(button_agregarProd);
+            Controls.Add(comboBox_productos);
+            Controls.Add(label_solicitudes);
             Controls.Add(button_devolvercocina);
             Controls.Add(button_aplicarfiltro);
             Controls.Add(comboBox1);
@@ -106,6 +160,7 @@
             Text = "FormSupervisor";
             Load += FormSupervisor_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,5 +173,10 @@
         private ComboBox comboBox1;
         private Button button_aplicarfiltro;
         private Button button_devolvercocina;
+        private Label label_solicitudes;
+        private ComboBox comboBox_productos;
+        private Button button_agregarProd;
+        private DataGridView dataGridView2;
+        private Button button_generarSolicitud;
     }
 }
